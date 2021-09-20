@@ -1,0 +1,28 @@
+.header {
+    background: lightblue;
+    text-align: center;
+}
+
+#Enter-button{
+
+}
+
+#Clear-button{
+
+}
+
+ul {
+    background: lightgrey;
+}
+
+ul li:hover {
+    background: lightslategrey;
+}
+
+ul li.completed{
+    text-decoration: line-through;
+}
+
+ul li.uncompleted{
+
+}
