@@ -11,14 +11,18 @@
     <form>
         <input type="text" id="ListInput" name="ListInput"
                placeholder="Enter a To-Do Item">
-        <input type="submit" value="Enter" id="Enter-Button">
-        <input type="reset" value ="Clear" id="Clear-Button">
+        <input type="submit" value="Enter" class="button" id="enter-button">
+        <input type="reset" value ="Clear" class="button" id="clear-button">
     </form>
 </div>
 
 <ul id="myList">
-    <li class="uncompleted">Buy new John Grisham book</li>
-    <li class="completed">Call Mom</li>
+    <li class="uncompleted">Buy new John Grisham book <button class="edit-button">Edit</button></li>
+    <li class="uncompleted"> Call Mom <button class="edit-button">Edit</button></li>
+    <li class="uncompleted"> Item3 <button class="edit-button">Edit</button></li>
+    <li class="uncompleted"> Item4 <button class="edit-button">Edit</button></li>
+    <li class="completed"> Item5 <button class="edit-button">Edit</button></li>
+    <li class="completed"> Item6 <button class="edit-button">Edit</button></li>
 </ul>
 </body>
 </html>
