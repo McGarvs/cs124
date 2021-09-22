@@ -1,0 +1,97 @@
+body {
+    background-color: #e8e8e8;
+    font-family: Futura;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+#header {
+    background-color: #feffd9;
+    padding: 20px;
+    margin-bottom: 4px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#add-new-item {
+    display: flex;
+}
+
+#add-btn {
+    background-color: #efefef;
+    border: black solid 1px;
+    cursor: pointer;
+    padding: 5px;
+    font-size: 12px;
+}
+
+#master-options {
+    display: flex;
+    font-size: 12px;
+}
+
+#show-uncompleted-btn {
+    color: #777777;
+    cursor: pointer;
+    margin-right: 8px;
+}
+
+#dlt-all-btn {
+    color: #9a2a2a;
+    cursor: pointer;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    background-color: white;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 4px 8px 8px 8px;
+    padding: 16px;
+}
+
+#item-info {
+    display: flex;
+}
+
+#item-info #checkbox-btn {
+    background-color: white;
+    border: #c5c5c5 solid 1px;
+    border-radius: 100px;
+    cursor: pointer;
+    margin-right:8px;
+    width: 18px;
+}
+
+#rename-field {
+    border: none;
+}
+
+#item-edit-dlt {
+    display: flex;
+}
+
+#edit-btn {
+    color: #777777;
+    cursor: pointer;
+    margin-right: 8px;
+}
+
+#dlt-btn {
+    color: #9a2a2a;
+    cursor: pointer;
+}
+
+#save-btn {
+    color: #777777;
+    cursor: pointer;
+}
