@@ -1,6 +1,10 @@
+*{
+    font-family: Futura;
+    /*font-size: 12px;*/
+}
+
 body {
     background-color: #e8e8e8;
-    font-family: Futura;
     margin: 0;
     display: flex;
     flex-direction: column;
