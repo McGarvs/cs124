@@ -1,6 +1,6 @@
 *{
     font-family: Futura;
-    /*font-size: 12px;*/
+    font-size: 24px;
 }
 
 body {
@@ -12,8 +12,8 @@ body {
 
 #header {
     background-color: #feffd9;
-    padding: 20px;
-    margin-bottom: 4px;
+    padding: 60px;
+    margin-bottom: 16px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -21,14 +21,22 @@ body {
 
 #add-new-item {
     display: flex;
+
+}
+
+#input-field {
+    height: 70px;
+    padding-left: 16px;
+    width: 300px;
+    border: none;
 }
 
 #add-btn {
     background-color: #efefef;
-    border: black solid 1px;
+    border: none;
     cursor: pointer;
-    padding: 5px;
-    font-size: 12px;
+    padding: 20px;
+    font-size: 24px;
 }
 
 #master-options {
@@ -39,7 +47,7 @@ body {
 #show-uncompleted-btn {
     color: #777777;
     cursor: pointer;
-    margin-right: 8px;
+    margin-right: 16px;
 }
 
 #dlt-all-btn {
@@ -59,21 +67,21 @@ li {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin: 4px 8px 8px 8px;
-    padding: 16px;
+    margin: 0px 16px 16px 16px;
+    padding: 32px;
 }
 
 #item-info {
     display: flex;
 }
 
-#item-info #checkbox-btn {
+#checkbox-btn {
     background-color: white;
     border: #c5c5c5 solid 1px;
     border-radius: 100px;
     cursor: pointer;
-    margin-right:8px;
-    width: 18px;
+    margin-right: 16px;
+    width: 30px;
 }
 
 #rename-field {
@@ -87,7 +95,7 @@ li {
 #edit-btn {
     color: #777777;
     cursor: pointer;
-    margin-right: 8px;
+    margin-right: 16px;
 }
 
 #dlt-btn {
