@@ -12,7 +12,7 @@ body {
 
 #header {
     background-color: #feffd9;
-    padding: 60px;
+    padding: 60px 24px 60px 24px;
     margin-bottom: 16px;
     display: flex;
     flex-direction: row;
