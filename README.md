@@ -2,13 +2,13 @@
 
 ## Design Iterations
 For the first design, we planned for our web-app to have a simple header 
-that contained an item entry field, and to have the task list items below it.
+that contained an item entry field, and to have the task list items below it. 
+Not shown in the first design are "Show Uncompleted" and "Delete Completed" buttons,
+which we planned to add, but we ended up deciding to do a total refactor before getting
+around to implementing them.
 <br/>Our first design looked like this: 
 ![First Task List Design](/screenshots/First-Design.JPG)
-<br/>The original plan for the first design was to add buttons for 
-"Show Uncompleted" and "Delete Completed" and place them under the "Enter"
-and "Clear" buttons, but we ended up deciding to do a total refactor before getting 
-around to implementing them.
+
 <br/>Our second design looked like this:
 ![Second Task List Design](/screenshots/Second-Design.JPG)
 <br/>Refactoring Highlights from Design 1 to Design 2:
