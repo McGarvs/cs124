@@ -42,7 +42,7 @@ Our Final Design with Feedback from a User Test:
 ### Task 1
 [Before](https://mcgarvs.github.io/cs124/Tasks/task_1_before.html): 
 The user enters "Buy new John Grisham book" into the field and clicks "Add Item".
-[After](https://mcgarvs.github.io/cs124/Tasks/task_1_after.html): 
+<br/>[After](https://mcgarvs.github.io/cs124/Tasks/task_1_after.html): 
 The page reloads and the user sees their task item.
 ### Task 2
 [Before](https://mcgarvs.github.io/cs124/Tasks/task_2_before.html): 
