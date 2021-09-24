@@ -76,7 +76,7 @@ We did a single user test with a friend, where we asked them to accomplish Tasks
 on each tasks' "before" page. 
 Overall, they were able to accomplish each task without much difficulty. 
 One problem they had was identifying
-which tasks were completed or not, but they eventually figured out that it was with the green dot. 
+which of the listed items were completed or not, but they eventually figured out that it was with the green dot. 
 On review, we decided that the dot should be replaced with a check mark. 
 We also realized in the review that our delete buttons had no "warning" and that in a future revision
 we should add a javascript pop-up confirmation message for our "delete" and "delete completed" buttons.
