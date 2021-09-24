@@ -1,16 +1,5 @@
 # CS124 Lab1 Design Document
 
-## Design Requirements
-Task # | Task Description
------- | ----------------
-Index  | [Home Page](https://mcgarvs.github.io/cs124/) with links to each Task (Before/During/After)
-Task 1 | In an empty list, create an item named "Buy new John Grisham book"
-Task 2 | In a non-empty list, create an item named "Eat Lunch"
-Task 3 | Mark the item named "Call Mom" completed (assumes there exists an item named "Call Mom").
-Task 4 | Rename the item "Text John" to "Text John about bank statements" (assumes there exists an item named "Text John").
-Task 5 | Show only uncompleted items.
-Task 6 | Delete all completed items.
-
 ## Design Iterations
 For the first design, we planned for our web-app to have a simple header 
 that contained an item entry field, and to have the task list items below it.
@@ -37,8 +26,18 @@ Our Final Design with Feedback from a User Test:
 <br/>Refactoring Highlights:
 * Changed the green dots to a checkmark to signify a completed task
 
-## Task Flow
 
+## Task Flow
+### Design Requirements
+Task # | Task Description
+------ | ----------------
+Index  | [Home Page](https://mcgarvs.github.io/cs124/) with links to each Task (Before/During/After)
+Task 1 | In an empty list, create an item named "Buy new John Grisham book"
+Task 2 | In a non-empty list, create an item named "Eat Lunch"
+Task 3 | Mark the item named "Call Mom" completed (assumes there exists an item named "Call Mom").
+Task 4 | Rename the item "Text John" to "Text John about bank statements" (assumes there exists an item named "Text John").
+Task 5 | Show only uncompleted items.
+Task 6 | Delete all completed items.
 ### Task 1
 [Before](https://mcgarvs.github.io/cs124/Tasks/task_1_before.html): 
 The user enters "Buy new John Grisham book" into the field and clicks "Add Item".
