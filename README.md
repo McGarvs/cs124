@@ -94,3 +94,7 @@ so we decided to leave that feature for a future re-implementation
 of this lab.
 
 ## Reflections
+In our design, we wanted to make sure the display looked clean and 
+uncluttered through a soft color scheme and a comfortable amount of 
+negative space. Additionally, we’re proud that our user testing showed 
+that the user flow of our interface was self-explanatory.
