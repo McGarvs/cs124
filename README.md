@@ -1,27 +1,16 @@
 # CS124 Lab1 Design Document
 
-## Design Requirements
-Task # | Task Description
------- | ----------------
-Index  | [Home Page](https://mcgarvs.github.io/cs124/) with links to each Task (Before/During/After)
-Task 1 | In an empty list, create an item named "Buy new John Grisham book"
-Task 2 | In a non-empty list, create an item named "Eat Lunch"
-Task 3 | Mark the item named "Call Mom" completed (assumes there exists an item named "Call Mom").
-Task 4 | Rename the item "Text John" to "Text John about bank statements" (assumes there exists an item named "Text John").
-Task 5 | Show only uncompleted items.
-Task 6 | Delete all completed items.
-
 ## Design Iterations
 For the first design, we planned for our web-app to have a simple header 
 that contained an item entry field, and to have the task list items below it.
 <br/>Our first design looked like this: 
-![First Task List Design](/Images/First-Design.JPG)
+![First Task List Design](/screenshots/First-Design.JPG)
 <br/>The original plan for the first design was to add buttons for 
 "Show Uncompleted" and "Delete Completed" and place them under the "Enter"
 and "Clear" buttons, but we ended up deciding to do a total refactor before getting 
 around to implementing them.
 <br/>Our second design looked like this:
-![Final Task List Design](/Images/Second-Design.JPG)
+![Final Task List Design](/screenshots/Second-Design.JPG)
 <br/>Refactoring Highlights from Design 1 to Design 2:
 * Removed the app title: It looked ugly and wasn't really necessary, since it is self-evident what the app does.
 * Color scheme change: The first design's colors were picked a bit arbitrarily and looked a bit ugly.
@@ -37,40 +26,50 @@ Our Final Design with Feedback from a User Test:
 <br/>Refactoring Highlights:
 * Changed the green dots to a checkmark to signify a completed task
 
-## Task Flow
 
+## Task Flow
+### Design Requirements
+Task # | Task Description
+------ | ----------------
+Index  | [Home Page](https://mcgarvs.github.io/cs124/) with links to each Task (Before/During/After)
+Task 1 | In an empty list, create an item named "Buy new John Grisham book"
+Task 2 | In a non-empty list, create an item named "Eat Lunch"
+Task 3 | Mark the item named "Call Mom" completed (assumes there exists an item named "Call Mom").
+Task 4 | Rename the item "Text John" to "Text John about bank statements" (assumes there exists an item named "Text John").
+Task 5 | Show only uncompleted items.
+Task 6 | Delete all completed items.
 ### Task 1
 [Before](https://mcgarvs.github.io/cs124/Tasks/task_1_before.html): 
 The user enters "Buy new John Grisham book" into the field and clicks "Add Item".
-[After](https://mcgarvs.github.io/cs124/Tasks/task_1_after.html): 
+<br/>[After](https://mcgarvs.github.io/cs124/Tasks/task_1_after.html): 
 The page reloads and the user sees their task item.
 ### Task 2
 [Before](https://mcgarvs.github.io/cs124/Tasks/task_2_before.html): 
 The user enters "Eat Lunch" into the field and clicks "Add Item".
-[After](https://mcgarvs.github.io/cs124/Tasks/task_2_after.html): 
+<br/>[After](https://mcgarvs.github.io/cs124/Tasks/task_2_after.html): 
 The page reloads and the user sees their task item appear under "Buy new John Grisham book".
 ### Task 3
 [Before](https://mcgarvs.github.io/cs124/Tasks/task_3_before.html): 
 The user hits the empty circle by the "Call Mom" item, to mark it complete.
-[After](https://mcgarvs.github.io/cs124/Tasks/task_3_after.html): 
+<br/>[After](https://mcgarvs.github.io/cs124/Tasks/task_3_after.html): 
 The page reloads and the user sees the circle with a check mark.
 ### Task 4
 [Before](https://mcgarvs.github.io/cs124/Tasks/task_4_before.html): 
 The user finds the "Text John" item and clicks the "Edit" button to the left.
-[During](https://mcgarvs.github.io/cs124/Tasks/task_4_during.html): 
+<br/>[During](https://mcgarvs.github.io/cs124/Tasks/task_4_during.html): 
 The user clicks "Text John" and replaces the text with "Text John about bank statements" and clicks save.
-[After](https://mcgarvs.github.io/cs124/Tasks/task_4_after.html): 
+<br/>[After](https://mcgarvs.github.io/cs124/Tasks/task_4_after.html): 
 The page reloads and the user sees the updated task item, and can once again edit it.
 ### Task 5
 [Before](https://mcgarvs.github.io/cs124/Tasks/task_5_before.html): 
 The user clicks "Show Uncompleted".
-[After](https://mcgarvs.github.io/cs124/Tasks/task_5_after.html): 
+<br/>[After](https://mcgarvs.github.io/cs124/Tasks/task_5_after.html): 
 The page reloads and the completed "Call Mom" item disappears and "Show Uncompleted" becomes "Show All". 
 The user can click "Show All" to make the "Call Mom" item reappear.
 ### Task 6
 [Before](https://mcgarvs.github.io/cs124/Tasks/task_6_before.html): 
 The user clicks "Delete Completed"
-[After](https://mcgarvs.github.io/cs124/Tasks/task_6_after.html): 
+<br/>[After](https://mcgarvs.github.io/cs124/Tasks/task_6_after.html): 
 The page reloads and the completed "Call Mom" item disappears and is deleted.
 ## User Testing
 
