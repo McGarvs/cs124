@@ -21,7 +21,7 @@ around to implementing them.
 * Spaced out the task items, making unnecessary the alternating colors and color change on hover
 * Signified completed items with a green dot, instead of strike-through text (which made it hard to read)
 
-Our third and last Design occurred after Feedback from a User Test and had some minor changes:
+Our third Design occurred after Feedback from a User Test and had some minor changes:
 ![Third Task List Design](/screenshots/Third-Design.JPG)
 <br/>Refactoring Highlights:
 * Changed the green dots to a checkmark to signify a completed task
