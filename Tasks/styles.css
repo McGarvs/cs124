@@ -71,7 +71,7 @@ li {
     padding: 32px;
 }
 
-#item-info {
+.item-info {
     display: flex;
 }
 
@@ -97,26 +97,26 @@ li {
     width: 100%;
 }
 
-#rename-field {
+.rename-field {
     border: none;
 }
 
-#item-edit-dlt {
+.item-edit-dlt {
     display: flex;
 }
 
-#edit-btn {
+.edit-btn {
     color: #777777;
     cursor: pointer;
     margin-right: 16px;
 }
 
-#dlt-btn {
+.dlt-btn {
     color: #9a2a2a;
     cursor: pointer;
 }
 
-#save-btn {
+.save-btn {
     color: #777777;
     cursor: pointer;
 }
