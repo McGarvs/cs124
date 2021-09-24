@@ -72,8 +72,8 @@ The user clicks "Delete Completed"
 <br/>[After](https://mcgarvs.github.io/cs124/Tasks/task_6_after.html): 
 The page reloads and the completed "Call Mom" item disappears and is deleted.
 ## User Testing
-We did a single user test with a friend, where we asked them to accomplish each task 
-on the respective before pages. 
+We did a single user test with a friend, where we asked them to accomplish Tasks 1-6 
+on each tasks' "before" page. 
 Overall, they were able to accomplish each task without much difficulty. 
 One problem they had was identifying
 which tasks were completed or not, but they eventually figured out that it was with the green dot. 
