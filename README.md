@@ -10,13 +10,27 @@ Task 3 | Mark the item named "Call Mom" completed (assumes there exists an item 
 Task 4 | Rename the item "Text John" to "Text John about bank statements" (assumes there exists an item named "Text John").
 Task 5 | Show only uncompleted items.
 Task 6 | Delete all completed items.
-## Design Decisions
 
 ## Design Iterations
 Our first design looked something like this: 
 ![First Task List Design](/Images/First-Design.JPG)
-Our final design looked like this:
+Our second design looked like this:
 ![Final Task List Design](/Images/Second-Design.JPG)
+
+## Task Flow
+
+### Task 1
+
+### Task 2
+
+### Task 3
+
+### Task 4
+
+### Task 5
+
+### Task 6
+
 ## User Testing
 
 ## Challenges
