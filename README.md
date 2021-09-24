@@ -72,7 +72,14 @@ The user clicks "Delete Completed"
 <br/>[After](https://mcgarvs.github.io/cs124/Tasks/task_6_after.html): 
 The page reloads and the completed "Call Mom" item disappears and is deleted.
 ## User Testing
-
+We did a single user test with a friend, where we asked them to accomplish each task 
+on the respective before pages. 
+Overall, they were able to accomplish each task without much difficulty. 
+One problem they had was identifying
+which tasks were completed or not, but they eventually figured out that it was with the green dot. 
+On review, we decided that the dot should be replaced with a check mark. 
+We also realized in the review that our delete buttons had no "warning" and that in a future revision
+we should add a javascript pop-up confirmation message for our "delete" and "delete completed" buttons.
 ## Challenges
 One challenge that we faced was dealing with how to have users
 delete tasks. Per the lab requirements, we made a button to
