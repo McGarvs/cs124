@@ -12,10 +12,26 @@ Task 5 | Show only uncompleted items.
 Task 6 | Delete all completed items.
 
 ## Design Iterations
-Our first design looked something like this: 
+For the first design, we planned for our web-app to have a simple header 
+that contained an item entry field, and to have the task list items below it.
+Our first design looked like this: 
 ![First Task List Design](/Images/First-Design.JPG)
+The original plan for the first design was to add buttons for 
+"Show Uncompleted" and "Delete Completed" and place them under the "Enter"
+and "Clear" buttons, but we ended up deciding to do a total refactor before getting 
+around to implementing them.
 Our second design looked like this:
 ![Final Task List Design](/Images/Second-Design.JPG)
+Refactoring Highlights from Design 1 to Design 2:
+* Removed the app title: It looked ugly and wasn't really necessary, since it is self-evident what the app does.
+* Color scheme change: The first design's colors were picked a bit arbitrarily, so 
+* Removed the unnecessary and slightly confusing form clear button
+* Added delete buttons and colored them red
+* Shortened the ridiculously long form field
+* Moved and renamed the item entry form submit button for better clarity
+* Spaced out the task items, making unnecessary the alternating colors and color change on hover
+* Signified completed items with a green dot, instead of strike-through text (which made it hard to read)
+
 
 ## Task Flow
 
