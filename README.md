@@ -3,7 +3,7 @@
 ## Design Requirements
 Task # | Task Description
 ------ | ----------------
-Index  | Home Page with links to each Task
+Index  | [Home Page](https://mcgarvs.github.io/cs124/) with links to each Task (Before/During/After)
 Task 1 | In an empty list, create an item named "Buy new John Grisham book"
 Task 2 | In a non-empty list, create an item named "Eat Lunch"
 Task 3 | Mark the item named "Call Mom" completed (assumes there exists an item named "Call Mom").
@@ -13,7 +13,10 @@ Task 6 | Delete all completed items.
 ## Design Decisions
 
 ## Design Iterations
-
+Our first design looked something like this: 
+![First Task List Design](/Images/First-Design.JPG)
+Our final design looked like this:
+![Final Task List Design](/Images/Second-Design.JPG)
 ## User Testing
 
 ## Challenges
