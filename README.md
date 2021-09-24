@@ -47,30 +47,30 @@ The page reloads and the user sees their task item.
 ### Task 2
 [Before](https://mcgarvs.github.io/cs124/Tasks/task_2_before.html): 
 The user enters "Eat Lunch" into the field and clicks "Add Item".
-[After](https://mcgarvs.github.io/cs124/Tasks/task_2_after.html): 
+<br/>[After](https://mcgarvs.github.io/cs124/Tasks/task_2_after.html): 
 The page reloads and the user sees their task item appear under "Buy new John Grisham book".
 ### Task 3
 [Before](https://mcgarvs.github.io/cs124/Tasks/task_3_before.html): 
 The user hits the empty circle by the "Call Mom" item, to mark it complete.
-[After](https://mcgarvs.github.io/cs124/Tasks/task_3_after.html): 
+<br/>[After](https://mcgarvs.github.io/cs124/Tasks/task_3_after.html): 
 The page reloads and the user sees the circle with a check mark.
 ### Task 4
 [Before](https://mcgarvs.github.io/cs124/Tasks/task_4_before.html): 
 The user finds the "Text John" item and clicks the "Edit" button to the left.
-[During](https://mcgarvs.github.io/cs124/Tasks/task_4_during.html): 
+<br/>[During](https://mcgarvs.github.io/cs124/Tasks/task_4_during.html): 
 The user clicks "Text John" and replaces the text with "Text John about bank statements" and clicks save.
-[After](https://mcgarvs.github.io/cs124/Tasks/task_4_after.html): 
+<br/>[After](https://mcgarvs.github.io/cs124/Tasks/task_4_after.html): 
 The page reloads and the user sees the updated task item, and can once again edit it.
 ### Task 5
 [Before](https://mcgarvs.github.io/cs124/Tasks/task_5_before.html): 
 The user clicks "Show Uncompleted".
-[After](https://mcgarvs.github.io/cs124/Tasks/task_5_after.html): 
+<br/>[After](https://mcgarvs.github.io/cs124/Tasks/task_5_after.html): 
 The page reloads and the completed "Call Mom" item disappears and "Show Uncompleted" becomes "Show All". 
 The user can click "Show All" to make the "Call Mom" item reappear.
 ### Task 6
 [Before](https://mcgarvs.github.io/cs124/Tasks/task_6_before.html): 
 The user clicks "Delete Completed"
-[After](https://mcgarvs.github.io/cs124/Tasks/task_6_after.html): 
+<br/>[After](https://mcgarvs.github.io/cs124/Tasks/task_6_after.html): 
 The page reloads and the completed "Call Mom" item disappears and is deleted.
 ## User Testing
 
