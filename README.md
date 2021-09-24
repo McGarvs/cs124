@@ -10,7 +10,7 @@ that contained an item entry field, and to have the task list items below it.
 and "Clear" buttons, but we ended up deciding to do a total refactor before getting 
 around to implementing them.
 <br/>Our second design looked like this:
-![Final Task List Design](/screenshots/Second-Design.JPG)
+![Second Task List Design](/screenshots/Second-Design.JPG)
 <br/>Refactoring Highlights from Design 1 to Design 2:
 * Removed the app title: It looked ugly and wasn't really necessary, since it is self-evident what the app does.
 * Color scheme change: The first design's colors were picked a bit arbitrarily and looked a bit ugly.
@@ -21,11 +21,11 @@ around to implementing them.
 * Spaced out the task items, making unnecessary the alternating colors and color change on hover
 * Signified completed items with a green dot, instead of strike-through text (which made it hard to read)
 
-Our Final Design with Feedback from a User Test:
-
+Our third and last Design occurred after Feedback from a User Test and had some minor changes:
+![Third Task List Design](/screenshots/Third-Design.JPG)
 <br/>Refactoring Highlights:
 * Changed the green dots to a checkmark to signify a completed task
-
+* To Do in a Future Refactor: Add a pop-up confirmation for deleting items with javascript
 
 ## Task Flow
 ### Design Requirements
