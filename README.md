@@ -1,5 +1,15 @@
-# CS124 Lab1 Design Description
+# CS124 Lab1 Design Document
 
+## Design Requirements
+Task # | Task Description
+------ | ----------------
+Index  | Home Page with links to each Task
+Task 1 | In an empty list, create an item named "Buy new John Grisham book"
+Task 2 | In a non-empty list, create an item named "Eat Lunch"
+Task 3 | Mark the item named "Call Mom" completed (assumes there exists an item named "Call Mom").
+Task 4 | Rename the item "Text John" to "Text John about bank statements" (assumes there exists an item named "Text John").
+Task 5 | Show only uncompleted items.
+Task 6 | Delete all completed items.
 ## Design Decisions
 
 ## Design Iterations
