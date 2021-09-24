@@ -11,7 +11,7 @@ around to implementing them.
 
 <br/>Our second design looked like this:
 ![Second Task List Design](/screenshots/Second-Design.JPG)
-<br/>Refactoring Highlights from Design 1 to Design 2:
+<br/>Refactoring Highlights from the first design to the second design:
 * Removed the app title: It looked ugly and wasn't really necessary, since it is self-evident what the app does.
 * Color scheme change: The first design's colors were picked a bit arbitrarily and looked a bit ugly.
 * Removed the unnecessary and slightly confusing form clear button
@@ -23,7 +23,7 @@ around to implementing them.
 
 Our third Design occurred after Feedback from a User Test and had some minor changes:
 ![Third Task List Design](/screenshots/Third-Design.JPG)
-<br/>Refactoring Highlights:
+<br/>Refactoring Highlights from the second design to the third design:
 * Changed the green dots to a checkmark to signify a completed task
 * To Do in a Future Refactor: Add a pop-up confirmation for deleting items with javascript
 
