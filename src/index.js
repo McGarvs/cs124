@@ -7,14 +7,17 @@ import InMemoryApp from './InMemoryApp';
 
 const initialData = [
     {
+        id: "123",
         text: "Text John about bank statements",
         isCompleted: false,
     },
     {
+        id: "456",
         text: "Eat lunch",
         isCompleted: false,
     },
     {
+        id: "789",
         text: "Call mom",
         isCompleted: true,
     }
