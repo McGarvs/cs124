@@ -3,10 +3,27 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import InMemoryApp from './InMemoryApp';
+
+const initialData = [
+    {
+        text: "Text John about bank statements",
+        isCompleted: false,
+    },
+    {
+        text: "Eat lunch",
+        isCompleted: false,
+    },
+    {
+        text: "Call mom",
+        isCompleted: true,
+    }
+];
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    {/*<App initialData={initialData}/>*/}
+    <InMemoryApp initialData={initialData}/>
   </React.StrictMode>,
   document.getElementById('root')
 );

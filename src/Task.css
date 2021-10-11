@@ -1,0 +1,46 @@
+.task-container {
+    background-color: white;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0px 16px 16px 16px;
+    padding: 32px;
+}
+
+.item-edit-dlt {
+    display: flex;
+}
+
+.edit-btn {
+    color: #777777;
+    cursor: pointer;
+    margin-right: 16px;
+}
+
+.dlt-btn {
+    color: #9a2a2a;
+    cursor: pointer;
+}
+
+.checkbox-btn {
+    background-color: white;
+    border: #c5c5c5 solid 1px;
+    border-radius: 100px;
+    cursor: pointer;
+    margin-right: 16px;
+    height: 30px;
+    width: 30px;
+}
+
+.checked-checkbox-btn {
+    border: none;
+    height: 28px;
+    margin-right: 16px;
+    width: 28px;
+}
+
+.checked-checkbox-btn img {
+    height: 100%;
+    width: 100%;
+}
