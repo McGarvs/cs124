@@ -10,7 +10,7 @@ function Header(props) {
             <div id="master-options">
                 {props.showCompleted && <div id="show-uncompleted-btn" onClick={props.onShowBtnClick}>Show All</div>}
                 {!(props.showCompleted) && <div id="show-uncompleted-btn" onClick={props.onShowBtnClick}>Show Completed</div>}
-                <div id="dlt-all-btn" onClick={props.onDelAllBtnClick}>Delete Completed</div>
+                <div id="dlt-all-btn" onClick={props.onDelCompletedClick}>Delete Completed</div>
             </div>
         </div>
     );
