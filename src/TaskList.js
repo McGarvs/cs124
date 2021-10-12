@@ -1,7 +1,9 @@
+import './TaskList.css';
 import Task from './Task';
 import {useState} from 'react';
 
 function TaskList(props) {
+    // state variable for whether or not to display only completed tasks
 
     return (
         <div>
