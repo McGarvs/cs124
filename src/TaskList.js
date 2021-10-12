@@ -8,7 +8,9 @@ function TaskList(props) {
         <div>
             {props.data.map((item) => <Task key={item.id}
                                             onItemChanged={props.onItemChanged}
-                                            onItemDeleted={props.onItemDeleted} {...item} />
+                                            onDeleteID={props.onDeleteID}
+                                            onDeleteModalDisplay={props.onDeleteModalDisplay}
+                                            {...item} />
             )}
         </div>
     );

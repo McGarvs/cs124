@@ -29,8 +29,10 @@
 }
 
 .edit-field {
-    border: none;
-    font-size: 14px;
+    border: #c5c5c5 solid 1px;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: inherit;
     width: auto;
 }
 

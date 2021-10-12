@@ -39,7 +39,8 @@ function Task(props) {
                     }}>Edit
                     </div>
                     <div className="dlt-btn" onClick={(e) => {
-                        props.onItemDeleted(props.id)
+                        props.onDeleteID(props.id);
+                        props.onDeleteModalDisplay(true);
                     }}>Delete
                     </div>
                 </div>
