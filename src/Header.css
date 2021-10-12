@@ -1,0 +1,44 @@
+#header {
+    background-color: #feffd9;
+    padding: 60px 24px 60px 24px;
+    margin-bottom: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#add-new-item {
+    display: flex;
+
+}
+
+#input-field {
+    height: 70px;
+    padding-left: 16px;
+    width: 300px;
+    border: none;
+}
+
+#add-btn {
+    background-color: #efefef;
+    border: none;
+    cursor: pointer;
+    padding: 20px;
+    font-size: 24px;
+}
+
+#master-options {
+    display: flex;
+    font-size: 12px;
+}
+
+#show-uncompleted-btn {
+    color: #777777;
+    cursor: pointer;
+    margin-right: 16px;
+}
+
+#dlt-all-btn {
+    color: #9a2a2a;
+    cursor: pointer;
+}
