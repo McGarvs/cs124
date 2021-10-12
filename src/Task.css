@@ -15,7 +15,7 @@
 }
 
 .text-content {
-    width: 100%;
+    width: auto;
 }
 
 .item-edit-dlt {
@@ -28,8 +28,19 @@
     margin-right: 16px;
 }
 
+.edit-field {
+    border: none;
+    font-size: 14px;
+    width: auto;
+}
+
 .dlt-btn {
     color: #9a2a2a;
+    cursor: pointer;
+}
+
+.save-btn {
+    color: #777777;
     cursor: pointer;
 }
 

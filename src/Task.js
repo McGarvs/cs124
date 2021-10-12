@@ -3,7 +3,9 @@ import checkmarkImage from './static/checkmark.png';
 import {useState} from 'react';
 
 function Task(props) {
+    const [text, setText] = useState(props.text);
     const [completed, setCompleted] = useState(props.isCompleted);
+    const [editing, setEditing] = useState(false);
 
     return (
         <div className="task-container">
@@ -18,17 +20,32 @@ function Task(props) {
                         {completed && <img src={checkmarkImage} alt="checkmark"/>}
                     </div>
                 </div>
-                <div className="text-content">{props.text}</div>
-            </div>
-            <div className="item-edit-dlt">
-                <div className="edit-btn">Edit</div>
-                <div className="dlt-btn" onClick={(e) => {
-                    props.onItemDeleted(props.id)
-                }}>Delete
-                </div>
-            </div>
-        </div>
+                {editing ? <textarea type="text" className="edit-field" value={text}
+                                     onChange={(e) => setText(e.target.value)} autoFocus/> : <div
+                    className="text-content">{text}</div>
+                }
 
+            </div>
+            {editing ?
+                <div className="save-btn" onClick={(e) => {
+                    props.onItemChanged(props.id, "text", text)
+                    setEditing(false);
+                }
+                }>Save</div>
+                :
+                <div className="item-edit-dlt">
+                    <div className="edit-btn" onClick={(e) => {
+                        setEditing(true)
+                    }}>Edit
+                    </div>
+                    <div className="dlt-btn" onClick={(e) => {
+                        props.onItemDeleted(props.id)
+                    }}>Delete
+                    </div>
+                </div>
+            }
+
+        </div>
     );
 }
 
