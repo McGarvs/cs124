@@ -15,7 +15,7 @@ function App(props) {
     }
     return (
         <div className="App">
-            <Header onShowBtnClick={toggleShowCompleted} showCompleted={showCompleted} onDelCompletedClick={}/>
+            <Header onShowBtnClick={toggleShowCompleted} showCompleted={showCompleted} onDelCompletedClick={deleteCompleted()}/>
             {/*TODO: Pass showCompleted to TaskList and use filter to only display Completed Tasks*/}
             <TaskList data={props.data} />
         </div>
