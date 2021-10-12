@@ -8,12 +8,14 @@ function Task(props) {
     return (
         <div className="task-container">
             <div className="item-info">
-                <div onClick={(e) => {
-                    props.onCompletedChanged(props.id, "isCompleted", !completed);
-                    setCompleted(!completed);
-                }
-                } className={completed ? "checked-checkbox-btn" : "checkbox-btn"}>
-                    {completed && <img src={checkmarkImage} alt="checkmark"/>}
+                <div className="checkbox-btn">
+                    <div onClick={(e) => {
+                        props.onCompletedChanged(props.id, "isCompleted", !completed);
+                        setCompleted(!completed);
+                    }
+                    } className={completed ? "checked-checkbox-btn" : "unchecked-checkbox-btn"}>
+                        {completed && <img src={checkmarkImage} alt="checkmark"/>}
+                    </div>
                 </div>
                 <div className="text-content">{props.text}</div>
             </div>
