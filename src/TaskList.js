@@ -7,8 +7,8 @@ function TaskList(props) {
     return (
         <div>
             {props.data.map((item) => <Task key={item.id}
-                                            onCompletedChanged={(itemID, field, newValue) => props.onItemChanged(itemID, field, newValue)}
-                                            onItemChanged={props.onItemChanged} {...item} />
+                                            onItemChanged={props.onItemChanged}
+                                            onItemDeleted={props.onItemDeleted} {...item} />
             )}
         </div>
     );

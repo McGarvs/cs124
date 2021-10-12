@@ -21,8 +21,10 @@ function InMemoryApp(props) {
     }
 
     function handleItemDeleted(itemID) {
+        console.log("deleting item with id: ", itemID)
         setData(data.filter((item) => {
-            return item.id !== itemID
+            console.log("current item id: ", item.id)
+            return item.id !== itemID;
         }));
     }
 
@@ -33,7 +35,7 @@ function InMemoryApp(props) {
         }));
     }
 
-    return (<App data={props.initialData} onItemChanged={handleItemChanged} onItemAdded={handleItemAdded}
+    return (<App data={data} onItemChanged={handleItemChanged} onItemAdded={handleItemAdded}
                  onItemDeleted={handleItemDeleted} deleteCompleted={handleDeleteCompleted}/>);
 }
 

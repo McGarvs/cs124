@@ -9,11 +9,12 @@ function Task(props) {
         <div className="task-container">
             <div className="item-info">
                 <div className="checkbox-btn">
-                    <div onClick={(e) => {
-                        props.onCompletedChanged(props.id, "isCompleted", !completed);
-                        setCompleted(!completed);
-                    }
-                    } className={completed ? "checked-checkbox-btn" : "unchecked-checkbox-btn"}>
+                    <div className={completed ? "checked-checkbox-btn" : "unchecked-checkbox-btn"}
+                         onClick={(e) => {
+                             props.onItemChanged(props.id, "isCompleted", !completed);
+                             setCompleted(!completed);
+                         }
+                         }>
                         {completed && <img src={checkmarkImage} alt="checkmark"/>}
                     </div>
                 </div>
@@ -21,7 +22,10 @@ function Task(props) {
             </div>
             <div className="item-edit-dlt">
                 <div className="edit-btn">Edit</div>
-                <div className="dlt-btn">Delete</div>
+                <div className="dlt-btn" onClick={(e) => {
+                    props.onItemDeleted(props.id)
+                }}>Delete
+                </div>
             </div>
         </div>
 
