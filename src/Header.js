@@ -8,8 +8,9 @@ function Header(props) {
                     <div id="add-btn">Add Item</div>
             </div>
             <div id="master-options">
-                <div id="show-uncompleted-btn">Show All</div>
-                <div id="dlt-all-btn">Delete Completed</div>
+                {props.showCompleted && <div id="show-uncompleted-btn" onClick={props.onShowBtnClick}>Show All</div>}
+                {!(props.showCompleted) && <div id="show-uncompleted-btn" onClick={props.onShowBtnClick}>Show Completed</div>}
+                <div id="dlt-all-btn" onClick={props.onDelAllBtnClick}>Delete Completed</div>
             </div>
         </div>
     );
