@@ -9,13 +9,9 @@ function App(props) {
         setShowCompleted(!showCompleted)
         console.log("Toggled showing Completed vs Uncompleted")
     }
-    function deleteCompleted(){
-        // TODO: Somehow change the data in "InMemoryApp.js" to delete all completed
-        console.log("Deleted All completed!")
-    }
     return (
         <div className="App">
-            <Header onShowBtnClick={toggleShowCompleted} showCompleted={showCompleted} onDelCompletedClick={deleteCompleted()}/>
+            <Header onShowBtnClick={toggleShowCompleted} showCompleted={showCompleted} onDelCompletedClick={props.deleteCompleted}/>
             {/*TODO: Pass showCompleted to TaskList and use filter to only display Completed Tasks*/}
             <TaskList data={props.data} />
         </div>

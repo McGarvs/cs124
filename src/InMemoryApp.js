@@ -25,8 +25,15 @@ function InMemoryApp(props) {
         }));
     }
 
+    function handleDeleteCompleted() {
+        console.log("Deleting Completed")
+        setData(data.filter((item) => {
+            return item.isCompleted !== true
+        }));
+    }
+
     return (<App data={props.initialData} onItemChanged={handleItemChanged} onItemAdded={handleItemAdded}
-                 onItemDeleted={handleItemDeleted}/>);
+                 onItemDeleted={handleItemDeleted} deleteCompleted={handleDeleteCompleted}/>);
 }
 
 export default InMemoryApp;
