@@ -1,4 +1,5 @@
 import './Task.css';
+import checkmarkImage from './static/checkmark.png';
 
 function Task(props) {
     function toggleCheckbox() {
@@ -8,9 +9,9 @@ function Task(props) {
         <div className="task-container">
             <div className="item-info">
                 <div onClick={toggleCheckbox} className={props.isCompleted ? "checked-checkbox-btn" : "checkbox-btn"}>
-                    {props.isCompleted && <img src="./static/checkmark.png" alt="checkmark" />}
+                    {props.isCompleted && <img src={checkmarkImage} alt="checkmark" />}
                 </div>
-                {props.text}
+                <div className="text-content">{props.text}</div>
             </div>
             <div className="item-edit-dlt">
                 <div className="edit-btn">Edit</div>
