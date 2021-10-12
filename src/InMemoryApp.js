@@ -6,8 +6,9 @@ function InMemoryApp(props) {
     const [data, setData] = useState(props.initialData);
 
     function handleItemChanged(itemID, field, newValue) {
+        console.log("changing item for ID: ", itemID, " ", field, ": ", newValue);
         setData(data.map((item) =>
-            (item.id !== itemID) ? {...item, [field]:newValue} : {...item}
+            (item.id === itemID) ? {...item, [field]: newValue} : {...item}
         ));
     }
 

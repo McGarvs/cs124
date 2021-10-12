@@ -8,7 +8,7 @@ const initialData = [
     {
         id: 123,
         text: "Text John about bank statements",
-        isCompleted: false,
+        isCompleted: true,
     },
     {
         id: 456,
