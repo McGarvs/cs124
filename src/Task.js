@@ -20,7 +20,7 @@ function Task(props) {
                         {completed && <img src={checkmarkImage} alt="checkmark"/>}
                     </div>
                 </div>
-                {editing ? <textarea type="text" className="edit-field" value={text}
+                {editing ? <textarea className="edit-field" value={text}
                                      onChange={(e) => setText(e.target.value)} autoFocus/> : <div
                     className="text-content">{text}</div>
                 }
