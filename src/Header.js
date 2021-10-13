@@ -8,7 +8,9 @@ function Header(props) {
             <div id="add-new-item">
                 <input type="text" id="input-field" placeholder="Enter a task here!" value={text}
                        onChange={(e) => setText(e.target.value)}/>
-                    <div id="add-btn" onClick={props.onAddBtnClick(text)}>Add Item</div>
+                {/* Can't call props.onAddBtnClick like this. You'll get `Maximum update depth exceeded` error.
+                        --> <div id="add-btn" onClick={props.onAddBtnClick(text)}>Add Item</div>*/}
+                <div id="add-btn" onClick={() => props.onAddBtnClick(text)}>Add Item</div>
             </div>
             <div id="master-options">
                 {/* Change to use Ternary Op insteaed (?) */}
