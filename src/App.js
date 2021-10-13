@@ -1,4 +1,3 @@
-import './styles/App.css';
 import TaskList from './TaskList';
 import Header from './Header';
 import Modal from './Modal.js';
