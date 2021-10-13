@@ -12,12 +12,14 @@ function InMemoryApp(props) {
         ));
     }
 
-    function handleItemAdded(text, isCompleted = false) {
-        setData(data.push({
+    function handleItemAdded(text) {
+        console.log("adding: ", text)
+        const newItem = {
             id: generateUniqueID(),
             text: text,
-            isCompleted: isCompleted,
-        }))
+            isCompleted: false,
+        }
+        setData((data) => [...data, newItem])
     }
 
     function handleItemDeleted(itemID) {
