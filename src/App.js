@@ -1,4 +1,4 @@
-import './App.css';
+import './styles/App.css';
 import TaskList from './TaskList';
 import Header from './Header';
 import Modal from './Modal.js';
@@ -23,7 +23,7 @@ function App(props) {
             {showDeleteModal && <Modal text={"Are you sure you want to delete this task?"} confirmButtonText={"Delete"}
                                        onModalDisplayChanged={setShowDeleteModal} onConfirmAction={handleDeleteConfirmation}/>}
             <Header onShowBtnClick={toggleShowCompleted} showCompleted={showCompleted}
-                    onDelCompletedClick={props.deleteCompleted}/>
+                    onDelCompletedClick={props.deleteCompleted} onAddBtnClick={props.onItemAdded}/>
             {/*TODO: Pass showCompleted to TaskList and use filter to only display Completed Tasks*/}
             <TaskList onItemChanged={props.onItemChanged} onDeleteID={setDeleteID} onDeleteModalDisplay={setShowDeleteModal} data={props.data}/>
         </div>

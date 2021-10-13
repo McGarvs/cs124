@@ -1,4 +1,4 @@
-import './Task.css';
+import './styles/Task.css';
 import checkmarkImage from './static/checkmark.png';
 import {useState} from 'react';
 
@@ -28,14 +28,13 @@ function Task(props) {
             </div>
             {editing ?
                 <div className="save-btn" onClick={(e) => {
-                    props.onItemChanged(props.id, "text", text)
+                    props.onItemChanged(props.id, "text", text);
                     setEditing(false);
-                }
-                }>Save</div>
+                }}>Save</div>
                 :
                 <div className="item-edit-dlt">
                     <div className="edit-btn" onClick={(e) => {
-                        setEditing(true)
+                        setEditing(true);
                     }}>Edit
                     </div>
                     <div className="dlt-btn" onClick={(e) => {
