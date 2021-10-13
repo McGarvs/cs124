@@ -1,13 +1,17 @@
-import './Header.css';
+import './styles/Header.css';
+import {useState} from 'react';
 
 function Header(props) {
+    const [text, setText] = useState("");
     return (
         <div id="header">
             <div id="add-new-item">
-                <input type="text" id="input-field" placeholder="Enter a task here!"/>
-                    <div id="add-btn">Add Item</div>
+                <input type="text" id="input-field" placeholder="Enter a task here!" value={text}
+                       onChange={(e) => setText(e.target.value)}/>
+                    <div id="add-btn" onClick={props.onAddBtnClick(text)}>Add Item</div>
             </div>
             <div id="master-options">
+                {/* Change to use Ternary Op insteaed (?) */}
                 {props.showCompleted &&
                 <div id="show-uncompleted-btn" onClick={props.onShowBtnClick}>Show All</div>}
                 {!(props.showCompleted) &&

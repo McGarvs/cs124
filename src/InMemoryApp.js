@@ -13,6 +13,7 @@ function InMemoryApp(props) {
     }
 
     function handleItemAdded(text, isCompleted = false) {
+        console.log("Adding: ", text)
         setData(data.push({
             id: generateUniqueID(),
             text: text,
