@@ -1,8 +1,19 @@
 import './styles/Header.css';
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 
 function Header(props) {
     const [text, setText] = useState("");
+    const [haveCompleted, setHaveCompleted] = useState(null);
+
+    useEffect(() => {
+        const completedData = props.data.filter((task) => task.isCompleted)
+        if (completedData.length > 0) {
+            setHaveCompleted(true);
+        } else {
+            setHaveCompleted(false);
+        }
+    }, [props.data])
+
     return (
         <div id="header">
             <div id="header-top">
@@ -12,7 +23,8 @@ function Header(props) {
                 {props.showCompleted ?
                     <div id="master-options">
                         <div id="show-completed-btn" onClick={props.onShowBtnClick}>Hide Completed</div>
-                        <div id="dlt-all-btn" onClick={props.onDelCompletedModalDisplay}>Delete Completed</div>
+                        {haveCompleted &&
+                        <div id="dlt-all-btn" onClick={props.onDelCompletedModalDisplay}>Delete Completed</div>}
                     </div>
                     :
                     <div id="master-options">
