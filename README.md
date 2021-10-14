@@ -21,6 +21,9 @@ The key differences are as follows:
     * | Before hiding completed tasks  | After hiding completed tasks|
           | ------------- | ------------- |
       | ![](./screenshots/before-deletecompleted-hidden.png) | ![](./screenshots/after-deletecompleted-hidden.png) |
+* "Hide Completed" and "Deleted Completed" button is hidden when there are no completed tasks
+  ![No comp tasks](./screenshots/no-completed-tasks.png)
+
 ## Alternative Designs
 We were originally going to keep the "Edit" and "Delete" buttons as text, as it seemed to
 be clear design for the user. However, as we continued to iterate on our design, we
@@ -105,9 +108,9 @@ A modal pops up asking the user to confirm the request to delete all completed t
 ![During delete all completed](./screenshots/during-delete-all-comp.png)
 
 After the user confirms this "Delete Completed" request, the modal closes and all completed
-tasks are deleted. Since there are no longer any completed tasks in this view, the "Delete Completed"
-button is hidden from view.
-![After delete all completed](./screenshots/after-delete-all-comp.png)
+tasks are deleted. Since there are no longer any completed tasks in this view, the "Hide Completed"
+and "Delete Completed" buttons are hidden from view.
+![After delete all completed](./screenshots/after-delete-all-completed.png)
 
 ## Challenges + Reflections
 Deciding on which level of the component hierarchy each of the state variables should live,

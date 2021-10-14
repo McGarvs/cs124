@@ -20,16 +20,16 @@ function Header(props) {
                 <div id="header-title">
                     My Tasks
                 </div>
-                {props.showCompleted ?
+                {haveCompleted &&
+                (props.showCompleted ?
                     <div id="master-options">
                         <div id="show-completed-btn" onClick={props.onShowBtnClick}>Hide Completed</div>
-                        {haveCompleted &&
-                        <div id="dlt-all-btn" onClick={props.onDelCompletedModalDisplay}>Delete Completed</div>}
+                        <div id="dlt-all-btn" onClick={props.onDelCompletedModalDisplay}>Delete Completed</div>
                     </div>
                     :
                     <div id="master-options">
                         <div id="show-completed-btn" onClick={props.onShowBtnClick}>Show Completed</div>
-                    </div>
+                    </div>)
                 }
             </div>
 
@@ -37,12 +37,13 @@ function Header(props) {
                 <input type="text" id="input-field" placeholder="Enter a task here!" value={text} maxLength="80"
                        onChange={(e) => setText(e.target.value)}/>
                 <div id="add-btn" onClick={() => {
-                    if (text !== ""){
+                    if (text !== "") {
                         props.onAddBtnClick(text);
                         setText("");
                     }
                 }
-                }>+</div>
+                }>+
+                </div>
             </div>
         </div>
     );
