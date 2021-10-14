@@ -1,71 +1,108 @@
 # CS124 Lab2 Design Document
 
 ## Design Decisions
-To recap, our final design from Lab1 looked like this:
+To recap, our final design from Lab 1 looked like this:
 ![Lab 1 design](./screenshots/lab1finaldesign.png)
 
+Our final design from Lab 2 looks like this:
+![Lab 2 design](./screenshots/lab2finaldesign.png)
+
 The key differences are as follows:
-* Modal pop-ups to confirm delete requests
 * Different font: the sans serif font in the newer design instead of the serif font
 in the older design presents a more modern and user-friendly look
 * Box shadow around each to-do task: the added shadow simulates elevated tasks, which
 adds more emphasis without the grey background, which made the overall design seem a
 bit flat 
-* ...
-
+* Icons for the "Edit" and "Delete" buttons to minimize cluttering of words in each task 
+component
+* Modal pop-ups to confirm delete requests
+![Modal popup](./screenshots/modal-popup.png)
+* "Delete Completed" button is hidden when completed tasks are hidden
+  * | Before hiding completed tasks  | After hiding completed tasks|
+    | ------------- | ------------- |
+    | ![](./screenshots/before-deletecompleted-hidden.png) | ![](./screenshots/after-deletecompleted-hidden.png) |
 ## Alternative Designs
-... none?
+We were originally going to keep the "Edit" and "Delete" buttons as text, as it seemed to
+be clear design for the user. However, as we continued to iterate on our design, we
+realized that all this text in one component can seem cluttered quickly. We ended up
+replacing these text buttons with icon buttons.
+![Before rename](./screenshots/before-rename.png)
+
+We considered having a larger text input area for when a user edits a task. Our reasoning
+for this was so the user can see a larger portion of the text as they edit. Ultimately, we
+decided that the extra whitespace in this text area was unnecessary and clunky.
+![During rename 1](./screenshots/during-rename-part1.png)
 
 ## User Testing
 ...
 
 ## Final Design
 Our final design from this lab looks like this:
-![Lab 2 design]()
+
+![Lab 2 design](./screenshots/lab2finaldesign.png)
 
 We will now walk through each of the supported features.
 
 ### Marking a task as completed/not completed
 The user has a list of tasks -- some are completed, some are not.
-![Before marking completed](./screenshots/before-marking-completed.png)
+![Before marking completed](./screenshots/fin-before-complete.png)
 
 The user clicks on the open circle within the second task to mark it as completed.
-![After marking completed](./screenshots/after-marking-completed.png)
+![After marking completed](./screenshots/fin-after-complete.png)
 
 ### Adding a new task
-...
+To add a new task, the user types in text for the new task in the header.
+![Before add 1](./screenshots/before-add-task-1.png)
+
+After finishing typing in text, the user clicks the "+", or add, button to add
+this new task to the list of tasks.
+![Before add 2](./screenshots/before-add-task-2.png)
+
+The new task appears at the bottom of the list, uncompleted by default. 
+![After add](./screenshots/after-add-task.png)
 
 ### Renaming a task
-The user has a list of tasks and wants to rename the second. The user clicks on "Edit".
-![Before rename](./screenshots/before-rename.png)
+The user has a list of tasks and wants to rename the second. The user clicks on the button
+with the edit icon.
+![Before rename](./screenshots/fin-before-rename.png)
 
 The user is autofocused on a text box where the original task name is the starting value.
-![During rename 1](./screenshots/during-rename-part1.png)
+![During rename 1](./screenshots/fin-during-rename-1.png)
 
 The task text is edited to be something different, then the user clicks on "Save" to save changes.
-![During rename 2](./screenshots/during-rename-part2.png)
+![During rename 2](./screenshots/fin-during-rename-2.png)
 
 After clicking save, the renamed task is what's displayed.
-![After rename](./screenshots/after-rename.png)
+![After rename](./screenshots/fin-after-rename.png)
 
 ### Deleting a task
-The user has a list of tasks and wants to delete the first one. The user clicks on "Delete".
-![Before delete](./screenshots/before-delete.png)
+The user has a list of tasks and wants to delete the first one. The user clicks on the trash
+can icon.
+![Before delete](./screenshots/fin-before-delete.png)
 
 A modal is displayed that asks the user to confirm or cancel their delete request. If cancel
 is clicked, the modal will close with no changes to the list of tasks. However, the user does
 want to delete and confirms this by clicking "Delete".
-![During delete](./screenshots/during-delete.png)
+![During delete](./screenshots/fin-during-delete.png)
 
 After the delete request is confirmed, the modal closes and the first task is removed from the
 list of tasks.
-![After delete](./screenshots/after-delete.png)
+![After delete](./screenshots/fin-after-delete.png)
 
-### Showing all completed tasks
-...
+### Hiding completed tasks
+By default, the list of tasks displays all tasks, completed or not.
+![Show all](./screenshots/show-all.png)
+
+The user clicks on the button "Hide Completed" to hide all completed tasks. In this state, the
+"Delete Completed" button is hidden because there are no complete tasks displayed.
+![Hide completed]()
 
 ### Deleting all completed tasks
-...
+The user clicks on "Deleted Completed" button to delete all completed tasks.
+![Before delete all completed](./screenshots/before-delete-all-comp.png)
+
+A modal pops up asking the user to confirm the request to delete all completed tasks. 
+![During delete all completed](./screenshots/during-delete-all-comp.png)
 
 ## Challenges + Reflections
 Deciding on which level of the component hierarchy each of the state variables should live,
