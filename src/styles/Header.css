@@ -10,6 +10,18 @@
     width: 100%;
 }
 
+#header-top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#header-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-left: 16px;
+}
+
 #add-new-item {
     display: flex;
     height: 30px;
@@ -21,6 +33,7 @@
 #input-field {
     border: none;
     border-radius: 6px 0 0 6px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
     padding-left: 8px;
     width: 280px;
     margin-left: auto;
@@ -30,6 +43,7 @@
     background-color: #efefef;
     border: none;
     border-radius: 0 6px 6px 0;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
     cursor: pointer;
     padding: 4px;
     font-size: 18px;
