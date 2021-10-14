@@ -22,7 +22,7 @@ function Task(props) {
                         {completed && <img src={checkmarkIcon} alt="checkmark"/>}
                     </div>
                 </div>
-                {editing ? <input type="text" className="edit-field" value={text}
+                {editing ? <input type="text" className="edit-field" value={text} maxLength="80"
                                      onChange={(e) => setText(e.target.value)} autoFocus/> : <div
                     className="text-content">{text}</div>
                 }
