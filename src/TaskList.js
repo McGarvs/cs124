@@ -1,6 +1,5 @@
 import './styles/TaskList.css';
 import Task from './Task';
-import {useState} from "react";
 
 function TaskList(props) {
     const filteredData = props.data.filter((task) => props.showCompleted || !task.isCompleted)
