@@ -1,70 +1,118 @@
-# Getting Started with Create React App
+# CS124 Lab2 Design Document
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Design Decisions
+To recap, our final design from Lab 1 looked like this:
+![Lab 1 design](./screenshots/lab1finaldesign.png)
 
-## Available Scripts
+Our final design from Lab 2 looks like this:
+![Lab 2 design](./screenshots/lab2finaldesign.png)
 
-In the project directory, you can run:
+The key differences are as follows:
+* Different font: the sans serif font in the newer design instead of the serif font
+  in the older design presents a more modern and user-friendly look
+* Box shadow around each to-do task: the added shadow simulates elevated tasks, which
+  adds more emphasis without the grey background, which made the overall design seem a
+  bit flat
+* Icons for the "Edit" and "Delete" buttons to minimize cluttering of words in each task
+  component
+* Modal pop-ups to confirm delete requests
+  ![Modal popup](./screenshots/modal-popup.png)
+* "Delete Completed" button is hidden when completed tasks are hidden
+    * | Before hiding completed tasks  | After hiding completed tasks|
+          | ------------- | ------------- |
+      | ![](./screenshots/before-deletecompleted-hidden.png) | ![](./screenshots/after-deletecompleted-hidden.png) |
+## Alternative Designs
+We were originally going to keep the "Edit" and "Delete" buttons as text, as it seemed to
+be clear design for the user. However, as we continued to iterate on our design, we
+realized that all this text in one component can seem cluttered quickly. We ended up
+replacing these text buttons with icon buttons.
+![Before rename](./screenshots/before-rename.png)
 
-### `npm start`
+We considered having a larger text input area for when a user edits a task. Our reasoning
+for this was so the user can see a larger portion of the text as they edit. Ultimately, we
+decided that the extra whitespace in this text area was unnecessary and clunky.
+![During rename 1](./screenshots/during-rename-part1.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## User Testing
+...
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Final Design
+Our final design from this lab looks like this:
 
-### `npm test`
+![Lab 2 design](./screenshots/lab2finaldesign.png)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+We will now walk through each of the supported features.
 
-### `npm run build`
+### Marking a task as completed/not completed
+The user has a list of tasks -- some are completed, some are not.
+![Before marking completed](./screenshots/fin-before-complete.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The user clicks on the open circle within the second task to mark it as completed.
+![After marking completed](./screenshots/fin-after-complete.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Adding a new task
+To add a new task, the user types in text for the new task in the header.
+![Before add 1](./screenshots/before-add-task-1.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+After finishing typing in text, the user clicks the "+", or add, button to add
+this new task to the list of tasks.
+![Before add 2](./screenshots/before-add-task-2.png)
 
-### `npm run eject`
+The new task appears at the bottom of the list, uncompleted by default.
+![After add](./screenshots/after-add-task.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Renaming a task
+The user has a list of tasks and wants to rename the second. The user clicks on the button
+with the edit icon.
+![Before rename](./screenshots/fin-before-rename.png)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The user is autofocused on a text box where the original task name is the starting value.
+![During rename 1](./screenshots/fin-during-rename-1.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+The task text is edited to be something different, then the user clicks on "Save" to save changes.
+![During rename 2](./screenshots/fin-during-rename-2.png)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+After clicking save, the renamed task is what's displayed.
+![After rename](./screenshots/fin-after-rename.png)
 
-## Learn More
+### Deleting a task
+The user has a list of tasks and wants to delete the first one. The user clicks on the trash
+can icon.
+![Before delete](./screenshots/fin-before-delete.png)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+A modal is displayed that asks the user to confirm or cancel their delete request. If cancel
+is clicked, the modal will close with no changes to the list of tasks. However, the user does
+want to delete and confirms this by clicking "Delete".
+![During delete](./screenshots/fin-during-delete.png)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+After the delete request is confirmed, the modal closes and the first task is removed from the
+list of tasks.
+![After delete](./screenshots/fin-after-delete.png)
 
-### Code Splitting
+### Hiding completed tasks
+By default, the list of tasks displays all tasks, completed or not.
+![Show all](./screenshots/show-all.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+The user clicks on the button "Hide Completed" to hide all completed tasks. In this state, the
+"Delete Completed" button is hidden because there are no complete tasks displayed.
+![Hide completed]()
 
-### Analyzing the Bundle Size
+### Deleting all completed tasks
+The user clicks on "Deleted Completed" button to delete all completed tasks.
+![Before delete all completed](./screenshots/before-delete-all-comp.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+A modal pops up asking the user to confirm the request to delete all completed tasks.
+![During delete all completed](./screenshots/during-delete-all-comp.png)
 
-### Making a Progressive Web App
+## Challenges + Reflections
+Deciding on which level of the component hierarchy each of the state variables should live,
+as well as managing these states was quite challenging, but overtime, we became familiarized
+with what would work best -- particularly, the importance of having a "single source of truth"
+with all the nested components in this application.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Overall, we're very proud of the improvements we've made from the final product of Lab 1. The
+features within this design are much more user-friendly. For instance, we noted in Lab 1 that
+we planned to implement some sort of modal or pop-up dialog to minimize the possibility of
+users accidentally deleted a task, and we successfully did so. Additionally, our end product of
+this lab has a more aesthetic design. Specifically, the white background and sans serif font makes
+the application appear less distracting and more clean and simple.
