@@ -7,7 +7,7 @@ function Header(props) {
         <div id="header">
             <div id="header-top">
                 <div id="header-title">
-                    Todo List
+                    My Tasks
                 </div>
                 {props.showCompleted ?
                     <div id="master-options">
