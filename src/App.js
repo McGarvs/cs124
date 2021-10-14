@@ -4,7 +4,7 @@ import Modal from './Modal.js';
 import {useState} from 'react';
 
 function App(props) {
-    const [showCompleted, setShowCompleted] = useState(false);
+    const [showCompleted, setShowCompleted] = useState(true);
     const [showDeleteModal, setShowDeleteModal] = useState(false);
     const [deleteID, setDeleteID] = useState(null);
 
