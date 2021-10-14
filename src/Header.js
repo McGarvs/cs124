@@ -8,18 +8,22 @@ function Header(props) {
             <div id="add-new-item">
                 <input type="text" id="input-field" placeholder="Enter a task here!" value={text}
                        onChange={(e) => setText(e.target.value)}/>
-                <div id="add-btn" onClick={() => props.onAddBtnClick(text)}>+</div>
+                <div id="add-btn" onClick={() => {
+                    if (text !== ""){
+                        props.onAddBtnClick(text);
+                        setText("");
+                    }
+                }
+                }>Add Item</div>
             </div>
-
-                {/* Change to use Ternary Op instead (?) */}
                 {props.showCompleted ?
                     <div id="master-options">
-                        <div id="show-uncompleted-btn" onClick={props.onShowBtnClick}>Hide Completed</div>
+                        <div id="show-completed-btn" onClick={props.onShowBtnClick}>Hide Completed</div>
                         <div id="dlt-all-btn" onClick={props.onDelCompletedModalDisplay}>Delete Completed</div>
                     </div>
                 :
                     <div id="master-options">
-                        <div id="show-uncompleted-btn" onClick={props.onShowBtnClick}>Show Completed</div>
+                        <div id="show-completed-btn" onClick={props.onShowBtnClick}>Show Completed</div>
                     </div>
                 }
 
