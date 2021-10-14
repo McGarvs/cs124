@@ -13,7 +13,7 @@ function Header(props) {
             <div id="master-options">
                 {/* Change to use Ternary Op instead (?) */}
                 {props.showCompleted ?
-                <div id="show-uncompleted-btn" onClick={props.onShowBtnClick}>Show All</div>
+                <div id="show-uncompleted-btn" onClick={props.onShowBtnClick}>Hide Completed</div>
                 :<div id="show-uncompleted-btn" onClick={props.onShowBtnClick}>Show Completed</div>}
                 <div id="dlt-all-btn" onClick={props.onDelCompletedClick}>Delete Completed</div>
             </div>
