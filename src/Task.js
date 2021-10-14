@@ -1,5 +1,5 @@
 import './styles/Task.css';
-import checkmarkImage from './static/checkmark.png';
+import checkmarkImage from '../public/checkmark.png';
 import {useState} from 'react';
 
 function Task(props) {
