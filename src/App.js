@@ -6,6 +6,7 @@ import {useState} from 'react';
 function App(props) {
     const [showCompleted, setShowCompleted] = useState(true);
     const [showDeleteModal, setShowDeleteModal] = useState(false);
+    const [showDelCompletedModal, setShowDelCompletedModal] = useState(false);
     const [deleteID, setDeleteID] = useState(null);
 
     function toggleShowCompleted(item) {
@@ -13,18 +14,19 @@ function App(props) {
         console.log("Toggled showing Completed vs Uncompleted")
     }
 
-    function handleDeleteConfirmation() {
-        props.onItemDeleted(deleteID);
-    }
-
     return (
         <div className="App">
             {showDeleteModal && <Modal text={"Are you sure you want to delete this task?"}
-                                        confirmButtonText={"Delete"}
+                                       confirmButtonText={"Delete"}
                                        onModalDisplayChanged={setShowDeleteModal}
-                                       onConfirmAction={handleDeleteConfirmation}/>}
+                                       onConfirmAction={() => props.onItemDeleted(deleteID)}/>}
+            {showDelCompletedModal &&
+            <Modal text={"Are you sure you want to delete all completed tasks?"} confirmButtonText={"Delete All"}
+                   onModalDisplayChanged={setShowDelCompletedModal}
+                    onConfirmAction={props.deleteCompleted} />}
             <Header onShowBtnClick={toggleShowCompleted} showCompleted={showCompleted}
-                    onDelCompletedClick={props.deleteCompleted} onAddBtnClick={props.onItemAdded}/>
+                    onDelCompletedModalDisplay={setShowDelCompletedModal}
+                    onAddBtnClick={props.onItemAdded}/>
             {/*TODO: Pass showCompleted to TaskList and use filter to only display Completed Tasks*/}
             <TaskList onItemChanged={props.onItemChanged} onDeleteID={setDeleteID} showCompleted={showCompleted}
                       onDeleteModalDisplay={setShowDeleteModal} data={props.data}/>
