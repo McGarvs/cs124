@@ -11,6 +11,7 @@
 
 .item-info {
     display: flex;
+    margin-right: 8px;
     text-align: left;
 }
 
@@ -20,6 +21,11 @@
 
 .item-edit-dlt {
     display: flex;
+}
+
+.item-edit-dlt img {
+    height: 15px;
+    width: 15px;
 }
 
 .edit-btn {
@@ -33,7 +39,7 @@
     border-radius: 4px;
     font-family: inherit;
     font-size: inherit;
-    width: auto;
+    width: 180px;
 }
 
 .dlt-btn {
@@ -44,7 +50,12 @@
 .save-btn {
     color: #777777;
     cursor: pointer;
-    margin-right: 55px;
+    margin-right: 16px;
+    border: rgba(119, 119, 119, 0.5) solid 1px;
+    border-radius: 4px;
+    padding: 4px 6px 4px 6px;
+    width: 40px;
+    text-align: center;
 }
 
 .checkbox-btn {

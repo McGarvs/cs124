@@ -1,6 +1,8 @@
 import './styles/Task.css';
 import {useState} from 'react';
-import checkmarkImage from './static/checkmark.png';
+import checkmarkIcon from './static/checkmark.png';
+import editIcon from './static/edit-icon.png';
+import deleteIcon from './static/delete-icon.png';
 
 function Task(props) {
     const [text, setText] = useState(props.text);
@@ -17,7 +19,7 @@ function Task(props) {
                              setCompleted(!completed);
                          }
                          }>
-                        {completed && <img src={checkmarkImage} alt="checkmark"/>}
+                        {completed && <img src={checkmarkIcon} alt="checkmark"/>}
                     </div>
                 </div>
                 {editing ? <input type="text" className="edit-field" value={text}
@@ -35,12 +37,14 @@ function Task(props) {
                 <div className="item-edit-dlt">
                     <div className="edit-btn" onClick={(e) => {
                         setEditing(true);
-                    }}>Edit
+                    }}>
+                        <img src={editIcon} alt="edit" />
                     </div>
                     <div className="dlt-btn" onClick={(e) => {
                         props.onDeleteID(props.id);
                         props.onDeleteModalDisplay(true);
-                    }}>Delete
+                    }}>
+                        <img src={deleteIcon} alt="delete" />
                     </div>
                 </div>
             }
