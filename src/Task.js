@@ -1,6 +1,6 @@
 import './styles/Task.css';
-import checkmarkImage from '../public/checkmark.png';
 import {useState} from 'react';
+import checkmarkImage from './static/checkmark.png';
 
 function Task(props) {
     const [text, setText] = useState(props.text);
