@@ -6,7 +6,7 @@ function Header(props) {
     return (
         <div id="header">
             <div id="add-new-item">
-                <input type="text" id="input-field" placeholder="Enter a task here!" value={text}
+                <input type="text" id="input-field" placeholder="Enter a task here!" value={text} maxLength="80"
                        onChange={(e) => setText(e.target.value)}/>
                 <div id="add-btn" onClick={() => {
                     if (text !== ""){
