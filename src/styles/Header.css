@@ -1,25 +1,29 @@
 #header {
     background-color: #feffd9;
-    padding: 20px 0 20px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+    padding: 16px 0 20px 0;
     margin-bottom: 16px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
-    height: 50px;
+    height: 100px;
     width: 100%;
 }
 
 #add-new-item {
     display: flex;
-    width: 200px;
     height: 30px;
+    text-align: center;
+    margin-top: 25px;
+    width: 100%;
 }
 
 #input-field {
     border: none;
     border-radius: 6px 0 0 6px;
     padding-left: 8px;
-    margin-left: 16px;
+    width: 280px;
+    margin-left: auto;
 }
 
 #add-btn {
@@ -29,11 +33,16 @@
     cursor: pointer;
     padding: 4px;
     font-size: 18px;
+    margin-right: auto;
+    width: 30px;
 }
 
 #master-options {
+    display: flex;
+    flex-direction: column;
     margin-right: 16px;
     font-size: 12px;
+    text-align: right;
 }
 
 #show-completed-btn {
@@ -46,5 +55,5 @@
     float: right;
     color: #9a2a2a;
     cursor: pointer;
-    margin-top: 16px;
+    margin-top: 8px;
 }
