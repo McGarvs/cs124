@@ -91,11 +91,11 @@ list of tasks.
 
 ### Hiding completed tasks
 By default, the list of tasks displays all tasks, completed or not.
-![Show all](./screenshots/show-all.png)
+![Show all tasks](./screenshots/show-all-tasks.png)
 
 The user clicks on the button "Hide Completed" to hide all completed tasks. In this state, the
 "Delete Completed" button is hidden because there are no complete tasks displayed.
-![Hide completed]()
+![Hide completed tasks](./screenshots/hide-comp-tasks.png)
 
 ### Deleting all completed tasks
 The user clicks on "Deleted Completed" button to delete all completed tasks.
@@ -103,6 +103,11 @@ The user clicks on "Deleted Completed" button to delete all completed tasks.
 
 A modal pops up asking the user to confirm the request to delete all completed tasks.
 ![During delete all completed](./screenshots/during-delete-all-comp.png)
+
+After the user confirms this "Delete Completed" request, the modal closes and all completed
+tasks are deleted. Since there are no longer any completed tasks in this view, the "Delete Completed"
+button is hidden from view.
+![After delete all completed](./screenshots/after-delete-all-comp.png)
 
 ## Challenges + Reflections
 Deciding on which level of the component hierarchy each of the state variables should live,
