@@ -8,6 +8,10 @@ To recap, our final design from Lab 1 looked like this:
 Our final design from Lab 2 looks like this:
 ![Lab 2 design](./screenshots/lab2finaldesign.png)
 
+Lab 1 Design                   | Final Lab 2 Design
+------------------------------ | ---------------------------- 
+![](./screenshots/lab1finaldesign.png) | ![](./screenshots/lab2finaldesign.png)
+
 The key differences are as follows:
 * Different font: the sans serif font in the newer design instead of the serif font
   in the older design presents a more modern and user-friendly look
