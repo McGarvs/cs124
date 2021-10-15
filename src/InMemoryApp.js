@@ -6,14 +6,14 @@ function InMemoryApp(props) {
     const [data, setData] = useState(props.initialData);
 
     function handleItemChanged(itemID, field, newValue) {
-        console.log("changing item for ID: ", itemID, " ", field, ": ", newValue);
+        // console.log("changing item for ID: ", itemID, " ", field, ": ", newValue);
         setData(data.map((item) =>
             (item.id === itemID) ? {...item, [field]: newValue} : {...item}
         ));
     }
 
     function handleItemAdded(text) {
-        console.log("adding: ", text)
+        // console.log("adding: ", text)
         const newItem = {
             id: generateUniqueID(),
             text: text,
@@ -23,15 +23,15 @@ function InMemoryApp(props) {
     }
 
     function handleItemDeleted(itemID) {
-        console.log("deleting item with id: ", itemID)
+        // console.log("deleting item with id: ", itemID)
         setData(data.filter((item) => {
-            console.log("current item id: ", item.id)
+            // console.log("current item id: ", item.id)
             return item.id !== itemID;
         }));
     }
 
     function handleDeleteCompleted() {
-        console.log("Deleting Completed")
+        // console.log("Deleting Completed")
         setData(data.filter((item) => {
             return item.isCompleted !== true
         }));
