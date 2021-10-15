@@ -1,4 +1,4 @@
-import './styles/TaskList.css';
+// import './styles/TaskList.css';
 import Task from './Task';
 
 function TaskList(props) {
