@@ -22,7 +22,7 @@ The key differences are as follows:
     * | Before hiding completed tasks  | After hiding completed tasks|
           | ------------- | ------------- |
       | ![](./screenshots/before-deletecompleted-hidden.png) | ![](./screenshots/after-deletecompleted-hidden.png) |
-* "Hide Completed" and "Deleted Completed" button is hidden when there are no completed tasks
+* "Hide Completed" and "Deleted Completed" buttons are hidden when there are no completed tasks
   ![No comp tasks](./screenshots/no-completed-tasks.png)
 
 ## Alternative Designs
@@ -33,8 +33,13 @@ replacing these text buttons with icon buttons.
 ![Before rename](./screenshots/before-rename.png)
 
 We considered having a larger text input area for when a user edits a task. Our reasoning
-for this was so the user can see a larger portion of the text as they edit. Ultimately, we
-decided that the extra whitespace in this text area was unnecessary and clunky.
+was for the user to be able to see a larger portion of the text as they edit. However our User Testing showed
+that resize wasn't really used, and that this text area tag caused some weird formatting, so we switched it to a 
+normal input tag instead.
+
+Additionally, the Save button was placed to the far right such that if a user clicked quickly, they would often hit the 
+Delete button and trigger the Delete popup. To help remedy this, our final design shifted it a bit to the left.
+
 ![During rename 1](./screenshots/during-rename-part1.png)
 
 ## User Testing
