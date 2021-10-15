@@ -42,8 +42,15 @@ Delete button and trigger the Delete popup. To help remedy this, our final desig
 ![During rename 1](./screenshots/during-rename-part1.png)
 
 ## User Testing
-...
+Our first round of user testing revealed several issues in our design. The user was able to add empty tasks, 
+and since the task field was not cleared, it was annoying for them to have to delete their previously entered task. 
+When editing a task, the user also accidentally clicked delete after saving since the buttons were overlaid. The user also thought
+that the reformatting that occured when editing a task was strange. To remedy these issues, we redesigned our application to 
+clear the input field on adding, prevent adding empty tasks, shift the save button, and simplifiy the edit input field. 
 
+Our second round of user testing occured after the redesign from the first round of testing, and our Users overwhelming liked the app
+and found it intuitive and usable. One change that occured in this phase was that we noticed that the blank space in our header was a bit
+odd, so we decided to add a new title, and chose "My Tasks". 
 ## Final Design
 Our final design from this lab looks like this:
 
