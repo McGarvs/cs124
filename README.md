@@ -1,6 +1,7 @@
 # CS124 Lab2 Design Document
 
 ## Design Decisions
+Our Lab 1 Design Document can be found [here](https://github.com/McGarvs/cs124/tree/lab1#readme).
 To recap, our final design from Lab 1 looked like this:
 ![Lab 1 design](./screenshots/lab1finaldesign.png)
 
