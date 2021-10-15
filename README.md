@@ -19,9 +19,9 @@ The key differences are as follows:
 * Modal pop-ups to confirm delete requests
   ![Modal popup](./screenshots/modal-popup.png)
 * "Delete Completed" button is hidden when completed tasks are hidden
-    * | Before hiding completed tasks  | After hiding completed tasks|
-          | ------------- | ------------- |
-      | ![](./screenshots/before-deletecompleted-hidden.png) | ![](./screenshots/after-deletecompleted-hidden.png) |
+    * Before hiding completed tasks  | After hiding completed tasks
+      ------------------------------ | ---------------------------- 
+      ![](./screenshots/before-deletecompleted-hidden.png) | ![](./screenshots/after-deletecompleted-hidden.png) 
 * "Hide Completed" and "Deleted Completed" buttons are hidden when there are no completed tasks
   ![No comp tasks](./screenshots/no-completed-tasks.png)
 
