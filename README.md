@@ -2,13 +2,8 @@
 
 ## Design Decisions
 Our Lab 1 Design Document can be found [here](https://github.com/McGarvs/cs124/tree/lab1#readme).
-To recap, our final design from Lab 1 looked like this:
-![Lab 1 design](./screenshots/lab1finaldesign.png)
-
-Our final design from Lab 2 looks like this:
-![Lab 2 design](./screenshots/lab2finaldesign.png)
-
-Lab 1 Design                   | Final Lab 2 Design
+To recap, our final design from Lab 1 can be compared to the final design of Lab 2 in the table below:
+Final Lab 1 Design                   | Final Lab 2 Design
 ------------------------------ | ---------------------------- 
 ![](./screenshots/lab1finaldesign.png) | ![](./screenshots/lab2finaldesign.png)
 
