@@ -80,6 +80,8 @@
     text-align: center;
 }
 .priority-btn-container button:not(:first-child) {
+    color: #f6942a;
+    font-weight: bold;
     width: 40px;
 }
 .priority-btn-container button:not(:last-child) {

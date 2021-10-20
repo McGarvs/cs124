@@ -1,6 +1,10 @@
-# CS124 Lab2 Project Details
-The document containing our thought processes and design decisions can be found [here](https://github.com/McGarvs/cs124/blob/lab2/docs/design.md).
+# Tasks
 
-The live version of our mobile Task Application can be found at the following link: [https://mcgarvs.github.io/cs124/](https://mcgarvs.github.io/cs124/)
+* make priority display not be hardcoded (connect to initialData array)
+* display creation date in each of the tasks
 
-Authors: Danica Du & Dylan McGarvey
+* set up firestore (i.e. SQL queries, deleting initialData array)
+* sorting by name, priority, or creation date
+
+Extras:
+* change checkmark -> dot (reference Reminders app)
