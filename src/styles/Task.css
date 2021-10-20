@@ -15,15 +15,15 @@
     text-align: left;
 }
 
+.text-content {
+    display: flex;
+    width: auto;
+}
+
 .priority {
     color: #f6942a;
     font-weight: bold;
-    /*text-align: center;*/
-    margin-right: 6px;
-}
-
-.text-content {
-    width: auto;
+    margin-right: 4px;
 }
 
 .item-edit-dlt {
@@ -63,6 +63,31 @@
     padding: 4px 6px 4px 6px;
     width: 40px;
     text-align: center;
+}
+
+.priority-btn-container {
+    border: rgba(119, 119, 119, 0.5) solid 1px;
+    border-radius: 4px;
+    overflow: hidden;
+    display: block;
+    margin: 8px 0 0 28px;
+}
+
+.priority-btn-container button {
+    background-color: white;
+    border: none;
+    padding: 6px;
+    text-align: center;
+}
+.priority-btn-container button:not(:first-child) {
+    width: 40px;
+}
+.priority-btn-container button:not(:last-child) {
+    border-right: rgba(119, 119, 119, 0.5) solid 1px;
+}
+
+.priority-btn-container .selected-priority-btn {
+    background-color: #e5e5e5;
 }
 
 .checkbox-btn {

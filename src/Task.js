@@ -10,7 +10,7 @@ function Task(props) {
     const [editing, setEditing] = useState(false);
 
     return (
-        <div className="task-container">
+        <div className="task-container" style={{flexWrap: editing ? "wrap" : "nowrap"}}>
             <div className="item-info">
                 <div className="checkbox-btn">
                     <div className={completed ? "checked-checkbox-btn" : "unchecked-checkbox-btn"}
@@ -22,14 +22,16 @@ function Task(props) {
                         {completed && <img src={checkmarkIcon} alt="checkmark"/>}
                     </div>
                 </div>
-                <div className="priority">
-                    !!!
-                </div>
                 {editing ? <input type="text" className="edit-field" value={text} maxLength="80"
-                                     onChange={(e) => setText(e.target.value)} autoFocus/> : <div
-                    className="text-content">{text}</div>
+                                     onChange={(e) => setText(e.target.value)} autoFocus/>
+                    :
+                    <div className="text-content">
+                        <div className="priority">
+                        !!!
+                        </div>
+                        {text}
+                    </div>
                 }
-
             </div>
             {editing ?
                 <div className="save-btn" onClick={(e) => {
@@ -49,6 +51,15 @@ function Task(props) {
                     }}>
                         <img src={deleteIcon} alt="delete" />
                     </div>
+                </div>
+            }
+
+            {editing &&
+                <div className="priority-btn-container">
+                    <button>None</button>
+                    <button className="selected-priority-btn">!</button>
+                    <button>!!</button>
+                    <button>!!!</button>
                 </div>
             }
 
