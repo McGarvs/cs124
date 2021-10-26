@@ -38,9 +38,9 @@ function Task(props) {
                                   onChange={(e) => setText(e.target.value)} autoFocus/>
                     :
                     <div className="text-content">
-                        <div className="priority">
+                        {priority !== 0 && <div className="priority">
                             {repeatString("!", priority)}
-                        </div>
+                        </div>}
                         {text}
                     </div>
                 }

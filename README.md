@@ -8,4 +8,4 @@
 * sorting by name, priority, or creation date
 
 Extras:
-* change checkmark -> dot (reference Reminders app)
+* (completed) change checkmark -> dot (reference Reminders app)

@@ -17,9 +17,21 @@ function Header(props) {
     return (
         <div id="header">
             <div id="header-top">
-                <div id="header-title">
-                    My Tasks
+                <div id="add-new-item">
+                    <input type="text" id="input-field" placeholder="Enter a task here!" value={text} maxLength="80"
+                           onChange={(e) => setText(e.target.value)}/>
+                    <div id="add-btn" onClick={() => {
+                        if (text !== "") {
+                            props.onAddBtnClick(text);
+                            setText("");
+                        }
+                    }
+                    }>+
+                    </div>
                 </div>
+                {/*<div id="header-title">*/}
+                {/*    My Tasks*/}
+                {/*</div>*/}
                 {haveCompleted &&
                 (props.showCompleted ?
                     <div id="master-options">
@@ -33,18 +45,7 @@ function Header(props) {
                 }
             </div>
 
-            <div id="add-new-item">
-                <input type="text" id="input-field" placeholder="Enter a task here!" value={text} maxLength="80"
-                       onChange={(e) => setText(e.target.value)}/>
-                <div id="add-btn" onClick={() => {
-                    if (text !== "") {
-                        props.onAddBtnClick(text);
-                        setText("");
-                    }
-                }
-                }>+
-                </div>
-            </div>
+
         </div>
     );
 }

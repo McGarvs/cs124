@@ -1,10 +1,16 @@
-// import './styles/TaskList.css';
+import './styles/TaskList.css';
 import Task from './Task';
 
 function TaskList(props) {
     const filteredData = props.data.filter((task) => props.showCompleted || !task.isCompleted)
     return (
         <div>
+            <div id="title-container">
+                <div id="title">
+                    My Tasks
+                </div>
+                <button className="sort-btn">Sort</button>
+            </div>
             {(filteredData.length === 0) ? (props.data.length > 0) ?
                     <div>Your tasks are all complete. Try clicking Show Completed above!</div>
                     :<div>Your task list is empty. Try entering a task in the form above!</div>
