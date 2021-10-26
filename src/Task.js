@@ -26,15 +26,13 @@ function Task(props) {
     return (
         <div className="task-container" style={{flexWrap: editing ? "wrap" : "nowrap"}}>
             <div className="item-info">
-                <div className="checkbox-btn">
-                    <div className={completed ? "checked-checkbox-btn" : "unchecked-checkbox-btn"}
-                         onClick={(e) => {
-                             props.onItemChanged(props.id, "isCompleted", !completed);
-                             setCompleted(!completed);
-                         }
-                         }>
-                        {completed && <img src={checkmarkIcon} alt="checkmark"/>}
-                    </div>
+                <div className="unchecked-checkbox-btn"
+                     onClick={(e) => {
+                         props.onItemChanged(props.id, "isCompleted", !completed);
+                         setCompleted(!completed);
+                     }
+                     }>
+                    {completed && <div className="checked-checkbox"></div>}
                 </div>
                 {editing ? <input type="text" className="edit-field" value={text} maxLength="80"
                                   onChange={(e) => setText(e.target.value)} autoFocus/>
