@@ -18,7 +18,39 @@
 .sort-btn {
     background-color: #efefef;
     border: none;
-    border-radius: 6px;
+    border-radius: 4px;
     height: 28px;
     width: 56px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: block;
+    position: absolute;
+    min-width: 140px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    border-radius: 4px;
+    right: 0;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    background-color: white;
+    color: black;
+    padding: 8px;
+    text-decoration: none;
+    display: block;
+}
+
+.selected-a {
+    background-color: #e5e5e5 !important;
+}
+
+.dropdown-content a:not(:last-child) {
+    border-bottom: rgba(119, 119, 119, 0.2) solid 1px;
 }

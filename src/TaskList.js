@@ -1,15 +1,36 @@
 import './styles/TaskList.css';
 import Task from './Task';
+import {useState} from "react";
 
 function TaskList(props) {
+    const [showSortDropdown, setShowSortDropdown] = useState(false)
+    const [selectedSort, setSelectedSort] = useState("default")
     const filteredData = props.data.filter((task) => props.showCompleted || !task.isCompleted)
+
+    function toggleDropdown() {
+        setShowSortDropdown(!showSortDropdown)
+    }
+
+    function selectSortMethod(newMethod) {
+        setSelectedSort(newMethod)
+    }
+
     return (
         <div>
             <div id="title-container">
                 <div id="title">
                     My Tasks
                 </div>
-                <button className="sort-btn">Sort</button>
+                <div className="dropdown">
+                    <button className="sort-btn" onClick={toggleDropdown}>Sort</button>
+                    {showSortDropdown && <div className="dropdown-content">
+                        <a href="#default" className={selectedSort === "default" && "selected-a"} onClick={() => selectSortMethod("default")}>Default</a>
+                        <a href="#name" className={selectedSort === "name" && "selected-a"} onClick={() => selectSortMethod("name")}>Name</a>
+                        <a href="#priority"className={selectedSort === "priority" && "selected-a"} onClick={() => selectSortMethod("priority")}>Priority</a>
+                        <a href="#date" className={selectedSort === "date" && "selected-a"} onClick={() => selectSortMethod("date")}>Creation date</a>
+                    </div>}
+                </div>
+
             </div>
             {(filteredData.length === 0) ? (props.data.length > 0) ?
                     <div>Your tasks are all complete. Try clicking Show Completed above!</div>
