@@ -24,10 +24,10 @@ function TaskList(props) {
                 <div className="dropdown">
                     <button className="sort-btn" onClick={toggleDropdown}>Sort</button>
                     {showSortDropdown && <div className="dropdown-content">
-                        <a href="#default" className={selectedSort === "default" && "selected-a"} onClick={() => selectSortMethod("default")}>Default</a>
-                        <a href="#name" className={selectedSort === "name" && "selected-a"} onClick={() => selectSortMethod("name")}>Name</a>
-                        <a href="#priority"className={selectedSort === "priority" && "selected-a"} onClick={() => selectSortMethod("priority")}>Priority</a>
-                        <a href="#date" className={selectedSort === "date" && "selected-a"} onClick={() => selectSortMethod("date")}>Creation date</a>
+                        <a href="#default" className={selectedSort === "default" ? "selected-a" : ""} onClick={() => selectSortMethod("default")}>Default</a>
+                        <a href="#name" className={selectedSort === "name" ? "selected-a" : ""} onClick={() => selectSortMethod("name")}>Name</a>
+                        <a href="#priority"className={selectedSort === "priority" ? "selected-a" : ""} onClick={() => selectSortMethod("priority")}>Priority</a>
+                        <a href="#date" className={selectedSort === "date" ? "selected-a" : ""} onClick={() => selectSortMethod("date")}>Creation date</a>
                     </div>}
                 </div>
 
