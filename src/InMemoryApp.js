@@ -1,57 +1,74 @@
+import './styles/InMemoryApp.css';
 import App from './App';
-import {useState} from 'react';
 import {generateUniqueID} from "web-vitals/dist/modules/lib/generateUniqueID";
+import firebase from "firebase/compat";
+import {useCollection} from "react-firebase-hooks/firestore";
 
-// import firebase from "firebase/compat";
-//
-// const firebaseConfig = {
-//     apiKey: "AIzaSyCcQ6XCOvMIA7pHME4bWBgy_7OVy_7XErA",
-//     authDomain: "cs124-fall2021.firebaseapp.com",
-//     projectId: "cs124-fall2021",
-//     storageBucket: "cs124-fall2021.appspot.com",
-//     messagingSenderId: "264318304667",
-//     appId: "1:264318304667:web:4be8d27a02811b1ccd613e"
-// };
-// firebase.initializeApp(firebaseConfig);
-// const db = firebase.firestore();
+const firebaseConfig = {
+    apiKey: "AIzaSyCcQ6XCOvMIA7pHME4bWBgy_7OVy_7XErA",
+    authDomain: "cs124-fall2021.firebaseapp.com",
+    projectId: "cs124-fall2021",
+    storageBucket: "cs124-fall2021.appspot.com",
+    messagingSenderId: "264318304667",
+    appId: "1:264318304667:web:4be8d27a02811b1ccd613e"
+};
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+const collectionName = "dylan-danica-lab"
 
 function InMemoryApp(props) {
-    const [data, setData] = useState(props.initialData);
+    const query = db.collection(collectionName);    // Fill in query here
+    const [value, loading, error] = useCollection(query);
+    let taskData = [];
+
+    if (value !== undefined) {
+        for (const doc of value.docs) {
+            taskData.push(doc.data());
+        }
+    }
 
     function handleItemChanged(itemID, field, newValue) {
-        // console.log("changing item for ID: ", itemID, " ", field, ": ", newValue);
-        setData(data.map((item) =>
-            (item.id === itemID) ? {...item, [field]: newValue} : {...item}
-        ));
+        const docRef = db.collection(collectionName).doc(itemID);
+        docRef.update(field, newValue);
     }
 
     function handleItemAdded(text) {
+        const today = new Date();
+
+        // console.log("date:", now);
         // console.log("adding: ", text)
         const newItem = {
             id: generateUniqueID(),
             text: text,
             isCompleted: false,
+            priority: 0,
+            creationDate: today.toLocaleDateString("en-US"), // "11/02/2021" // TODO: change this
         }
-        setData((data) => [...data, newItem])
+        const docRef = db.collection(collectionName).doc(newItem.id);
+        docRef.set(newItem);
     }
 
     function handleItemDeleted(itemID) {
-        // console.log("deleting item with id: ", itemID)
-        setData(data.filter((item) => {
-            // console.log("current item id: ", item.id)
-            return item.id !== itemID;
-        }));
+        const docRef = db.collection(collectionName).doc(itemID);
+        docRef.delete();
     }
 
     function handleDeleteCompleted() {
-        // console.log("Deleting Completed")
-        setData(data.filter((item) => {
-            return item.isCompleted !== true
-        }));
+        const completedTasksQuery = db.collection(collectionName).where('isCompleted', '==', 'true').get()
+        completedTasksQuery.then(function (querySnapshot) {
+            querySnapshot.forEach(function (doc) {
+                doc.ref.delete();
+            })
+        })
     }
 
-    return (<App data={data} onItemChanged={handleItemChanged} onItemAdded={handleItemAdded}
-                 onItemDeleted={handleItemDeleted} deleteCompleted={handleDeleteCompleted}/>);
+    return (
+        <div>
+            {loading ? <div id="loading">Loading...</div> :
+                <App data={taskData} onItemChanged={handleItemChanged} onItemAdded={handleItemAdded}
+                     onItemDeleted={handleItemDeleted} deleteCompleted={handleDeleteCompleted}/>}
+        </div>
+    );
 }
 
 export default InMemoryApp;
