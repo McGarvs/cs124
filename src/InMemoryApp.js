@@ -34,9 +34,6 @@ function InMemoryApp(props) {
 
     function handleItemAdded(text) {
         const today = new Date();
-
-        // console.log("date:", now);
-        // console.log("adding: ", text)
         const newItem = {
             id: generateUniqueID(),
             text: text,

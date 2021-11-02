@@ -16,12 +16,6 @@
     justify-content: space-between;
 }
 
-/*#header-title {*/
-/*    font-size: 24px;*/
-/*    font-weight: bold;*/
-/*    margin-left: 16px;*/
-/*}*/
-
 #add-new-item {
     display: flex;
     height: 30px;

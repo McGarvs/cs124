@@ -1,6 +1,5 @@
 import './styles/Task.css';
 import {useState} from 'react';
-import checkmarkIcon from './static/checkmark.png';
 import editIcon from './static/edit-icon.png';
 import deleteIcon from './static/delete-icon.png';
 
@@ -72,13 +71,13 @@ function Task(props) {
 
             {editing &&
             <div className="priority-btn-container">
-                <button className={priority === 0 && "selected-priority-btn"} onClick={() => changePriority(0)}>None
+                <button className={priority === 0 ? "selected-priority-btn" : ""} onClick={() => changePriority(0)}>None
                 </button>
-                <button className={priority === 1 && "selected-priority-btn"} onClick={() => changePriority(1)}>!
+                <button className={priority === 1 ? "selected-priority-btn" : ""} onClick={() => changePriority(1)}>!
                 </button>
-                <button className={priority === 2 && "selected-priority-btn"} onClick={() => changePriority(2)}>!!
+                <button className={priority === 2 ? "selected-priority-btn" : ""} onClick={() => changePriority(2)}>!!
                 </button>
-                <button className={priority === 3 && "selected-priority-btn"} onClick={() => changePriority(3)}>!!!
+                <button className={priority === 3 ? "selected-priority-btn" : ""} onClick={() => changePriority(3)}>!!!
                 </button>
             </div>
             }

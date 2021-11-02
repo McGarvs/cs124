@@ -29,9 +29,6 @@ function Header(props) {
                     }>+
                     </div>
                 </div>
-                {/*<div id="header-title">*/}
-                {/*    My Tasks*/}
-                {/*</div>*/}
                 {haveCompleted &&
                 (props.showCompleted ?
                     <div id="master-options">
