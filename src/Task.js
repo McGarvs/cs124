@@ -37,11 +37,14 @@ function Task(props) {
                 {editing ? <input type="text" className="edit-field" value={text} maxLength="80"
                                   onChange={(e) => setText(e.target.value)} autoFocus/>
                     :
-                    <div className="text-content">
-                        {priority !== 0 && <div className="priority">
-                            {repeatString("!", priority)}
-                        </div>}
-                        {text}
+                    <div className="task-content">
+                        <div className="task-text">
+                            {priority !== 0 && <div className="priority">
+                                {repeatString("!", priority)}
+                            </div>}
+                            {text}
+                        </div>
+                        <div className="task-date">{props.creationDate}</div>
                     </div>
                 }
             </div>

@@ -1,7 +1,7 @@
 # Tasks
 
 * (completed) make priority display not be hardcoded (connect to initialData array)
-* display creation date in each of the tasks, also not hardcoded
+* (completed) display creation date in each of the tasks, also not hardcoded
 * (completed) add sort button with drop down
 
 * set up firestore (i.e. SQL queries, deleting initialData array)
