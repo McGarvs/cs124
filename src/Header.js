@@ -1,5 +1,5 @@
 import './styles/Header.css';
-import {useEffect, useState} from 'react';
+import {useState} from 'react';
 
 function Header(props) {
     const [text, setText] = useState("");
