@@ -26,7 +26,7 @@ TODO
 ## Final Design
 Our final design from this lab looks like this:
 
-![Lab 2 design](./lab3finaldesign.png)
+![Lab 2 design](./lab3_finaldesign.png)
 
 We will now walk through each of the supported features.
 

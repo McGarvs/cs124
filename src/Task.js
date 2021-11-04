@@ -34,6 +34,7 @@ function Task(props) {
                     {completed && <div className="checked-checkbox"></div>}
                 </div>
                 {editing ? <input type="text" className="edit-field" value={text} maxLength="80"
+                                  onFocus={(e) => {e.target.select()}}
                                   onChange={(e) => setText(e.target.value)} autoFocus/>
                     :
                     <div className="task-content">
