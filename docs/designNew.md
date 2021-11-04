@@ -1,7 +1,7 @@
-# CS124 Lab2 Design Document
+# CS124 Lab3 Design Document
 
 ## Design Decisions
-Our Lab 2 Design Document can be found (fix)[here](https://github.com/McGarvs/cs124/tree/lab1#readme).
+Our Lab 3 Design Document can be found (fix)[here](https://github.com/McGarvs/cs124/blob/lab2/docs/design.md).
 To recap, our final design from Lab 2 can be compared to the final design of Lab 3 in the table below:
 Lab 2 Design                   | Lab 3 Design
 ------------------------------ | ---------------------------- 
