@@ -16,8 +16,8 @@ and aligned with the sort button, while the "Completed" Buttons were moved below
 * Creating a Task automatically stores creation date, which is now displayed.
 * Each task has a modifiable priority, denoted by exclamation points!
 * Added a Sort button to sort: Alphabetically, by Creation Date, and by Priority.
-* Changed back to the circle to denote a completed task (we think it is more crisp).
-
+* Changed Green Check Icon to Orange Circle (similar to lab 1) to be more crisp, and to match the
+  color scheme for the priority exclamation points.
 ## Alternative Designs
 We 
 
@@ -33,25 +33,25 @@ We will now walk through each of the supported features.
 ### Marking a task as completed/not completed
 The user has a list of tasks -- some are completed, some are not.
 
-![Before marking completed](./screenshots/fin-before-complete.png)
+![Before marking completed](./before-complete.png)
 
 The user clicks on the open circle within the second task to mark it as completed.
 
-![After marking completed](./screenshots/fin-after-complete.png)
+![After marking completed](./after-complete.png)
 
 ### Adding a new task
 To add a new task, the user types in text for the new task in the header.
 
-![Before add 1](./screenshots/before-add-task-1.png)
+![Before add 1](./before-add-task-1.png)
 
 After finishing typing in text, the user clicks the "+", or add, button to add
 this new task to the list of tasks.
 
-![Before add 2](./screenshots/before-add-task-2.png)
+![Before add 2](./before-add-task-2.png)
 
 The new task appears at the bottom of the list, uncompleted by default.
 
-![After add](./screenshots/after-add-task.png)
+![After add](./after-add-task.png)
 
 ### Renaming a task
 The user has a list of tasks and wants to rename the second. The user clicks on the button
