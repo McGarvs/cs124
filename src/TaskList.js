@@ -1,19 +1,37 @@
 import './styles/TaskList.css';
 import Task from './Task';
-import {useState} from "react";
+import {useState, useEffect} from "react";
 
 function TaskList(props) {
-    const [showSortDropdown, setShowSortDropdown] = useState(false)
-    const [selectedSort, setSelectedSort] = useState("default")
-    const filteredData = props.data.filter((task) => props.showCompleted || !task.isCompleted)
+    const [showSortDropdown, setShowSortDropdown] = useState(false);
+    const filteredData = props.data.filter((task) => props.showCompleted || !task.isCompleted);
+    const [sortType, setSortType] = useState("default");
+    const [data, setData] = useState(filteredData);
 
     function toggleDropdown() {
-        setShowSortDropdown(!showSortDropdown)
+        setShowSortDropdown(!showSortDropdown);
     }
 
-    function selectSortMethod(newMethod) {
-        setSelectedSort(newMethod)
+    function changeSortType(newMethod) {
+        setSortType(newMethod);
     }
+
+    function sortData(type){
+        const types = {
+            default: 'id',
+            name: 'text',
+            priority: 'priority',
+            date: 'creationDate',
+        };
+        const sortProperty = types[type];
+        const sorted = [...data].sort((a, b) => b[sortProperty] - a[sortProperty]);
+        console.log(sorted[0]);
+        setData(sorted);
+    }
+
+    useEffect(() => {
+        sortData(sortType);
+    }, [sortType]);
 
     return (
         <div>
@@ -24,13 +42,16 @@ function TaskList(props) {
                 <div className="dropdown">
                     <button className="sort-btn" onClick={toggleDropdown}>Sort</button>
                     {showSortDropdown && <div className="dropdown-content">
-                        <a href="#default" className={selectedSort === "default" ? "selected-a" : ""} onClick={() => selectSortMethod("default")}>Default</a>
-                        <a href="#name" className={selectedSort === "name" ? "selected-a" : ""} onClick={() => selectSortMethod("name")}>Name</a>
-                        <a href="#priority"className={selectedSort === "priority" ? "selected-a" : ""} onClick={() => selectSortMethod("priority")}>Priority</a>
-                        <a href="#date" className={selectedSort === "date" ? "selected-a" : ""} onClick={() => selectSortMethod("date")}>Creation date</a>
+                        <a href="#default" className={sortType === "default" ? "selected-a" : ""}
+                           onClick={() => changeSortType("default")}>Default</a>
+                        <a href="#name" className={sortType === "name" ? "selected-a" : ""}
+                           onClick={() => changeSortType("name")}>Name</a>
+                        <a href="#priority"className={sortType === "priority" ? "selected-a" : ""}
+                           onClick={() => changeSortType("priority")}>Priority</a>
+                        <a href="#date" className={sortType === "date" ? "selected-a" : ""}
+                           onClick={() => changeSortType("date")}>Creation date</a>
                     </div>}
                 </div>
-
             </div>
             {(filteredData.length === 0) ? (props.data.length > 0) ?
                     <div>Your tasks are all complete. Try clicking Show Completed above!</div>
