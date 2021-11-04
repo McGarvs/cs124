@@ -1,37 +1,20 @@
 import './styles/TaskList.css';
 import Task from './Task';
-import {useState, useEffect} from "react";
+import {useState} from "react";
 
 function TaskList(props) {
     const [showSortDropdown, setShowSortDropdown] = useState(false);
     const filteredData = props.data.filter((task) => props.showCompleted || !task.isCompleted);
     const [sortType, setSortType] = useState("default");
-    const [data, setData] = useState(filteredData);
 
     function toggleDropdown() {
         setShowSortDropdown(!showSortDropdown);
     }
 
-    function changeSortType(newMethod) {
-        setSortType(newMethod);
+    function changeSortType(newType) {
+        props.OnSortTypeChanged(newType)
+        setSortType(newType);
     }
-
-    function sortData(type){
-        const types = {
-            default: 'id',
-            name: 'text',
-            priority: 'priority',
-            date: 'creationDate',
-        };
-        const sortProperty = types[type];
-        const sorted = [...data].sort((a, b) => b[sortProperty] - a[sortProperty]);
-        console.log(sorted[0]);
-        setData(sorted);
-    }
-
-    useEffect(() => {
-        sortData(sortType);
-    }, [sortType]);
 
     return (
         <div>
@@ -43,13 +26,13 @@ function TaskList(props) {
                     <button className="sort-btn" onClick={toggleDropdown}>Sort</button>
                     {showSortDropdown && <div className="dropdown-content">
                         <a href="#default" className={sortType === "default" ? "selected-a" : ""}
-                           onClick={() => changeSortType("default")}>Default</a>
+                           onClick={() => changeSortType("id")}>Default</a>
                         <a href="#name" className={sortType === "name" ? "selected-a" : ""}
-                           onClick={() => changeSortType("name")}>Name</a>
+                           onClick={() => changeSortType("text")}>Name</a>
                         <a href="#priority"className={sortType === "priority" ? "selected-a" : ""}
                            onClick={() => changeSortType("priority")}>Priority</a>
                         <a href="#date" className={sortType === "date" ? "selected-a" : ""}
-                           onClick={() => changeSortType("date")}>Creation date</a>
+                           onClick={() => changeSortType("creationDate")}>Creation date</a>
                     </div>}
                 </div>
             </div>

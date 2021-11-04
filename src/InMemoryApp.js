@@ -59,11 +59,18 @@ function InMemoryApp(props) {
         })
     }
 
+    function handleSortTypeChange(newType) {
+        console.log(newType);
+        const query = db.collection(collectionName);
+        query.orderBy(newType, "desc");
+    }
+
     return (
         <div>
             {loading ? <div id="loading">Loading...</div> :
                 <App data={taskData} onItemChanged={handleItemChanged} onItemAdded={handleItemAdded}
-                     onItemDeleted={handleItemDeleted} deleteCompleted={handleDeleteCompleted}/>}
+                     onItemDeleted={handleItemDeleted} deleteCompleted={handleDeleteCompleted}
+                     OnSortTypeChanged={handleSortTypeChange}/>}
         </div>
     );
 }
