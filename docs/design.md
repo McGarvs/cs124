@@ -1,15 +1,21 @@
 # CS124 Lab3 Design Document
 
 ## Design Decisions
-Our Lab 3 Design Document can be found (fix)[here](https://github.com/McGarvs/cs124/blob/lab2/docs/design.md).
+Our Lab 3 Design Document can be found [here](https://github.com/McGarvs/cs124/blob/lab2/docs/design.md).
 To recap, our final design from Lab 2 can be compared to the final design of Lab 3 in the table below:
 Lab 2 Design                   | Lab 3 Design
 ------------------------------ | ---------------------------- 
 ![](./screenshots/lab2finaldesign.png) | ![](./lab3finaldesign.png)
 
 The key differences are as follows:
-* Different Header Color:
-* 
+* Different Header Color: Changed from light yellow to light blue, it is a calmer color, 
+and we think it fits our aesthetic better.
+* Changed what was displayed in the header and its order to be clearer: The title is now below
+and aligned with the sort button, while the "Completed" Buttons were moved below the add task field.
+* Creating a Task automatically stores creation date, which is now displayed.
+* Each task has a modifiable priority, denoted by exclamation points!
+* Added a Sort button to sort: Alphabetically, by Creation Date, and by Priority.
+* Changed back to the circle to denote a completed task (we think it is more crisp).
 
 ## Alternative Designs
 We 
