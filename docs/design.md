@@ -35,7 +35,7 @@ The user has a list of tasks -- some are completed, some are not.
 
 ![Before marking completed](./before-complete.png)
 
-The user clicks on the open circle within the second task to mark it as completed.
+The user clicks on the open circle within a task to mark it as completed.
 
 ![After marking completed](./after-complete.png)
 
@@ -49,7 +49,7 @@ this new task to the list of tasks.
 
 ![Before add 2](./before-add-task-2.png)
 
-The new task appears at the bottom of the list, uncompleted by default.
+The new task appears at the top of the list, uncompleted by default.
 
 ![After add](./after-add-task.png)
 
