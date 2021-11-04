@@ -17,10 +17,10 @@ firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 const collectionName = "dylan-danica-lab"
 
-function InMemoryApp(props) {
+function InMemoryApp() {
     const [sortType, setSortType] = useState("id")
     const [sortDir, setSortDir] = useState("desc");
-    const query = db.collection(collectionName).orderBy(sortType, sortDir);    // Fill in query here
+    const query = db.collection(collectionName).orderBy(sortType, sortDir);
     const [value, loading, error] = useCollection(query);
     let taskData = [];
 
@@ -54,10 +54,10 @@ function InMemoryApp(props) {
     }
 
     function handleDeleteCompleted() {
-        const completedTasksQuery = db.collection(collectionName).where('isCompleted', '==', 'true').get()
-        completedTasksQuery.then(function (querySnapshot) {
-            querySnapshot.forEach(function (doc) {
-                doc.ref.delete();
+        const ref = db.collection(collectionName)
+        ref.where('isCompleted', '==', true).get().then(querySnapshot => {
+            querySnapshot.forEach(doc => {
+                ref.doc(doc.id).delete()
             })
         })
     }
@@ -75,7 +75,7 @@ function InMemoryApp(props) {
         <div>
             {loading ? <div id="loading">Loading...</div> :
                 <App data={taskData} onItemChanged={handleItemChanged} onItemAdded={handleItemAdded}
-                     onItemDeleted={handleItemDeleted} deleteCompleted={handleDeleteCompleted}
+                     onItemDeleted={handleItemDeleted} onDeleteCompleted={handleDeleteCompleted}
                      sortType={sortType} onSortTypeChanged={handleSortTypeChange}/>}
         </div>
     );

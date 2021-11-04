@@ -24,7 +24,7 @@ function App(props) {
             {showDelCompletedModal &&
             <Modal text={"Are you sure you want to delete all completed tasks?"} confirmButtonText={"Delete All"}
                    onModalDisplayChanged={setShowDelCompletedModal}
-                   onConfirmAction={props.deleteCompleted}/>}
+                   onConfirmAction={props.onDeleteCompleted}/>}
             <Header onShowBtnClick={toggleShowCompleted} showCompleted={showCompleted}
                     onDelCompletedModalDisplay={setShowDelCompletedModal}
                     onAddBtnClick={props.onItemAdded} data={props.data}/>
