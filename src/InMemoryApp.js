@@ -3,6 +3,7 @@ import App from './App';
 import {generateUniqueID} from "web-vitals/dist/modules/lib/generateUniqueID";
 import firebase from "firebase/compat";
 import {useCollection} from "react-firebase-hooks/firestore";
+import {useState} from "react";
 
 const firebaseConfig = {
     apiKey: "AIzaSyCcQ6XCOvMIA7pHME4bWBgy_7OVy_7XErA",
@@ -17,7 +18,9 @@ const db = firebase.firestore();
 const collectionName = "dylan-danica-lab"
 
 function InMemoryApp(props) {
-    const query = db.collection(collectionName);    // Fill in query here
+    const [sortType, setSortType] = useState("id")
+    const [sortDir, setSortDir] = useState("desc");
+    const query = db.collection(collectionName).orderBy(sortType, sortDir);    // Fill in query here
     const [value, loading, error] = useCollection(query);
     let taskData = [];
 
@@ -60,9 +63,12 @@ function InMemoryApp(props) {
     }
 
     function handleSortTypeChange(newType) {
-        console.log(newType);
-        const query = db.collection(collectionName);
-        query.orderBy(newType, "desc");
+        setSortType(newType);
+        if (newType === "text") {
+            setSortDir("asc");
+        } else {
+            setSortDir("desc");
+        }
     }
 
     return (
@@ -70,7 +76,7 @@ function InMemoryApp(props) {
             {loading ? <div id="loading">Loading...</div> :
                 <App data={taskData} onItemChanged={handleItemChanged} onItemAdded={handleItemAdded}
                      onItemDeleted={handleItemDeleted} deleteCompleted={handleDeleteCompleted}
-                     OnSortTypeChanged={handleSortTypeChange}/>}
+                     sortType={sortType} onSortTypeChanged={handleSortTypeChange}/>}
         </div>
     );
 }

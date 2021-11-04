@@ -31,7 +31,7 @@ function App(props) {
             {/*TODO: Pass showCompleted to TaskList and use filter to only display Completed Tasks*/}
             <TaskList onItemChanged={props.onItemChanged} onDeleteID={setDeleteID} showCompleted={showCompleted}
                       onDeleteModalDisplay={setShowDeleteModal} data={props.data}
-                      OnSortTypeChanged={props.OnSortTypeChanged}/>
+                      sortType={props.sortType} onSortTypeChanged={props.onSortTypeChanged}/>
         </div>
     );
 }

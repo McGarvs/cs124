@@ -5,15 +5,9 @@ import {useState} from "react";
 function TaskList(props) {
     const [showSortDropdown, setShowSortDropdown] = useState(false);
     const filteredData = props.data.filter((task) => props.showCompleted || !task.isCompleted);
-    const [sortType, setSortType] = useState("default");
 
     function toggleDropdown() {
         setShowSortDropdown(!showSortDropdown);
-    }
-
-    function changeSortType(newType) {
-        props.OnSortTypeChanged(newType)
-        setSortType(newType);
     }
 
     return (
@@ -25,14 +19,14 @@ function TaskList(props) {
                 <div className="dropdown">
                     <button className="sort-btn" onClick={toggleDropdown}>Sort</button>
                     {showSortDropdown && <div className="dropdown-content">
-                        <a href="#default" className={sortType === "default" ? "selected-a" : ""}
-                           onClick={() => changeSortType("id")}>Default</a>
-                        <a href="#name" className={sortType === "name" ? "selected-a" : ""}
-                           onClick={() => changeSortType("text")}>Name</a>
-                        <a href="#priority"className={sortType === "priority" ? "selected-a" : ""}
-                           onClick={() => changeSortType("priority")}>Priority</a>
-                        <a href="#date" className={sortType === "date" ? "selected-a" : ""}
-                           onClick={() => changeSortType("creationDate")}>Creation date</a>
+                        <a href="#default" className={props.sortType === "id" ? "selected-a" : ""}
+                           onClick={() => props.onSortTypeChanged("id")}>Default</a>
+                        <a href="#name" className={props.sortType === "text" ? "selected-a" : ""}
+                           onClick={() => props.onSortTypeChanged("text")}>Name</a>
+                        <a href="#priority"className={props.sortType === "priority" ? "selected-a" : ""}
+                           onClick={() => props.onSortTypeChanged("priority")}>Priority</a>
+                        <a href="#date" className={props.sortType === "creationDate" ? "selected-a" : ""}
+                           onClick={() => props.onSortTypeChanged("creationDate")}>Creation date</a>
                     </div>}
                 </div>
             </div>
