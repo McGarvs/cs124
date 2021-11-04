@@ -115,7 +115,7 @@
 }
 
 .checked-checkbox {
-    background-color: green;
+    background-color: #f6942a;
     border: white solid 2px;
     border-radius: 100px;
     height: 14px;
