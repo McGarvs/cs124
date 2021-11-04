@@ -19,7 +19,6 @@ function Task(props) {
     const [editing, setEditing] = useState(false);
 
     function changePriority(newPriority) {
-        props.onItemChanged(props.id, "priority", newPriority);
         setPriority(newPriority);
     }
 
@@ -51,6 +50,7 @@ function Task(props) {
             {editing ?
                 <div className="save-btn" onClick={(e) => {
                     props.onItemChanged(props.id, "text", text);
+                    props.onItemChanged(props.id, "priority", priority);
                     setEditing(false);
                 }}>Save</div>
                 :
