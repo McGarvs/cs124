@@ -18,16 +18,19 @@ while the "Completed" Buttons were moved below the add task field.
 * Added a Sort button to sort: Alphabetically, by Creation Date, and by Priority.
 * Changed Green Check Icon to Orange Circle (similar to lab 1) to be more crisp, and to match the
   color scheme for the priority exclamation points.
-* Tasks are now stored in a database, allowing concurrent editing 
+* Tasks are now stored in a database, allowing concurrent editing
+
 ## Alternative Designs
 In our initial planning for how to implement task priority, we thought that we might denote the
 different levels of priority with a series of colored circles akin to a streetlight. However, we
-looked at other examples, and took inspiration from Apple's Reminders app, and chose exclamation 
-points instead. We think that this was more user-friendly and particularly, color-blind friendly.
+looked at other examples, and took inspiration from Apple's Reminders app which denoted priority 
+with exclamation points instead. We think that this design is more user-friendly and particularly, 
+color-blind friendly.
 
-We also decided to reshape and recolor the green checkmarks (that denoted completion) to orange
-circles. We think that this is a more crisp way to denote task completion, and the new color
-matches the color of the priority exclamation points.
+We also decided to reshape the checkmarks (see the lab 2 image above) that denoted completion to circles.
+We think that this is a more crisp way to denote task completion. After implementing the priority,
+we also decided to change the color to match the priority exclamation points in order to have a more
+unified color scheme.
 
 Old Green Checkmarks                    | New Orange Circles
 --------------------------------------- | ---------------------------------------
