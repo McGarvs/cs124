@@ -92,12 +92,12 @@ list of tasks.
 ### Hiding completed tasks
 By default, the list of tasks displays all tasks, completed or not.
 
-![Show all tasks](./screenshots/show-all-tasks.png)
+![Show all tasks](./show-all-tasks.png)
 
 The user clicks on the button "Hide Completed" to hide all completed tasks. In this state, the
 "Delete Completed" button is hidden because there are no complete tasks displayed.
 
-![Hide completed tasks](./screenshots/hide-comp-tasks.png)
+![Hide completed tasks](./hide-comp-tasks.png)
 
 ### Deleting all completed tasks
 The user clicks on "Deleted Completed" button to delete all completed tasks.
