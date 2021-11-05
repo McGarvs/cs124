@@ -18,7 +18,7 @@ while the "Completed" Buttons were moved below the add task field.
 * Added a Sort button to sort: Alphabetically, by Creation Date, and by Priority.
 * Changed Green Check Icon to Orange Circle (similar to lab 1) to be more crisp, and to match the
   color scheme for the priority exclamation points.
-* Tasks are now stored in a database, allowing concurrent editing
+* Tasks are now stored in a database, allowing concurrent viewing and editing of tasks.
 
 ## Alternative Designs
 In our initial planning for how to implement task priority, we thought that we might denote the
@@ -142,4 +142,9 @@ higher up on the list.
 ![After Priority Sort](./screenshots/after-sort.png)
 
 ## Challenges + Reflections
-Deciding
+Switching from the local storage of the task data to centralized storage in firebase was a bit tricky
+and re-implementing each of our functions that modified tasks. In particular, our first re-implementation
+of the "delete all-completed" button was working incorrectly which we only noticed after some user testing.
+In the end, we were able to successfully implement database storage and are proud of the results overall.
+We are also very proud of our continued aesthetic improvements, particularly the color changes and
+shifting the order of items in the header. The end result is a much sleeker app design. 
