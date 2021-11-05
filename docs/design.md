@@ -24,15 +24,15 @@ while the "Completed" Buttons were moved below the add task field.
 In our initial planning for how to implement task priority, we thought that we might denote the
 different levels of priority with a series of colored circles akin to a streetlight. However, we
 looked at other examples, and took inspiration from Apple's Reminders app which denoted priority 
-with exclamation points instead. We think that this design is more user-friendly and particularly, 
-color-blind friendly.
+with exclamation points instead. We think that this design is more user-friendly and in particular, 
+more color-blind friendly.
 
 We also decided to reshape the checkmarks (see the lab 2 image above) that denoted completion to circles.
 We think that this is a more crisp way to denote task completion. After implementing the priority,
 we also decided to change the color to match the priority exclamation points in order to have a more
 unified color scheme.
 
-Old Green Checkmarks                    | New Orange Circles
+Completion in Green                     | Completion in Orange
 --------------------------------------- | ---------------------------------------
 ![](./screenshots/lab3-green-buttons.png) | ![](./screenshots/lab3-finaldesign.png)
 
@@ -41,7 +41,7 @@ TODO
 ## Final Design
 Our final design from this lab looks like this:
 
-![Lab 2 design](./screenshots/lab3_finaldesign.png)
+![Lab 2 design](./screenshots/lab3-finaldesign.png)
 
 We will now walk through each of the supported features.
 
