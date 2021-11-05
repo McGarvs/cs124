@@ -1,7 +1,7 @@
 # CS124 Lab3 Design Document
 
 ## Design Decisions
-Our Lab 3 Design Document can be found [here](https://github.com/McGarvs/cs124/blob/lab2/docs/design.md).
+Our previous Lab 2 Design Document can be found [here](https://github.com/McGarvs/cs124/blob/lab2/docs/design.md).
 To recap, our final design from Lab 2 can be compared to the final design of Lab 3 in the table below:
 
 Lab 2 Design                   | Lab 3 Design
@@ -27,10 +27,11 @@ looked at other examples, and took inspiration from Apple's Reminders app which 
 with exclamation points instead. We think that this design is more user-friendly and in particular, 
 more color-blind friendly.
 
-We also decided to reshape the checkmarks (see the lab 2 image above) that denoted completion to circles.
-We think that this is a more crisp way to denote task completion. After implementing the priority,
-we also decided to change the color to match the priority exclamation points in order to have a more
-unified color scheme.
+We also decided to reshape the checkmarks (see the lab 2 image 
+[above](https://github.com/McGarvs/cs124/blob/lab3/docs/design.md#design-decisions)) 
+that denoted completion to circles. We think that this is a more crisp way to 
+denote task completion. After implementing the priority, we also decided to change 
+the color to match the priority exclamation points in order to have a more unified color scheme.
 
 Completion in Green                     | Completion in Orange
 --------------------------------------- | ---------------------------------------
@@ -64,7 +65,7 @@ this new task to the list of tasks.
 
 ![Before add 2](./screenshots/before-add-task-2.png)
 
-The new task appears at the top of the list, uncompleted by default.
+The new task appears at the top of the list, uncompleted with no priority by default.
 
 ![After add](./screenshots/after-add-task.png)
 
