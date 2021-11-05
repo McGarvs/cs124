@@ -19,10 +19,10 @@ function TaskList(props) {
                 <div className="dropdown">
                     <button className="sort-btn" onClick={toggleDropdown}>Sort</button>
                     {showSortDropdown && <div className="dropdown-content">
-                        <a href="#default" className={props.sortType === "id" ? "selected-a" : ""}
-                           onClick={() => props.onSortTypeChanged("id")}>Default</a>
-                        <a href="#name" className={props.sortType === "text" ? "selected-a" : ""}
-                           onClick={() => props.onSortTypeChanged("text")}>Name</a>
+                        {/*<a href="#default" className={props.sortType === "id" ? "selected-a" : ""}*/}
+                        {/*   onClick={() => props.onSortTypeChanged("id")}>Default</a>*/}
+                        <a href="#alpha" className={props.sortType === "text" ? "selected-a" : ""}
+                           onClick={() => props.onSortTypeChanged("text")}>Alphabetic</a>
                         <a href="#priority"className={props.sortType === "priority" ? "selected-a" : ""}
                            onClick={() => props.onSortTypeChanged("priority")}>Priority</a>
                         <a href="#date" className={props.sortType === "creationDate" ? "selected-a" : ""}

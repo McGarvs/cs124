@@ -53,23 +53,24 @@ The new task appears at the top of the list, uncompleted by default.
 
 ![After add](./after-add-task.png)
 
-### Renaming a task
-The user has a list of tasks and wants to rename the second. The user clicks on the button
-with the edit icon.
+### Editing a task
+The user has a list of tasks and wants to rename and re-prioritize the second. 
+The user clicks on the button with the edit icon.
 
-![Before rename](./screenshots/fin-before-rename.png)
+![Before rename](./before-rename.png)
 
 The user is autofocused on a text box where the original task name is the starting value.
 
-![During rename 1](./screenshots/fin-during-rename-1.png)
+![During rename 1](./during-rename-1.png)
 
-The task text is edited to be something different, then the user clicks on "Save" to save changes.
+The task text is edited to be something different, and the user selects a new priority level.
+The user then clicks on "Save" to save changes.
 
-![During rename 2](./screenshots/fin-during-rename-2.png)
+![During rename 2](./during-rename-2.png)
 
-After clicking save, the renamed task is what's displayed.
+After clicking save, the renamed task is what's displayed, along with a new priority level.
 
-![After rename](./screenshots/fin-after-rename.png)
+![After rename](./after-rename.png)
 
 ### Deleting a task
 The user has a list of tasks and wants to delete the first one. The user clicks on the trash
