@@ -11,15 +11,27 @@ Lab 2 Design                   | Lab 3 Design
 The key differences are as follows:
 * Different Header Color: Changed from light yellow to light blue, it is a calmer color, 
 and we think it fits our aesthetic better.
-* Changed what was displayed in the header and its order to be clearer: The title is now below
-and aligned with the sort button, while the "Completed" Buttons were moved below the add task field.
+* Changed the display order of the header: The title is now under the header, 
+while the "Completed" Buttons were moved below the add task field.
 * Creating a Task automatically stores creation date, which is now displayed.
 * Each task has a modifiable priority, denoted by exclamation points!
 * Added a Sort button to sort: Alphabetically, by Creation Date, and by Priority.
 * Changed Green Check Icon to Orange Circle (similar to lab 1) to be more crisp, and to match the
   color scheme for the priority exclamation points.
+* Tasks are now stored in a database, allowing concurrent editing 
 ## Alternative Designs
-We 
+In our initial planning for how to implement task priority, we thought that we might denote the
+different levels of priority with a series of colored circles akin to a streetlight. However, we
+looked at other examples, and took inspiration from Apple's Reminders app, and chose exclamation 
+points instead. We think that this was more user-friendly and particularly, color-blind friendly.
+
+We also decided to reshape and recolor the green checkmarks (that denoted completion) to orange
+circles. We think that this is a more crisp way to denote task completion, and the new color
+matches the color of the priority exclamation points.
+
+Old Green Checkmarks                    | New Orange Circles
+--------------------------------------- | ---------------------------------------
+![](./screenshots/lab3-green-buttons.png) | ![](./screenshots/lab3-finaldesign.png)
 
 ## User Testing
 TODO
