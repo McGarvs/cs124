@@ -49,7 +49,8 @@ function Task(props) {
                 }
             </div>
             {editing ?
-                <div className="save-btn" onClick={(e) => {
+                <div className={(text !== "")?"save-btn-active":"save-btn-disabled"}
+                     onClick={(e) => {
                     props.onItemChanged(props.id, "text", text);
                     props.onItemChanged(props.id, "priority", priority);
                     setEditing(false);

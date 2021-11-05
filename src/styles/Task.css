@@ -64,8 +64,20 @@
     cursor: pointer;
 }
 
-.save-btn {
-    color: #777777;
+.save-btn-active {
+    background-color: #efefef;
+    cursor: pointer;
+    margin-right: 16px;
+    border: rgba(119, 119, 119, 0.5) solid 1px;
+    border-radius: 4px;
+    padding: 4px 6px 4px 6px;
+    width: 40px;
+    text-align: center;
+}
+
+.save-btn-disabled {
+    pointer-events:none;
+    background-color: #8f8e8e;
     cursor: pointer;
     margin-right: 16px;
     border: rgba(119, 119, 119, 0.5) solid 1px;

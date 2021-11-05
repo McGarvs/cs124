@@ -15,8 +15,17 @@
     margin: 0 16px 8px 0;
 }
 
-.sort-btn {
+.sort-btn-active {
     background-color: #efefef;
+    border: none;
+    border-radius: 4px;
+    height: 28px;
+    width: 56px;
+}
+
+.sort-btn-disabled {
+    pointer-events:none;
+    background-color: #8f8e8e;
     border: none;
     border-radius: 4px;
     height: 28px;
