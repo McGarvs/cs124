@@ -68,7 +68,7 @@ The user then clicks on "Save" to save changes.
 
 ![During rename 2](./during-rename-2.png)
 
-After clicking save, the renamed task is what's displayed, along with a new priority level.
+After clicking save, the renamed task is displayed with a new priority level.
 
 ![After rename](./after-rename.png)
 
@@ -76,18 +76,18 @@ After clicking save, the renamed task is what's displayed, along with a new prio
 The user has a list of tasks and wants to delete the first one. The user clicks on the trash
 can icon.
 
-![Before delete](./screenshots/fin-before-delete.png)
+![Before delete](./before-delete.png)
 
 A modal is displayed that asks the user to confirm or cancel their delete request. If cancel
 is clicked, the modal will close with no changes to the list of tasks. However, the user does
 want to delete and confirms this by clicking "Delete".
 
-![During delete](./screenshots/fin-during-delete.png)
+![During delete](./during-delete.png)
 
 After the delete request is confirmed, the modal closes and the first task is removed from the
 list of tasks.
 
-![After delete](./screenshots/fin-after-delete.png)
+![After delete](./after-delete.png)
 
 ### Hiding completed tasks
 By default, the list of tasks displays all tasks, completed or not.
@@ -113,6 +113,9 @@ tasks are deleted. Since there are no longer any completed tasks in this view, t
 and "Delete Completed" buttons are hidden from view.
 
 ![After delete all completed](./screenshots/after-delete-all-completed.png)
+
+### Changing the task display order
+The user clicks on the "Sort" button to bring up a drop-down menu.
 
 ## Challenges + Reflections
 Deciding
