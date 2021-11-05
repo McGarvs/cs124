@@ -11,14 +11,14 @@ function Header(props) {
                 <div id="add-new-item">
                     <input type="text" id="input-field" placeholder="Enter a task here!" value={text} maxLength="80"
                            onChange={(e) => setText(e.target.value)}/>
-                    <div id="add-btn" onClick={() => {
+                    <button id={(text !== "")?"add-btn-active":"add-btn-disabled"} onClick={() => {
                         if (text !== "") {
                             props.onAddBtnClick(text);
                             setText("");
                         }
                     }
                     }>+
-                    </div>
+                    </button>
                 </div>
                 {haveCompleted &&
                     <div id="master-options">

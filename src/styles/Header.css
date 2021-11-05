@@ -34,8 +34,21 @@
     margin-left: auto;
 }
 
-#add-btn {
+#add-btn-active {
     background-color: #efefef;
+    border: none;
+    border-radius: 0 6px 6px 0;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+    padding: 4px;
+    font-size: 18px;
+    margin-right: auto;
+    width: 30px;
+}
+
+#add-btn-disabled {
+    pointer-events:none;
+    background-color: #8f8e8e;
     border: none;
     border-radius: 0 6px 6px 0;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
