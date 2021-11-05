@@ -102,17 +102,17 @@ The user clicks on the button "Hide Completed" to hide all completed tasks. In t
 ### Deleting all completed tasks
 The user clicks on "Deleted Completed" button to delete all completed tasks.
 
-![Before delete all completed](./screenshots/before-delete-all-comp.png)
+![Before delete all completed](./before-delete-all-comp.png)
 
 A modal pops up asking the user to confirm the request to delete all completed tasks.
 
-![During delete all completed](./screenshots/during-delete-all-comp.png)
+![During delete all completed](./during-delete-all-comp.png)
 
 After the user confirms this "Delete Completed" request, the modal closes and all completed
 tasks are deleted. Since there are no longer any completed tasks in this view, the "Hide Completed"
 and "Delete Completed" buttons are hidden from view.
 
-![After delete all completed](./screenshots/after-delete-all-completed.png)
+![After delete all completed](./after-delete-all-comp.png)
 
 ### Changing the task display order
 The user clicks on the "Sort" button to bring up a drop-down menu.
