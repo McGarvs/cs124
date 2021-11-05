@@ -115,7 +115,15 @@ and "Delete Completed" buttons are hidden from view.
 ![After delete all completed](./after-delete-all-comp.png)
 
 ### Changing the task display order
-The user clicks on the "Sort" button to bring up a drop-down menu.
+The user sees the sort button and decides to click it, bringing up the drop-down menu.
+
+![Before Priority Sort](./before-sort.png)
+
+The user sees that they can sort by alphabetic, priority, and creation date.
+They decide to click sort by priority, and then see the tasks reordered, with higher priorities
+higher up on the list.
+
+![After Priority Sort](./after-sort.png)
 
 ## Challenges + Reflections
 Deciding
