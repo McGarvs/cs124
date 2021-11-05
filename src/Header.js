@@ -22,10 +22,10 @@ function Header(props) {
                 </div>
                 {haveCompleted &&
                     <div id="master-options">
-                        <div id="show-completed-btn" onClick={props.onShowBtnClick}>
-                            {props.showCompleted ? "Hide Completed" : "Show Completed"}</div>
+                        <button id="show-completed-btn" onClick={props.onShowBtnClick}>
+                            {props.showCompleted ? "Hide Completed" : "Show Completed"}</button>
                         {props.showCompleted &&
-                        <div id="dlt-all-btn" onClick={props.onDelCompletedModalDisplay}>Delete Completed</div>}
+                        <button id="dlt-all-btn" onClick={props.onDelCompletedModalDisplay}>Delete Completed</button>}
                     </div>
                 }
             </div>
