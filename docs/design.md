@@ -19,6 +19,7 @@ while the "Completed" Buttons were moved below the add task field.
 * Changed Green Check Icon to Orange Circle (similar to lab 1) to be more crisp, and to match the
   color scheme for the priority exclamation points.
 * Tasks are now stored in a database, allowing concurrent viewing and editing of tasks.
+* The Add, Sort, and Save buttons now are re-styled to be greyer and disabled when appropriate.
 
 ## Alternative Designs
 In our initial planning for how to implement task priority, we thought that we might denote the
@@ -38,11 +39,11 @@ Completion in Green                     | Completion in Orange
 ![](./screenshots/lab3-green-buttons.png) | ![](./screenshots/lab3-finaldesign.png)
 
 ## User Testing
-Our user testing was positive overall, with both of the testers liking the additions from the previous
-versions. One positive change they remarked upon was that they liked our new stylistic choices such as the
-change to a blue header. One problem that the user testing caught was that our delete all completed was
-broken, and that was eventually fixed. Additionally, one tester remarked that the font sizes we chose were a bit
-on the small side, so we increased them a bit more.
+Our user testing was positive overall, with both of the testers liking the additions made since the previous
+version. One positive change they remarked upon was that they liked our new stylistic choices such as the
+change to a blue header. One problem that the user testing caught was that our "delete all completed" button was
+broken, but we were able to fix it not long after. Additionally, one tester remarked that the font sizes 
+we chose were a bit on the small side for a phone, so we increased them to be a bit more to be readable.
 
 ## Final Design
 Our final design from this lab looks like this:
