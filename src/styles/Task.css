@@ -22,14 +22,12 @@
 
 .task-content .task-text {
     display: flex;
-    /*float: left;*/
 }
 
 .task-content .task-date {
     color: #777777;
     font-size: 12px;;
     margin-top: 4px;
-    /*display: flex;*/
 }
 
 .priority {
