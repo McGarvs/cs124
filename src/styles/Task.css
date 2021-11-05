@@ -6,7 +6,7 @@
     justify-content: space-between;
     margin: 0px 16px 16px 16px;
     padding: 14px;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 .item-info {
@@ -27,7 +27,7 @@
 
 .task-content .task-date {
     color: #777777;
-    font-size: x-small;
+    font-size: 12px;;
     margin-top: 4px;
     /*display: flex;*/
 }

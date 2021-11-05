@@ -38,7 +38,12 @@ Completion in Green                     | Completion in Orange
 ![](./screenshots/lab3-green-buttons.png) | ![](./screenshots/lab3-finaldesign.png)
 
 ## User Testing
-TODO
+Our user testing was positive overall, with both of the testers liking the additions from the previous
+versions. One positive change they remarked upon was that they liked our new stylistic choices such as the
+change to a blue header. One problem that the user testing caught was that our delete all completed was
+broken, and that was eventually fixed. Additionally, one tester remarked that the font sizes we chose were a bit
+on the small side, so we increased them a bit more.
+
 ## Final Design
 Our final design from this lab looks like this:
 
