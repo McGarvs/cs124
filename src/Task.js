@@ -26,15 +26,19 @@ function Task(props) {
         <div className="task-container" style={{flexWrap: editing ? "wrap" : "nowrap"}}>
             <div className="item-info">
                 <button className="unchecked-checkbox-btn"
-                     onClick={(e) => {
-                         props.onItemChanged(props.id, "isCompleted", !completed);
-                         setCompleted(!completed);
-                     }
-                     }>
+                        tabIndex={props.modalDisplayed ? "-1" : ""}
+                        onClick={(e) => {
+                            props.onItemChanged(props.id, "isCompleted", !completed);
+                            setCompleted(!completed);
+                        }
+                        }>
                     {completed && <div className="checked-checkbox"></div>}
                 </button>
                 {editing ? <input type="text" className="edit-field" value={text} maxLength="80"
-                                  onFocus={(e) => {e.target.select()}}
+                                  tabIndex={props.modalDisplayed ? "-1" : ""}
+                                  onFocus={(e) => {
+                                      e.target.select()
+                                  }}
                                   onChange={(e) => setText(e.target.value)} autoFocus/>
                     :
                     <div className="task-content">
@@ -49,23 +53,28 @@ function Task(props) {
                 }
             </div>
             {editing ?
-                <button className={(text !== "")?"save-btn-active":"save-btn-disabled"}
-                     onClick={(e) => {
-                    props.onItemChanged(props.id, "text", text);
-                    props.onItemChanged(props.id, "priority", priority);
-                    setEditing(false);
-                }}>Save</button>
+                <button className={(text !== "") ? "save-btn-active" : "save-btn-disabled"}
+                        tabIndex={props.modalDisplayed ? "-1" : ""}
+                        onClick={(e) => {
+                            props.onItemChanged(props.id, "text", text);
+                            props.onItemChanged(props.id, "priority", priority);
+                            setEditing(false);
+                        }}>Save</button>
                 :
                 <div className="item-edit-dlt">
-                    <button className="edit-btn" onClick={(e) => {
-                        setEditing(true);
-                    }}>
+                    <button className="edit-btn"
+                            tabIndex={props.modalDisplayed ? "-1" : ""}
+                            onClick={(e) => {
+                                setEditing(true);
+                            }}>
                         <img src={editIcon} alt="edit"/>
                     </button>
-                    <button className="dlt-btn" onClick={(e) => {
-                        props.onDeleteID(props.id);
-                        props.onDeleteModalDisplay(true);
-                    }}>
+                    <button className="dlt-btn"
+                            tabIndex={props.modalDisplayed ? "-1" : ""}
+                            onClick={(e) => {
+                                props.onDeleteID(props.id);
+                                props.onDeleteModalDisplay(true);
+                            }}>
                         <img src={deleteIcon} alt="delete"/>
                     </button>
                 </div>
@@ -73,13 +82,21 @@ function Task(props) {
 
             {editing &&
             <div className="priority-btn-container">
-                <button className={priority === 0 ? "selected-priority-btn" : ""} onClick={() => changePriority(0)}>None
+                <button className={priority === 0 ? "selected-priority-btn" : ""}
+                        tabIndex={props.modalDisplayed ? "-1" : ""}
+                        onClick={() => changePriority(0)}>None
                 </button>
-                <button className={priority === 1 ? "selected-priority-btn" : ""} onClick={() => changePriority(1)}>!
+                <button className={priority === 1 ? "selected-priority-btn" : ""}
+                        tabIndex={props.modalDisplayed ? "-1" : ""}
+                        onClick={() => changePriority(1)}>!
                 </button>
-                <button className={priority === 2 ? "selected-priority-btn" : ""} onClick={() => changePriority(2)}>!!
+                <button className={priority === 2 ? "selected-priority-btn" : ""}
+                        tabIndex={props.modalDisplayed ? "-1" : ""}
+                        onClick={() => changePriority(2)}>!!
                 </button>
-                <button className={priority === 3 ? "selected-priority-btn" : ""} onClick={() => changePriority(3)}>!!!
+                <button className={priority === 3 ? "selected-priority-btn" : ""}
+                        tabIndex={props.modalDisplayed ? "-1" : ""}
+                        onClick={() => changePriority(3)}>!!!
                 </button>
             </div>
             }
