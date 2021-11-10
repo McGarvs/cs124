@@ -52,7 +52,8 @@
 
 #add-btn-disabled {
     pointer-events:none;
-    background-color: #8f8e8e;
+    background-color: #a2a2a2;
+    color: #797979;
     border: none;
     border-radius: 0 6px 6px 0;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
