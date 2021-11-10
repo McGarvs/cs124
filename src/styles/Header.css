@@ -1,32 +1,27 @@
 #header {
-    background-color: #feffd9;
+    background-color: #c4ecff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
     padding: 16px 0 20px 0;
     margin-bottom: 16px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100px;
+    height: 68px;
     width: 100%;
 }
 
 #header-top {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
-}
-
-#header-title {
-    font-size: 24px;
-    font-weight: bold;
-    margin-left: 16px;
 }
 
 #add-new-item {
     display: flex;
     height: 30px;
+    /*margin-left: 16px;*/
     text-align: center;
-    margin-top: 25px;
+    margin-top: 16px;
     width: 100%;
 }
 
@@ -39,8 +34,21 @@
     margin-left: auto;
 }
 
-#add-btn {
+#add-btn-active {
     background-color: #efefef;
+    border: none;
+    border-radius: 0 6px 6px 0;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+    padding: 4px;
+    font-size: 18px;
+    margin-right: auto;
+    width: 30px;
+}
+
+#add-btn-disabled {
+    pointer-events:none;
+    background-color: #8f8e8e;
     border: none;
     border-radius: 0 6px 6px 0;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
@@ -53,21 +61,30 @@
 
 #master-options {
     display: flex;
-    flex-direction: column;
-    margin-right: 16px;
+    flex-direction: row;
+    margin: 8px 0 0 16px;
     font-size: 12px;
-    text-align: right;
+    text-align: left;
+    justify-content: left;
 }
 
 #show-completed-btn {
-    float: right;
+    float: left;
     color: #777777;
     cursor: pointer;
+    padding: 0;
+    border: none;
+    background: none;
+    font-size: 12px;
 }
 
 #dlt-all-btn {
-    float: right;
+    float: left;
     color: #9a2a2a;
     cursor: pointer;
-    margin-top: 8px;
+    margin-left: 8px;
+    padding: 0;
+    border: none;
+    background: none;
+    font-size: 12px;
 }

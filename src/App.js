@@ -24,13 +24,14 @@ function App(props) {
             {showDelCompletedModal &&
             <Modal text={"Are you sure you want to delete all completed tasks?"} confirmButtonText={"Delete All"}
                    onModalDisplayChanged={setShowDelCompletedModal}
-                   onConfirmAction={props.deleteCompleted}/>}
+                   onConfirmAction={props.onDeleteCompleted}/>}
             <Header onShowBtnClick={toggleShowCompleted} showCompleted={showCompleted}
                     onDelCompletedModalDisplay={setShowDelCompletedModal}
                     onAddBtnClick={props.onItemAdded} data={props.data}/>
             {/*TODO: Pass showCompleted to TaskList and use filter to only display Completed Tasks*/}
             <TaskList onItemChanged={props.onItemChanged} onDeleteID={setDeleteID} showCompleted={showCompleted}
-                      onDeleteModalDisplay={setShowDeleteModal} data={props.data}/>
+                      onDeleteModalDisplay={setShowDeleteModal} data={props.data}
+                      sortType={props.sortType} onSortTypeChanged={props.onSortTypeChanged}/>
         </div>
     );
 }
