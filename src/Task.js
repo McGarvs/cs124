@@ -25,7 +25,7 @@ function Task(props) {
     return (
         <div className="task-container" style={{flexWrap: editing ? "wrap" : "nowrap"}}>
             <div className="item-info">
-                <div className="unchecked-checkbox-btn"
+                <div tabIndex={0} className="unchecked-checkbox-btn"
                      onClick={(e) => {
                          props.onItemChanged(props.id, "isCompleted", !completed);
                          setCompleted(!completed);
@@ -49,7 +49,7 @@ function Task(props) {
                 }
             </div>
             {editing ?
-                <div className={(text !== "")?"save-btn-active":"save-btn-disabled"}
+                <div tabIndex={0} className={(text !== "")?"save-btn-active":"save-btn-disabled"}
                      onClick={(e) => {
                     props.onItemChanged(props.id, "text", text);
                     props.onItemChanged(props.id, "priority", priority);
@@ -57,12 +57,12 @@ function Task(props) {
                 }}>Save</div>
                 :
                 <div className="item-edit-dlt">
-                    <div className="edit-btn" onClick={(e) => {
+                    <div tabIndex={0} className="edit-btn" onClick={(e) => {
                         setEditing(true);
                     }}>
                         <img src={editIcon} alt="edit"/>
                     </div>
-                    <div className="dlt-btn" onClick={(e) => {
+                    <div tabIndex={0} className="dlt-btn" onClick={(e) => {
                         props.onDeleteID(props.id);
                         props.onDeleteModalDisplay(true);
                     }}>
