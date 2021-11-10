@@ -5,20 +5,30 @@ function Header(props) {
     const [text, setText] = useState("");
     const haveCompleted = props.data.find((task) => task.isCompleted) !== undefined;
 
+    // function handleAddTask() {
+    //
+    // }
+
+    function onFormSubmit(e) {
+        e.preventDefault();
+        if (text !== "") {
+            props.onAddBtnClick(text);
+            setText("");
+        }
+    }
+    // onClick={() => handleAddTask()}
     return (
         <div id="header">
             <div id="header-top">
                 <div id="add-new-item">
-                    <input type="text" id="input-field" placeholder="Enter a task here!" value={text} maxLength="80"
-                           onChange={(e) => setText(e.target.value)}/>
-                    <button id={(text !== "")?"add-btn-active":"add-btn-disabled"} onClick={() => {
-                        if (text !== "") {
-                            props.onAddBtnClick(text);
-                            setText("");
-                        }
-                    }
-                    }>+
-                    </button>
+                    <form id="add-form" onSubmit={onFormSubmit}>
+                        <input type="text" id="input-field" placeholder="Enter a task here!" value={text} maxLength="80"
+                               onChange={(e) => setText(e.target.value)}
+                               />
+                        <button type="submit" id={(text !== "")?"add-btn-active":"add-btn-disabled"} >
+                            +
+                        </button>
+                    </form>
                 </div>
                 {haveCompleted &&
                     <div id="master-options">

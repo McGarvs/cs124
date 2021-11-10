@@ -19,10 +19,14 @@
 #add-new-item {
     display: flex;
     height: 30px;
-    /*margin-left: 16px;*/
+    margin-left: 16px;
     text-align: center;
     margin-top: 16px;
     width: 100%;
+}
+
+#add-form {
+    display: inherit;
 }
 
 #input-field {
