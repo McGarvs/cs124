@@ -2,13 +2,18 @@ import './styles/App.css';
 import TaskList from './TaskList';
 import Header from './Header';
 import Modal from './Modal.js';
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 
 function App(props) {
     const [showCompleted, setShowCompleted] = useState(true);
     const [showDeleteModal, setShowDeleteModal] = useState(false);
     const [showDelCompletedModal, setShowDelCompletedModal] = useState(false);
     const [deleteID, setDeleteID] = useState(null);
+    const [modalDisplayed, setModalDisplayed] = useState(showDeleteModal || showDelCompletedModal);
+
+    useEffect(() => {
+        setModalDisplayed(showDeleteModal || showDelCompletedModal);
+    },[showDeleteModal, showDelCompletedModal])
 
     function toggleShowCompleted(item) {
         setShowCompleted(!showCompleted)
@@ -27,11 +32,13 @@ function App(props) {
                    onConfirmAction={props.onDeleteCompleted}/>}
             <Header onShowBtnClick={toggleShowCompleted} showCompleted={showCompleted}
                     onDelCompletedModalDisplay={setShowDelCompletedModal}
-                    onAddBtnClick={props.onItemAdded} data={props.data}/>
+                    onAddBtnClick={props.onItemAdded} data={props.data}
+                    modalDisplayed={modalDisplayed}/>
             {/*TODO: Pass showCompleted to TaskList and use filter to only display Completed Tasks*/}
             <TaskList onItemChanged={props.onItemChanged} onDeleteID={setDeleteID} showCompleted={showCompleted}
                       onDeleteModalDisplay={setShowDeleteModal} data={props.data}
-                      sortType={props.sortType} onSortTypeChanged={props.onSortTypeChanged}/>
+                      sortType={props.sortType} onSortTypeChanged={props.onSortTypeChanged}
+                      modalDisplayed={modalDisplayed}/>
         </div>
     );
 }

@@ -6,3 +6,8 @@ The live version of our mobile Task Application can be found at the following li
 [https://mcgarvs.github.io/cs124/](https://mcgarvs.github.io/cs124/)
 
 Authors: Danica Du & Dylan McGarvey
+
+TODO:
+* make tasks tabbable (including complete button and when editing/saving)
+* do not make background buttons tabbable when a modal display (e.g. to delete all completed tasks) is open
+
