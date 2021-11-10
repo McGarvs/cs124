@@ -6,16 +6,16 @@ import {useCollection} from "react-firebase-hooks/firestore";
 import {useState} from "react";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCcQ6XCOvMIA7pHME4bWBgy_7OVy_7XErA",
-    authDomain: "cs124-fall2021.firebaseapp.com",
-    projectId: "cs124-fall2021",
-    storageBucket: "cs124-fall2021.appspot.com",
-    messagingSenderId: "264318304667",
-    appId: "1:264318304667:web:4be8d27a02811b1ccd613e"
+    apiKey: "AIzaSyCd9qqxvMpEKpBzwfWcc2tlRFa6ICaLH_s",
+    authDomain: "hmc-cs124-fa21-labs.firebaseapp.com",
+    projectId: "hmc-cs124-fa21-labs",
+    storageBucket: "hmc-cs124-fa21-labs.appspot.com",
+    messagingSenderId: "949410042946",
+    appId: "1:949410042946:web:0113b139a7e3cd1cc709db"
 };
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
-const collectionName = "dylan-danica-lab"
+const collectionName = "Danica-McGarvs-HMCcs124-labs"
 
 function InMemoryApp() {
     const [sortType, setSortType] = useState("id")
