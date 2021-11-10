@@ -46,6 +46,8 @@
 }
 
 .edit-btn {
+    border: none;
+    background-color: white;
     color: #777777;
     cursor: pointer;
     margin-right: 16px;
@@ -60,6 +62,8 @@
 }
 
 .dlt-btn {
+    border: none;
+    background-color: white;
     color: #9a2a2a;
     cursor: pointer;
 }
