@@ -25,14 +25,14 @@ function Task(props) {
     return (
         <div className="task-container" style={{flexWrap: editing ? "wrap" : "nowrap"}}>
             <div className="item-info">
-                <div tabIndex={0} className="unchecked-checkbox-btn"
+                <button className="unchecked-checkbox-btn"
                      onClick={(e) => {
                          props.onItemChanged(props.id, "isCompleted", !completed);
                          setCompleted(!completed);
                      }
                      }>
                     {completed && <div className="checked-checkbox"></div>}
-                </div>
+                </button>
                 {editing ? <input type="text" className="edit-field" value={text} maxLength="80"
                                   onFocus={(e) => {e.target.select()}}
                                   onChange={(e) => setText(e.target.value)} autoFocus/>
@@ -49,25 +49,25 @@ function Task(props) {
                 }
             </div>
             {editing ?
-                <div tabIndex={0} className={(text !== "")?"save-btn-active":"save-btn-disabled"}
+                <button className={(text !== "")?"save-btn-active":"save-btn-disabled"}
                      onClick={(e) => {
                     props.onItemChanged(props.id, "text", text);
                     props.onItemChanged(props.id, "priority", priority);
                     setEditing(false);
-                }}>Save</div>
+                }}>Save</button>
                 :
                 <div className="item-edit-dlt">
-                    <div tabIndex={0} className="edit-btn" onClick={(e) => {
+                    <button className="edit-btn" onClick={(e) => {
                         setEditing(true);
                     }}>
                         <img src={editIcon} alt="edit"/>
-                    </div>
-                    <div tabIndex={0} className="dlt-btn" onClick={(e) => {
+                    </button>
+                    <button className="dlt-btn" onClick={(e) => {
                         props.onDeleteID(props.id);
                         props.onDeleteModalDisplay(true);
                     }}>
                         <img src={deleteIcon} alt="delete"/>
-                    </div>
+                    </button>
                 </div>
             }
 
