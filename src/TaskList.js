@@ -17,8 +17,8 @@ function TaskList(props) {
                     My Tasks
                 </div>
                 <div className="dropdown">
-                    <button className={(filteredData.length !== 0)?"sort-btn-active":"sort-btn-disabled"}
-                            onClick={toggleDropdown}>Sort</button>
+                    <button className={(filteredData.length !== 0) ? "sort-btn-active" : "sort-btn-disabled"}
+                            onClick={toggleDropdown} onKeyDown={(e) => (filteredData.length === 0) && e.preventDefault()}>Sort</button>
                     {showSortDropdown && <div className="dropdown-content">
                         {/*<a href="#default" className={props.sortType === "id" ? "selected-a" : ""}*/}
                         {/*   onClick={() => props.onSortTypeChanged("id")}>Default</a>*/}
