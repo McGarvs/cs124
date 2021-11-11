@@ -25,7 +25,8 @@
 
 .sort-btn-disabled {
     pointer-events:none;
-    background-color: #8f8e8e;
+    background-color: #a2a2a2;
+    color: #797979;
     border: none;
     border-radius: 4px;
     height: 28px;

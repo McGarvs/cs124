@@ -39,6 +39,7 @@ function TaskList(props) {
                                             onItemChanged={props.onItemChanged}
                                             onDeleteID={props.onDeleteID}
                                             onDeleteModalDisplay={props.onDeleteModalDisplay}
+                                            modalDisplayed={props.modalDisplayed}
                                             {...item} />)
             }
         </div>
