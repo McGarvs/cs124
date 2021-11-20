@@ -8,7 +8,7 @@ The live version of our mobile Task Application can be found at the following li
 Authors: Danica Du & Dylan McGarvey
 
 TODO:
-* make tasks tabbable (including complete button and when editing/saving)
-* do not make background buttons tabbable when a modal display (e.g. to delete all completed tasks) is open
+* (completed) make tasks tabbable (including complete button and when editing/saving)
+* (completed) do not make background buttons tabbable when a modal display (e.g. to delete all completed tasks) is open
 * implement support for multiple lists
-* format for multiple screen sizes
+* (completed) format for multiple screen sizes
