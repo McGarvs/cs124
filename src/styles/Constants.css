@@ -1,0 +1,8 @@
+:root {
+    --main-priority-color: #f6942a;
+}
+
+button {
+    --btn-disabled-color: #8f8e8e;
+    --btn-enabled-color: #efefef;
+}

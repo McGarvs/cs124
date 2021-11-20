@@ -26,7 +26,7 @@ function Task(props) {
         <div className="task-container" style={{flexWrap: editing ? "wrap" : "nowrap"}}>
             <div className="item-info">
                 <button className="unchecked-checkbox-btn"
-                        tabIndex={props.modalDisplayed ? "-1" : ""}
+                        tabIndex={props.modalDisplayed ? "-1" : "0"}
                         onClick={(e) => {
                             props.onItemChanged(props.id, "isCompleted", !completed);
                             setCompleted(!completed);
@@ -79,7 +79,7 @@ function Task(props) {
                     </button>
                 </div>
             }
-
+            {/*TODO: Refactor to be a function instead*/}
             {editing &&
             <div className="priority-btn-container">
                 <button className={priority === 0 ? "selected-priority-btn" : ""}

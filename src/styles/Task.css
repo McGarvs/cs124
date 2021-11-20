@@ -1,3 +1,5 @@
+@import './Constants.css';
+
 .task-container {
     border-radius: 8px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
@@ -7,12 +9,6 @@
     margin: 0px 16px 16px 16px;
     padding: 14px;
     font-size: 16px;
-}
-
-.item-info {
-    display: flex;
-    margin-right: 8px;
-    text-align: left;
 }
 
 .task-content {
@@ -69,7 +65,7 @@
 }
 
 .save-btn-active {
-    background-color: #efefef;
+    background-color: var(--btn-enabled-color);
     cursor: pointer;
     margin-right: 16px;
     border: rgba(119, 119, 119, 0.5) solid 1px;
@@ -81,7 +77,7 @@
 
 .save-btn-disabled {
     pointer-events:none;
-    background-color: #8f8e8e;
+    background-color: var(--btn-disabled-color);
     cursor: pointer;
     margin-right: 16px;
     border: rgba(119, 119, 119, 0.5) solid 1px;
@@ -118,6 +114,13 @@
     background-color: #e5e5e5;
 }
 
+/*CSS for Checking a Task*/
+.item-info {
+    display: flex;
+    margin-right: 8px;
+    text-align: left;
+}
+
 .unchecked-checkbox-btn {
     background-color: transparent;
     border: #c5c5c5 solid 1px;
@@ -129,24 +132,10 @@
 }
 
 .checked-checkbox {
-    background-color: #f6942a;
+    background-color: var(--main-priority-color);
     border: white solid 2px;
     border-radius: 100px;
+    margin-right: 8px;
     height: 14px;
     width: 14px;
-}
-
-.checked-checkbox-btn {
-    background-color: transparent;
-    border: none;
-    border-radius: 100px;
-    cursor: pointer;
-    margin-right: 8px;
-    height: 100%;
-    width: 100%;
-}
-
-.checked-checkbox-btn img {
-    height: 100%;
-    width: 100%;
 }
