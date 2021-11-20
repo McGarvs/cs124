@@ -1,13 +1,19 @@
 #header {
     background-color: #c4ecff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
-    padding: 16px 0 20px 0;
-    margin-bottom: 16px;
+    padding: 16px 16px 20px 16px;
+    margin-bottom: 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 68px;
     width: 100%;
+}
+
+@media screen and (min-width: 480px) {
+    #header {
+        padding: 16px 20% 44px 20%;
+    }
 }
 
 #header-top {
@@ -19,7 +25,6 @@
 #add-new-item {
     display: flex;
     height: 30px;
-    margin-left: 16px;
     text-align: center;
     margin-top: 16px;
     width: 100%;
@@ -45,7 +50,7 @@
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
     color: rgb(255, 255, 255);
     cursor: pointer;
-    padding: 4px;
+    padding: 6px;
     font-size: 18px;
     margin-right: auto;
     width: 30px;
@@ -65,10 +70,25 @@
     width: 30px;
 }
 
+@media screen and (min-width: 640px) {
+    #add-new-item {
+        height: 38px;
+    }
+    #input-field {
+        width: 400px;
+    }
+    #add-btn-active {
+        width: 38px;
+    }
+    #add-btn-disabled {
+        width: 38px;
+    }
+}
+
 #master-options {
     display: flex;
     flex-direction: row;
-    margin: 8px 0 0 16px;
+    margin-top: 8px;
     font-size: 12px;
     text-align: left;
     justify-content: left;
@@ -81,7 +101,7 @@
     padding: 0;
     border: none;
     background: none;
-    font-size: 12px;
+    font-size: inherit;
 }
 
 #dlt-all-btn {
@@ -92,5 +112,15 @@
     padding: 0;
     border: none;
     background: none;
-    font-size: 12px;
+    font-size: inherit;
+}
+
+@media screen and (min-width: 480px) {
+    #master-options {
+        font-size: 14px;
+        margin-top: 12px;
+    }
+    #dlt-all-btn {
+        margin-left: 12px;
+    }
 }

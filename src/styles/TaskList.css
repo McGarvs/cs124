@@ -1,7 +1,17 @@
+#tasklist-container {
+    padding: 0 16px;
+}
+
+@media screen and (min-width: 480px) {
+    #tasklist-container {
+        padding: 0 20%;
+    }
+}
+
 #title-container {
     display: flex;
     justify-content: space-between;
-    margin: 0 16px 16px 16px;
+    margin-bottom: 16px;
 }
 
 #title {
