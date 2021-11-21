@@ -7,9 +7,8 @@ import {useState} from "react";
 function InMemoryApp(props) {
     const [sortType, setSortType] = useState("id")
     const [sortDir, setSortDir] = useState("desc");
-    const db = props.db;
-    const collectionName = props.collectionName;
-    const query = db.collection(collectionName).doc(props.currentListId).collection('Tasks').orderBy(sortType, sortDir);
+    const subCollectionRef = props.collectionRef.doc(props.currentListId).collection('Tasks');
+    const query = subCollectionRef.orderBy(sortType, sortDir);
     const [value, loading, error] = useCollection(query);
 
     let taskData = [];
@@ -20,7 +19,7 @@ function InMemoryApp(props) {
     }
 
     function handleItemChanged(itemID, field, newValue) {
-        const docRef = db.collection(collectionName).doc(props.currentListId).collection('Tasks').doc(itemID);
+        const docRef = subCollectionRef.doc(itemID);
         docRef.update(field, newValue);
     }
 
@@ -33,22 +32,17 @@ function InMemoryApp(props) {
             priority: 0,
             creationDate: today.toLocaleDateString("en-US"), // "11/02/2021" // TODO: change this
         }
-        const docRef = db.collection(collectionName).doc(props.currentListId).collection('Tasks').doc(newItem.id);
+        const docRef = subCollectionRef.doc(newItem.id);
         docRef.set(newItem);
     }
 
     function handleItemDeleted(itemID) {
-        const docRef = db.collection(collectionName).doc(props.currentListId).collection('Tasks').doc(itemID);
+        const docRef = subCollectionRef.doc(itemID);
         docRef.delete();
     }
 
     function handleDeleteCompleted() {
-        const ref = db.collection(collectionName).doc(props.currentListId).collection('Tasks')
-        ref.where('isCompleted', '==', true).get().then(querySnapshot => {
-            querySnapshot.forEach(doc => {
-                ref.doc(doc.id).delete()
-            })
-        })
+        taskData.map((task) => {if(task.isCompleted){subCollectionRef.doc(task.id).delete()}});
     }
 
     function handleSortTypeChange(newType) {
@@ -60,6 +54,12 @@ function InMemoryApp(props) {
         }
     }
 
+    function handleDeleteAll(){
+        taskData.map((task) => {subCollectionRef.doc(task.id).delete()});
+        console.log("DELETED Sub");
+        props.onCurrentListDelete();
+    }
+
     return (
         <div>
             {loading ? <div id="loading">Loading...</div> :
@@ -69,6 +69,7 @@ function InMemoryApp(props) {
                      allLists={props.allLists} createNewList={props.createNewList}
                      currentListId={props.currentListId}
                      onCurrentListChanged={props.onCurrentListChanged}
+                     onCurrentListDelete={handleDeleteAll}
                 />}
         </div>
     );

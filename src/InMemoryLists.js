@@ -38,14 +38,13 @@ function InMemoryLists() {
         }
         const docRef = db.collection(collectionName).doc(newList.id);
         docRef.set(newList);
-        // const subDocRef = db.collection(collectionName).doc(taskListId);
-        // subDocRef.set(newList);
     }
 
-    function handleListDeleted(listId) {
-        const docRef = db.collection(collectionName).doc(listId);
-        console.log("DELETE", listId)
+    function handleCurrentListDelete() {
+        const docRef = db.collection(collectionName).doc(currentListId);
+        console.log("DELETE", currentListId)
         docRef.delete();
+        setCurrentListId("");
     }
 
     function handleCurrentListChanged(id) {
@@ -60,8 +59,10 @@ function InMemoryLists() {
                                              currentListId={currentListId}
                                              modalDisplayed={false}/>
             : <InMemoryApp db={db} collectionName={collectionName} currentListId={currentListId}
+                           collectionRef={db.collection(collectionName)}
                            allLists={allLists}
                            createNewList={handleListAdded}
+                           onCurrentListDelete={handleCurrentListDelete}
                            onCurrentListChanged={handleCurrentListChanged}/>
             }
         </div>
