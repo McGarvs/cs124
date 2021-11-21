@@ -17,8 +17,10 @@ function Lists(props) {
             <select className={"lists-dropdown"}
                     tabIndex={props.modalDisplayed ? "-1" : ""}
                     onChange={(e) => props.onCurrentListChanged(e.target.value)}>
-                { currentListDisplayed ? <option value={""} >Choose a List</option> :
-                    <option value={""} >Add a New List</option> }
+                { (currentListDisplayed ) ? (props.allLists.length !== 0) ?
+                    <option value={""} >Choose a List</option>:
+                    <option value={""} >No Lists Exist</option>:
+                    <option value={""} >Add a New List</option>}
                 {props.allLists.map((myList) => <option key={myList.id}
                                                         selected={(myList.id === props.currentListId)?"selected":""}
                                                         value={myList.id}>{myList.name}</option>)}
