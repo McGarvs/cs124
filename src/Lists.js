@@ -10,21 +10,19 @@ function Lists(props) {
             console.log("Current Data:", props.allLists);
         }
     }
-    function onSelect(index) {
-        const id = props.allLists[index].id;
+    function onSelect(id) {
         props.onCurrentListChanged(id);
     }
 
     return(
-        <div id="selectList-container">
+        <div id="lists-container">
             <select className={"lists-dropdown"}
                     tabIndex={props.modalDisplayed ? "-1" : ""}
                     onChange={(e) => onSelect(e.target.value)}>
                 <option value={null} >Create or Choose a List</option>
-                {/*TODO: Change from text to Name once Lists implemented*/}
-                {props.allLists.map((myList, index) => <option key={myList.id}
+                {props.allLists.map((myList) => <option key={myList.id}
                                                                selected={(myList.id === props.currentListId)?"selected":""}
-                                                               value={index}>{myList.name}</option>)}
+                                                               value={myList.id}>{myList.name}</option>)}
             </select>
             <br/>
             <form onSubmit={onFormSubmit}>
@@ -32,6 +30,8 @@ function Lists(props) {
                        onChange={(e) => setName(e.target.value)}/>
                 <button type="submit">Submit</button>
             </form>
+            <br/>
+            <button type="submit" onClick={() => console.log("Delete List")}>Delete Current List</button>
         </div>
     )
 }
