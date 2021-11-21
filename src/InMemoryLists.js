@@ -28,7 +28,6 @@ function InMemoryLists() {
         for (const doc of value.docs) {
             allLists.push(doc.data());
         }
-        console.log("Data:", allLists);
     }
 
     function handleListAdded(myName) {
@@ -42,7 +41,6 @@ function InMemoryLists() {
 
     function handleCurrentListDelete() {
         const docRef = db.collection(collectionName).doc(currentListId);
-        console.log("DELETE", currentListId)
         docRef.delete();
         setCurrentListId("");
     }

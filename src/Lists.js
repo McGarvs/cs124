@@ -2,6 +2,7 @@ import {useState} from 'react';
 
 function Lists(props) {
     const [name, setName] = useState("");
+    const currentListDisplayed = (props.currentListId === "");
     function onFormSubmit(e) {
         e.preventDefault();
         if (name !== "") {
@@ -10,23 +11,20 @@ function Lists(props) {
             console.log("Current Data:", props.allLists);
         }
     }
-    function onSelect(id) {
-        props.onCurrentListChanged(id);
-    }
 
     return(
         <div id="lists-container">
             <select className={"lists-dropdown"}
                     tabIndex={props.modalDisplayed ? "-1" : ""}
-                    onChange={(e) => onSelect(e.target.value)}>
-                { (props.currentListId === "") ? <option value={""} >Choose a List</option> :
+                    onChange={(e) => props.onCurrentListChanged(e.target.value)}>
+                { currentListDisplayed ? <option value={""} >Choose a List</option> :
                     <option value={""} >Add a New List</option> }
                 {props.allLists.map((myList) => <option key={myList.id}
-                                                               selected={(myList.id === props.currentListId)?"selected":""}
-                                                               value={myList.id}>{myList.name}</option>)}
+                                                        selected={(myList.id === props.currentListId)?"selected":""}
+                                                        value={myList.id}>{myList.name}</option>)}
             </select>
 
-            {(props.currentListId === "") &&
+            {currentListDisplayed &&
             <form onSubmit={onFormSubmit}>
                 <input type={"text"} placeholder={"Enter a List Name"}
                        tabIndex={props.modalDisplayed ? "-1" : ""}
@@ -34,9 +32,9 @@ function Lists(props) {
                 <button type="submit">+</button>
             </form>}
 
-            {!(props.currentListId === "") &&
+            {(!currentListDisplayed) &&
             <button type="submit" tabIndex={props.modalDisplayed ? "-1" : ""}
-                    onClick={props.onCurrentListDelete}>Delete Current List</button>}
+                    onClick={(e) => {props.onDelListModalDisplay(true)}}>Delete Current List</button>}
         </div>
     )
 }
