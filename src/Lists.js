@@ -28,7 +28,7 @@ function Lists(props) {
 
             {currentListDisplayed &&
             <form onSubmit={onFormSubmit}>
-                <input type={"text"} placeholder={"Enter a List Name"}
+                <input type={"text"} placeholder={"Enter a List Name"} maxLength="80"
                        tabIndex={props.modalDisplayed ? "-1" : ""}
                        onChange={(e) => setName(e.target.value)}/>
                 <button type="submit">+</button>
