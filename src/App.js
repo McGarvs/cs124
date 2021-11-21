@@ -38,6 +38,7 @@ function App(props) {
             <Lists allLists={props.allLists}
                    createNewList={props.createNewList}
                    onCurrentListChanged={props.onCurrentListChanged}
+                   currentListId={props.currentListId}
                    modalDisplayed={modalDisplayed}/>
             {/*TODO: Pass showCompleted to TaskList and use filter to only display Completed Tasks*/}
             <TaskList onItemChanged={props.onItemChanged} onDeleteID={setDeleteID} showCompleted={showCompleted}

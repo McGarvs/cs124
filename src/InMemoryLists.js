@@ -28,7 +28,7 @@ function InMemoryLists() {
         for (const doc of value.docs) {
             allLists.push(doc.data());
         }
-        console.log("Data:", allLists[0]);
+        console.log("Data:", allLists);
     }
 
     function handleListAdded(myName) {
@@ -55,9 +55,10 @@ function InMemoryLists() {
     return (
         <div>
             {(!currentListId) ? <Lists allLists={allLists}
-                                      createNewList={handleListAdded}
-                                      onCurrentListChanged={handleCurrentListChanged}
-                                      modalDisplayed={false}/>
+                                       createNewList={handleListAdded}
+                                       onCurrentListChanged={handleCurrentListChanged}
+                                       currentListId={currentListId}
+                                       modalDisplayed={false}/>
             : <InMemoryApp db={db} collectionName={collectionName} currentListId={currentListId}
                            allLists={allLists}
                            createNewList={handleListAdded}

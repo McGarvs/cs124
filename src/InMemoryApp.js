@@ -67,7 +67,7 @@ function InMemoryApp(props) {
                      onItemDeleted={handleItemDeleted} onDeleteCompleted={handleDeleteCompleted}
                      sortType={sortType} onSortTypeChanged={handleSortTypeChange}
                      allLists={props.allLists} createNewList={props.createNewList}
-                     currentList={props.currentList}
+                     currentListId={props.currentListId}
                      onCurrentListChanged={props.onCurrentListChanged}
                 />}
         </div>

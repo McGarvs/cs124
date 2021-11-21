@@ -11,9 +11,7 @@ function Lists(props) {
         }
     }
     function onSelect(index) {
-        const name = props.allLists[index].name;
         const id = props.allLists[index].id;
-        console.log("SELECTED", index, name, id);
         props.onCurrentListChanged(id);
     }
 
@@ -24,7 +22,9 @@ function Lists(props) {
                     onChange={(e) => onSelect(e.target.value)}>
                 <option value={null} >Create or Choose a List</option>
                 {/*TODO: Change from text to Name once Lists implemented*/}
-                {props.allLists.map((myList, index) => <option key={myList.id} value={index}>{myList.text}</option>)}
+                {props.allLists.map((myList, index) => <option key={myList.id}
+                                                               selected={(myList.id === props.currentListId)?"selected":""}
+                                                               value={index}>{myList.name}</option>)}
             </select>
             <br/>
             <form onSubmit={onFormSubmit}>
