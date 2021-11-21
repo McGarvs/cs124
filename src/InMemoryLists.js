@@ -19,7 +19,7 @@ const db = firebase.firestore();
 const collectionName = "Danica-McGarvs-HMCcs124-labs"
 
 function InMemoryLists() {
-    const [currentListId, setcurrentListId] = useState(null);
+    const [currentListId, setCurrentListId] = useState("");
     const query = db.collection(collectionName).orderBy("id");
     const [value, loading, error] = useCollection(query);
     let allLists = [];
@@ -49,16 +49,16 @@ function InMemoryLists() {
     }
 
     function handleCurrentListChanged(id) {
-        setcurrentListId(id);
+        setCurrentListId(id);
     }
 
     return (
         <div>
-            {(!currentListId) ? <Lists allLists={allLists}
-                                       createNewList={handleListAdded}
-                                       onCurrentListChanged={handleCurrentListChanged}
-                                       currentListId={currentListId}
-                                       modalDisplayed={false}/>
+            {(currentListId === "") ? <Lists allLists={allLists}
+                                             createNewList={handleListAdded}
+                                             onCurrentListChanged={handleCurrentListChanged}
+                                             currentListId={currentListId}
+                                             modalDisplayed={false}/>
             : <InMemoryApp db={db} collectionName={collectionName} currentListId={currentListId}
                            allLists={allLists}
                            createNewList={handleListAdded}
