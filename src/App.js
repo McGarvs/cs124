@@ -1,6 +1,7 @@
 import './styles/App.css';
 import TaskList from './TaskList';
 import Header from './Header';
+import Lists from './Lists';
 import Modal from './Modal.js';
 import {useEffect, useState} from 'react';
 
@@ -34,6 +35,10 @@ function App(props) {
                     onDelCompletedModalDisplay={setShowDelCompletedModal}
                     onAddBtnClick={props.onItemAdded} data={props.data}
                     modalDisplayed={modalDisplayed}/>
+            <Lists allLists={props.allLists}
+                   createNewList={props.createNewList}
+                   onCurrentListChanged={props.onCurrentListChanged}
+                   modalDisplayed={modalDisplayed}/>
             {/*TODO: Pass showCompleted to TaskList and use filter to only display Completed Tasks*/}
             <TaskList onItemChanged={props.onItemChanged} onDeleteID={setDeleteID} showCompleted={showCompleted}
                       onDeleteModalDisplay={setShowDeleteModal} data={props.data}

@@ -2,11 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles/index.css';
 import reportWebVitals from './reportWebVitals';
-import InMemoryApp from './InMemoryApp';
+import InMemoryLists from './InMemoryLists';
 
 ReactDOM.render(
   <React.StrictMode>
-    <InMemoryApp/>
+    <InMemoryLists/>
   </React.StrictMode>,
   document.getElementById('root')
 );
