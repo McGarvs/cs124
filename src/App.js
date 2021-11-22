@@ -50,7 +50,8 @@ function App(props) {
             <TaskList onItemChanged={props.onItemChanged} onDeleteID={setDeleteID} showCompleted={showCompleted}
                       onDeleteModalDisplay={setShowDeleteModal} data={props.data}
                       sortType={props.sortType} onSortTypeChanged={props.onSortTypeChanged}
-                      modalDisplayed={modalDisplayed}/>
+                      modalDisplayed={modalDisplayed}
+                      currentListName={props.currentListName}/>
         </div>
     );
 }

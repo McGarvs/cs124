@@ -14,15 +14,13 @@ function TaskList(props) {
         <div id="tasklist-container">
             <div id="title-container">
                 <div id="title">
-                    My Tasks
+                    {props.currentListName}
                 </div>
                 <div className="dropdown">
                     <button className={(filteredData.length !== 0) ? "sort-btn-active" : "sort-btn-disabled"}
                             onClick={toggleDropdown} tabIndex={props.modalDisplayed ? "-1" : ""}
                             onKeyDown={(e) => (filteredData.length === 0) && e.preventDefault()}>Sort</button>
                     {showSortDropdown && <div className="dropdown-content">
-                        {/*<a href="#default" className={props.sortType === "id" ? "selected-a" : ""}*/}
-                        {/*   onClick={() => props.onSortTypeChanged("id")}>Default</a>*/}
                         <a href="#alpha" className={props.sortType === "text" ? "selected-a" : ""}
                            onClick={() => props.onSortTypeChanged("text")}>Alphabetic</a>
                         <a href="#priority"className={props.sortType === "priority" ? "selected-a" : ""}

@@ -20,6 +20,7 @@ const collectionName = "Danica-McGarvs-HMCcs124-labs"
 
 function InMemoryLists() {
     const [currentListId, setCurrentListId] = useState("");
+    const [currentListName, setCurrentListName] = useState("");
     const query = db.collection(collectionName).orderBy("id");
     const [value, loading, error] = useCollection(query);
     let allLists = [];
@@ -43,10 +44,13 @@ function InMemoryLists() {
         const docRef = db.collection(collectionName).doc(currentListId);
         docRef.delete();
         setCurrentListId("");
+        setCurrentListName("");
     }
 
     function handleCurrentListChanged(id) {
         setCurrentListId(id);
+        let currentList = allLists.filter(currList => currList.id === id);
+        setCurrentListName(currentList[0].name);
     }
 
     return (
@@ -67,6 +71,7 @@ function InMemoryLists() {
                         </div>
                     </div>
                     : <InMemoryApp db={db} collectionName={collectionName} currentListId={currentListId}
+                                   currentListName={currentListName}
                                    collectionRef={db.collection(collectionName)}
                                    allLists={allLists}
                                    createNewList={handleListAdded}

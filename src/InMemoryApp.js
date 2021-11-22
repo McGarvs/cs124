@@ -68,6 +68,7 @@ function InMemoryApp(props) {
                      sortType={sortType} onSortTypeChanged={handleSortTypeChange}
                      allLists={props.allLists} createNewList={props.createNewList}
                      currentListId={props.currentListId}
+                     currentListName={props.currentListName}
                      onCurrentListChanged={props.onCurrentListChanged}
                      onCurrentListDelete={handleDeleteAll}
                 />}
