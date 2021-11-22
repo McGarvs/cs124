@@ -19,6 +19,14 @@ function Lists(props) {
         setShowListDropdown(!showListDropdown);
     }
 
+    function handleEnterPress(e, id){
+        e.preventDefault();
+        if (e.which === 13) {
+            props.onCurrentListChanged(id);
+            toggleDropdown();
+        }
+    }
+
     return(
         <div id="lists-container">
             <div className={!currentListDisplayed ? "home-lists-dropdown" : "lists-dropdown home-lists-dropdown"}>
@@ -29,8 +37,10 @@ function Lists(props) {
                         (props.allLists.length !== 0) ?"Choose a List" : "No Lists Exist"}</button>
                 {showListDropdown && <div className="lists-dropdown-content">
                     {props.allLists.map((myList) => <a key={myList.id}
-                                                        className={(myList.id === props.currentListId)?"list-unselected list-selected":"list-unselected"}
-                                                        onClick={() => props.onCurrentListChanged(myList.id)}>{myList.name}</a>)}
+                                                       tabIndex={props.modalDisplayed ? "-1" : "0"}
+                                                       className={(myList.id === props.currentListId)?"list-unselected list-selected":"list-unselected"}
+                                                       onKeyUp={(e) => handleEnterPress(e, myList.id)}
+                                                       onClick={() => props.onCurrentListChanged(myList.id)}>{myList.name}</a>)}
                 </div>}
             </div>
             {!currentListDisplayed &&
