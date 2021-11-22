@@ -1,0 +1,18 @@
+#landing-header {
+    background-color: #c4ecff;
+    height: 88px;
+    width: 100%;
+    position: relative;
+}
+
+#landing-header-heading {
+    font-weight: bold;
+    font-size: 28px;
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+}
+
+#landing-content {
+    padding: 20px;
+}

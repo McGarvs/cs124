@@ -1,4 +1,4 @@
-// import './styles/InMemoryApp.css';
+import './styles/InMemoryList.css';
 import InMemoryApp from './InMemoryApp';
 import {generateUniqueID} from "web-vitals/dist/modules/lib/generateUniqueID";
 import firebase from "firebase/compat";
@@ -51,18 +51,25 @@ function InMemoryLists() {
 
     return (
         <div>
-            {(currentListId === "") ? <Lists allLists={allLists}
-                                             createNewList={handleListAdded}
-                                             onCurrentListChanged={handleCurrentListChanged}
-                                             currentListId={currentListId}
-                                             modalDisplayed={false}/>
-            : <InMemoryApp db={db} collectionName={collectionName} currentListId={currentListId}
-                           collectionRef={db.collection(collectionName)}
-                           allLists={allLists}
-                           createNewList={handleListAdded}
-                           onCurrentListDelete={handleCurrentListDelete}
-                           onCurrentListChanged={handleCurrentListChanged}/>
-            }
+            <div id="landing-header">
+                <div id="landing-header-heading">
+                    Todo App
+                </div>
+            </div>
+            <div id="landing-content">
+                {(currentListId === "") ? <Lists allLists={allLists}
+                                                 createNewList={handleListAdded}
+                                                 onCurrentListChanged={handleCurrentListChanged}
+                                                 currentListId={currentListId}
+                                                 modalDisplayed={false}/>
+                    : <InMemoryApp db={db} collectionName={collectionName} currentListId={currentListId}
+                                   collectionRef={db.collection(collectionName)}
+                                   allLists={allLists}
+                                   createNewList={handleListAdded}
+                                   onCurrentListDelete={handleCurrentListDelete}
+                                   onCurrentListChanged={handleCurrentListChanged}/>
+                }
+            </div>
         </div>
     );
 }
