@@ -31,7 +31,7 @@ function Lists(props) {
                                                         onClick={() => props.onCurrentListChanged(myList.id)}>{myList.name}</li>)}
                 </ul>}
             </div>
-            {/*<br/>*/}
+            <br/>
             {/*<select className={"lists-dropdown"}*/}
             {/*        tabIndex={props.modalDisplayed ? "-1" : ""}*/}
             {/*        onChange={(e) => props.onCurrentListChanged(e.target.value)}>*/}
