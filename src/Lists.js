@@ -22,7 +22,7 @@ function Lists(props) {
     return(
         <div id="lists-container">
             <div className={!currentListDisplayed ? "home-lists-dropdown" : "lists-dropdown home-lists-dropdown"}>
-                <button onClick={toggleDropdown}>
+                <button onClick={toggleDropdown} tabIndex={props.modalDisplayed ? "-1" : ""}>
                     {currentListDisplayed ?
                         <img src={dropdownIcon} alt="list dropdown"/>
                         :

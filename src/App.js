@@ -11,11 +11,12 @@ function App(props) {
     const [showDelCompletedModal, setShowDelCompletedModal] = useState(false);
     const [showDelListModal, setShowDelListModal] = useState(false);
     const [deleteID, setDeleteID] = useState(null);
-    const [modalDisplayed, setModalDisplayed] = useState(showDeleteModal || showDelCompletedModal);
+    const [modalDisplayed, setModalDisplayed] = useState(showDeleteModal || showDelCompletedModal || showDelListModal);
 
     useEffect(() => {
-        setModalDisplayed(showDeleteModal || showDelCompletedModal);
-    },[showDeleteModal, showDelCompletedModal])
+        setModalDisplayed(showDeleteModal || showDelCompletedModal || showDelListModal);
+        console.log("modal displayed");
+    },[showDeleteModal, showDelCompletedModal, showDelListModal])
 
     function toggleShowCompleted(item) {
         setShowCompleted(!showCompleted)

@@ -14,12 +14,13 @@ function TaskList(props) {
 
     return (
         <div id="tasklist-container">
+            {currentListDisplayed &&
             <div id="home-btn-container">
-                {currentListDisplayed &&
                 <button
-                    id="home-btn"
-                    onClick={() => props.onCurrentListChanged("")}>Home</button>}
-            </div>
+                    id="home-btn" tabIndex={props.modalDisplayed ? "-1" : ""}
+                    onClick={() => props.onCurrentListChanged("")}>Home
+                </button>
+            </div>}
             <div id="title-container">
                 <div id="title">
                     {props.currentListName}
@@ -33,26 +34,30 @@ function TaskList(props) {
                 <div className="dropdown">
                     <button className={(filteredData.length !== 0) ? "sort-btn-active" : "sort-btn-disabled"}
                             onClick={toggleDropdown} tabIndex={props.modalDisplayed ? "-1" : ""}
-                            onKeyDown={(e) => (filteredData.length === 0) && e.preventDefault()}>Sort</button>
+                            onKeyDown={(e) => (filteredData.length === 0) && e.preventDefault()}>Sort
+                    </button>
                     {showSortDropdown && <div className="dropdown-content">
                         <a href="#alpha" className={props.sortType === "text" ? "selected-a" : ""}
+                           tabIndex={props.modalDisplayed ? "-1" : ""}
                            onClick={() => props.onSortTypeChanged("text")}>Alphabetic</a>
-                        <a href="#priority"className={props.sortType === "priority" ? "selected-a" : ""}
+                        <a href="#priority" className={props.sortType === "priority" ? "selected-a" : ""}
+                           tabIndex={props.modalDisplayed ? "-1" : ""}
                            onClick={() => props.onSortTypeChanged("priority")}>Priority</a>
                         <a href="#date" className={props.sortType === "creationDate" ? "selected-a" : ""}
+                           tabIndex={props.modalDisplayed ? "-1" : ""}
                            onClick={() => props.onSortTypeChanged("creationDate")}>Creation date</a>
                     </div>}
                 </div>
             </div>
             {(filteredData.length === 0) ? (props.data.length > 0) ?
                     <div>Your tasks are all complete. Try clicking Show Completed above!</div>
-                    :<div>Your task list is empty. Try entering a task in the form above!</div>
-            : filteredData.map((item) => <Task key={item.id}
-                                            onItemChanged={props.onItemChanged}
-                                            onDeleteID={props.onDeleteID}
-                                            onDeleteModalDisplay={props.onDeleteModalDisplay}
-                                            modalDisplayed={props.modalDisplayed}
-                                            {...item} />)
+                    : <div>Your task list is empty. Try entering a task in the form above!</div>
+                : filteredData.map((item) => <Task key={item.id}
+                                                   onItemChanged={props.onItemChanged}
+                                                   onDeleteID={props.onDeleteID}
+                                                   onDeleteModalDisplay={props.onDeleteModalDisplay}
+                                                   modalDisplayed={props.modalDisplayed}
+                                                   {...item} />)
             }
         </div>
     );
