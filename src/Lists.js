@@ -19,18 +19,18 @@ function Lists(props) {
 
     return(
         <div id="lists-container">
-            <div className="dropdown">
+            <div className="lists-dropdown">
                 <button onClick={toggleDropdown}>
                     {(props.allLists.length !== 0) ?"Choose a List" : "No Lists Exist"}</button>
-                {showListDropdown && <ul>
+                {showListDropdown && <div className="lists-dropdown-content">
                     {!currentListDisplayed &&
                             <li value={""}
-                                className={("" === props.currentListId)?"li-selected":"li-unselected"}
+                                className={("" === props.currentListId)?"list-selected":"list-unselected"}
                                 onClick={() => props.onCurrentListChanged("")}>Add a New List</li>}
-                    {props.allLists.map((myList) => <li key={myList.id}
-                                                        className={(myList.id === props.currentListId)?"li-selected":"li-unselected"}
-                                                        onClick={() => props.onCurrentListChanged(myList.id)}>{myList.name}</li>)}
-                </ul>}
+                    {props.allLists.map((myList) => <a key={myList.id}
+                                                        className={(myList.id === props.currentListId)?"list-selected":"list-unselected"}
+                                                        onClick={() => props.onCurrentListChanged(myList.id)}>{myList.name}</a>)}
+                </div>}
             </div>
             <br/>
             {/*<select className={"lists-dropdown"}*/}
