@@ -1,10 +1,12 @@
 import './styles/TaskList.css';
 import Task from './Task';
 import {useState} from "react";
+import Lists from "./Lists";
 
 function TaskList(props) {
     const [showSortDropdown, setShowSortDropdown] = useState(false);
     const filteredData = props.data.filter((task) => props.showCompleted || !task.isCompleted);
+    const currentListDisplayed = (props.currentListId !== "");
 
     function toggleDropdown() {
         setShowSortDropdown(!showSortDropdown);
@@ -12,9 +14,21 @@ function TaskList(props) {
 
     return (
         <div id="tasklist-container">
+            <div id="home-btn-container">
+                {currentListDisplayed &&
+                <button
+                    id="home-btn"
+                    onClick={() => props.onCurrentListChanged("")}>Home</button>}
+            </div>
             <div id="title-container">
                 <div id="title">
                     {props.currentListName}
+                    <Lists allLists={props.allLists}
+                           createNewList={props.createNewList}
+                           currentListId={props.currentListId}
+                           onCurrentListChanged={props.onCurrentListChanged}
+                           onDelListModalDisplay={props.onDelListModalDisplay}
+                           modalDisplayed={props.modalDisplayed}/>
                 </div>
                 <div className="dropdown">
                     <button className={(filteredData.length !== 0) ? "sort-btn-active" : "sort-btn-disabled"}

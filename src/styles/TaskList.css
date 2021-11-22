@@ -8,6 +8,21 @@
     }
 }
 
+#home-btn-container {
+    display: flex;
+    margin-bottom: 16px;
+}
+
+#home-btn {
+    background-color: #fcfcfc;
+    border: solid 1px #d3d3d3;
+    border-radius: 4px;
+    color: #3b3b3b;
+    cursor: pointer;
+    height: 28px;
+    width: 56px;
+}
+
 #title-container {
     display: flex;
     justify-content: space-between;
@@ -17,6 +32,7 @@
 #title {
     font-size: 24px;
     font-weight: bold;
+    display: flex;
 }
 
 .sort-btn-container {
