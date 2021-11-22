@@ -12,6 +12,14 @@ function TaskList(props) {
         setShowSortDropdown(!showSortDropdown);
     }
 
+    function handleEnterPress(e, sortType){
+        e.preventDefault();
+        if (e.which === 13) {
+            props.onSortTypeChanged(sortType);
+            toggleDropdown();
+        }
+    }
+
     return (
         <div id="tasklist-container">
             {currentListDisplayed &&
@@ -37,14 +45,17 @@ function TaskList(props) {
                             onKeyDown={(e) => (filteredData.length === 0) && e.preventDefault()}>Sort
                     </button>
                     {showSortDropdown && <div className="dropdown-content">
-                        <a href="#alpha" className={props.sortType === "text" ? "selected-a" : ""}
-                           tabIndex={props.modalDisplayed ? "-1" : ""}
+                        <a className={props.sortType === "text" ? "selected-a" : ""}
+                           tabIndex={props.modalDisplayed ? "-1" : "0"}
+                           onKeyUp={(e) => handleEnterPress(e, "text") }
                            onClick={() => props.onSortTypeChanged("text")}>Alphabetic</a>
-                        <a href="#priority" className={props.sortType === "priority" ? "selected-a" : ""}
-                           tabIndex={props.modalDisplayed ? "-1" : ""}
+                        <a className={props.sortType === "priority" ? "selected-a" : ""}
+                           tabIndex={props.modalDisplayed ? "-1" : "0"}
+                           onKeyUp={(e) => handleEnterPress(e, "priority") }
                            onClick={() => props.onSortTypeChanged("priority")}>Priority</a>
-                        <a href="#date" className={props.sortType === "creationDate" ? "selected-a" : ""}
-                           tabIndex={props.modalDisplayed ? "-1" : ""}
+                        <a className={props.sortType === "creationDate" ? "selected-a" : ""}
+                           tabIndex={props.modalDisplayed ? "-1" : "0"}
+                           onKeyUp={(e) => handleEnterPress(e, "creationDate") }
                            onClick={() => props.onSortTypeChanged("creationDate")}>Creation date</a>
                     </div>}
                 </div>
