@@ -50,7 +50,7 @@ function Lists(props) {
                                type={"text"} placeholder={"Enter a new list name..."} maxLength="16"
                                tabIndex={props.modalDisplayed ? "-1" : ""}
                                onChange={(e) => setName(e.target.value)}/>
-                        <button id="add-list-btn-active" type="submit">+</button>
+                        <button id={(name !== "")?"add-list-btn-active":"add-list-btn-disabled"} type="submit">+</button>
                     </form>
                 </div>
             }

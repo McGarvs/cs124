@@ -97,6 +97,35 @@
     width: 30px;
 }
 
+#add-list-btn-disabled {
+    pointer-events:none;
+    background-color: rgb(236, 236, 236);
+    color: rgba(121, 121, 121, 0.39);
+    border: none;
+    border-radius: 0 6px 6px 0;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+    padding: 4px;
+    font-size: 18px;
+    margin-right: auto;
+    width: 30px;
+}
+
+@media screen and (min-width: 640px) {
+    #add-new-list {
+        height: 38px;
+    }
+    #input-list-field {
+        width: 400px;
+    }
+    #add-list-btn-active {
+        width: 38px;
+    }
+    #add-list-btn-disabled {
+        width: 38px;
+    }
+}
+
 .delete-list-btn {
     background-color: #fcfcfc;
     border: none;
