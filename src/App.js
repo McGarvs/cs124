@@ -23,8 +23,17 @@ function App(props) {
         console.log("Toggled showing Completed vs Uncompleted")
     }
 
+    function getWindowDimensions() {
+        const { innerWidth: width, innerHeight: height } = window;
+        return {
+            width,
+            height
+        };
+    }
+    const { height } = getWindowDimensions();
+
     return (
-        <div className="App">
+        <div className="App" style={{height: height}}>
             {showDeleteModal && <Modal text={"Are you sure you want to delete this task?"}
                                        confirmButtonText={"Delete"}
                                        onModalDisplayChanged={setShowDeleteModal}
