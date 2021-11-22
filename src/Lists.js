@@ -1,3 +1,4 @@
+import './styles/Lists.css';
 import {useState} from 'react';
 
 function Lists(props) {
