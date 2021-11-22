@@ -63,7 +63,7 @@ function InMemoryLists() {
                     <div>
                         <div id="landing-header">
                             <div id="landing-header-heading">
-                                Todo App
+                                My Tasks App
                             </div>
                         </div>
                         <div id="landing-content">

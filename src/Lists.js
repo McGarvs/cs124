@@ -33,22 +33,11 @@ function Lists(props) {
                                                         onClick={() => props.onCurrentListChanged(myList.id)}>{myList.name}</a>)}
                 </div>}
             </div>
-            {/*<select className={"lists-dropdown"}*/}
-            {/*        tabIndex={props.modalDisplayed ? "-1" : ""}*/}
-            {/*        onChange={(e) => props.onCurrentListChanged(e.target.value)}>*/}
-            {/*    { (currentListDisplayed ) ? (props.allLists.length !== 0) ?*/}
-            {/*        <option value={""} >Choose a List</option>:*/}
-            {/*        <option value={""} >No Lists Exist</option>:*/}
-            {/*        <option value={""} >Add a New List</option>}*/}
-            {/*    {props.allLists.map((myList) => <option key={myList.id}*/}
-            {/*                                            selected={(myList.id === props.currentListId)?"selected":""}*/}
-            {/*                                            value={myList.id}>{myList.name}</option>)}*/}
-            {/*</select>*/}
             {!currentListDisplayed &&
                 <div id="add-new-list">
                     <form id="add-list-form" onSubmit={onFormSubmit}>
-                        <input id="input-list-field"
-                               type={"text"} placeholder={"Enter a new list name..."} maxLength="80"
+                        <input id="input-list-field" value={name}
+                               type={"text"} placeholder={"Enter a new list name..."} maxLength="16"
                                tabIndex={props.modalDisplayed ? "-1" : ""}
                                onChange={(e) => setName(e.target.value)}/>
                         <button id="add-list-btn-active" type="submit">+</button>
