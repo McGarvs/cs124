@@ -45,13 +45,16 @@ function Lists(props) {
             {/*                                            value={myList.id}>{myList.name}</option>)}*/}
             {/*</select>*/}
             {!currentListDisplayed &&
-            <form onSubmit={onFormSubmit}>
-                <input type={"text"} placeholder={"Enter a new list name..."} maxLength="80"
-                       tabIndex={props.modalDisplayed ? "-1" : ""}
-                       onChange={(e) => setName(e.target.value)}/>
-                <button type="submit">+</button>
-            </form>}
-
+                <div id="add-new-list">
+                    <form id="add-list-form" onSubmit={onFormSubmit}>
+                        <input id="input-list-field"
+                               type={"text"} placeholder={"Enter a new list name..."} maxLength="80"
+                               tabIndex={props.modalDisplayed ? "-1" : ""}
+                               onChange={(e) => setName(e.target.value)}/>
+                        <button id="add-list-btn-active" type="submit">+</button>
+                    </form>
+                </div>
+            }
             {currentListDisplayed &&
             <button className="delete-list-btn"
                     type="submit" tabIndex={props.modalDisplayed ? "-1" : ""}

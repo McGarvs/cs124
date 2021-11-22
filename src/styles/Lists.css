@@ -1,5 +1,5 @@
 #lists-container {
-    display: flex;
+    /*display: flex;*/
 }
 
 .lists-container button {
@@ -62,6 +62,39 @@
 
 .lists-dropdown-content a:not(:last-child) {
     border-bottom: rgba(119, 119, 119, 0.2) solid 1px;
+}
+
+#add-new-list {
+    height: 28px;
+    text-align: center;
+    margin-top: 16px;
+    width: 50%;
+    display: flex;
+}
+
+#add-list-form {
+    display: inherit;
+}
+
+#input-list-field {
+    border: none;
+    border-radius: 6px 0 0 6px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
+    padding-left: 8px;
+    width: 180px;
+    margin-left: auto;
+}
+
+#add-list-btn-active {
+    background-color: #61b0ec;
+    border: none;
+    border-radius: 0 6px 6px 0;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    font-size: 18px;
+    margin-right: auto;
+    width: 30px;
 }
 
 .delete-list-btn {
