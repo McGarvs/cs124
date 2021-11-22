@@ -1,3 +1,18 @@
+#home-btn-container {
+    display: flex;
+    margin-left: 16px;
+}
+
+#home-btn {
+    background-color: #fcfcfc;
+    border: solid 1px #d3d3d3;
+    border-radius: 4px;
+    color: #3b3b3b;
+    cursor: pointer;
+    height: 28px;
+    width: 56px;
+}
+
 .lists-dropdown {
     position: relative;
     display: inline-block;

@@ -19,14 +19,16 @@ function Lists(props) {
 
     return(
         <div id="lists-container">
+            <div id="home-btn-container">
+                {!currentListDisplayed &&
+                <button
+                    id="home-btn"
+                    onClick={() => props.onCurrentListChanged("")}>Home</button>}
+            </div>
             <div className="lists-dropdown">
                 <button onClick={toggleDropdown}>
                     {(props.allLists.length !== 0) ?"Choose a List" : "No Lists Exist"}</button>
                 {showListDropdown && <div className="lists-dropdown-content">
-                    {!currentListDisplayed &&
-                            <li value={""}
-                                className={("" === props.currentListId)?"list-selected":"list-unselected"}
-                                onClick={() => props.onCurrentListChanged("")}>Add a New List</li>}
                     {props.allLists.map((myList) => <a key={myList.id}
                                                         className={(myList.id === props.currentListId)?"list-unselected list-selected":"list-unselected"}
                                                         onClick={() => props.onCurrentListChanged(myList.id)}>{myList.name}</a>)}

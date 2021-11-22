@@ -50,7 +50,11 @@ function InMemoryLists() {
     function handleCurrentListChanged(id) {
         setCurrentListId(id);
         let currentList = allLists.filter(currList => currList.id === id);
-        setCurrentListName(currentList[0].name);
+        if (currentList.length > 0) {
+            setCurrentListName(currentList[0].name);
+        } else {
+            setCurrentListName("");
+        }
     }
 
     return (
