@@ -51,17 +51,21 @@ function InMemoryLists() {
 
     return (
         <div>
-            <div id="landing-header">
-                <div id="landing-header-heading">
-                    Todo App
-                </div>
-            </div>
-            <div id="landing-content">
-                {(currentListId === "") ? <Lists allLists={allLists}
-                                                 createNewList={handleListAdded}
-                                                 onCurrentListChanged={handleCurrentListChanged}
-                                                 currentListId={currentListId}
-                                                 modalDisplayed={false}/>
+                {(currentListId === "") ?
+                    <div>
+                        <div id="landing-header">
+                            <div id="landing-header-heading">
+                                Todo App
+                            </div>
+                        </div>
+                        <div id="landing-content">
+                            <Lists allLists={allLists}
+                                   createNewList={handleListAdded}
+                                   onCurrentListChanged={handleCurrentListChanged}
+                                   currentListId={currentListId}
+                                   modalDisplayed={false}/>
+                        </div>
+                    </div>
                     : <InMemoryApp db={db} collectionName={collectionName} currentListId={currentListId}
                                    collectionRef={db.collection(collectionName)}
                                    allLists={allLists}
@@ -69,7 +73,6 @@ function InMemoryLists() {
                                    onCurrentListDelete={handleCurrentListDelete}
                                    onCurrentListChanged={handleCurrentListChanged}/>
                 }
-            </div>
         </div>
     );
 }
