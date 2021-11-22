@@ -28,7 +28,7 @@ function Lists(props) {
                                 className={("" === props.currentListId)?"list-selected":"list-unselected"}
                                 onClick={() => props.onCurrentListChanged("")}>Add a New List</li>}
                     {props.allLists.map((myList) => <a key={myList.id}
-                                                        className={(myList.id === props.currentListId)?"list-selected":"list-unselected"}
+                                                        className={(myList.id === props.currentListId)?"list-unselected list-selected":"list-unselected"}
                                                         onClick={() => props.onCurrentListChanged(myList.id)}>{myList.name}</a>)}
                 </div>}
             </div>

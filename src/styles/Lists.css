@@ -13,20 +13,17 @@
     z-index: 1;
 }
 
-.list-selected {
-    background-color: #e5e5e5;
-    color: black;
-    padding: 8px;
-    text-decoration: none;
-    display: block;
-}
-
 .list-unselected {
     background-color: white;
     color: black;
     padding: 8px;
     text-decoration: none;
     display: block;
+    cursor: pointer;
+}
+
+.list-selected {
+    background-color: #e5e5e5 !important;
 }
 
 .lists-dropdown-content a:not(:last-child) {
