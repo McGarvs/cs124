@@ -76,7 +76,7 @@ The user is brought to the list page for "Dylan's List".
 
 ![After list selection](./screenshots/after1-listselect.png)
 
-The user is at "Dylan's List" and the click the arrow next to the list header. 
+The user is at "Dylan's List" and they click the arrow next to the list header. 
 From the dropdown, they click "Grocery List".
 
 ![During list selection 2](./screenshots/during2-listselect.png)
