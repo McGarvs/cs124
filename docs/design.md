@@ -20,6 +20,9 @@ The key differences are as follows:
   * App displays better upon zooming up to 200%
 
 ## Alternative Designs
+We mostly focused on improvements in this lab, and did not come up with any designs alternative to our current one.
+There were a couple design tweaks suggested by our two user testers that will try to implement in the next lab. They are
+listed in the next section.
 
 ## User Testing
 We did a round of user testing for two different people again in this lab. 
