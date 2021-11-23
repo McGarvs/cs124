@@ -33,10 +33,38 @@ Lab 4 Design - Home Page | Lab 4 Design - Tasks Page
 We will now walk through each of the supported features.
 
 ### Multi-List Features
+These are the new features that have been added to support multi-list functionality.
+
+#### Adding a New List
+The user is at the Home Page, and sees that there are no lists.
+![Before adding new list](./screenshots/before-addlist.png)
+
+The user is at the Home Page, and types in a new list name in the field.
+![During adding new list](./screenshots/during-addlist.png)
+
+The user hits the plus button next to the form, and then goes into the dropdown to see their list.
+![After adding new list](./screenshots/after-addlist.png)
+
+The user clicks their list in the dropdown, and are taken to the list display page, with no current tasks.
+![After adding new list](./screenshots/after2-addlist.png)
+
+#### Deleting the Current List
+The user is at the display page for a list.
+
+The user clicks the trashcan icon by the list's name, and brings up a modal.
+
+The user clicks to confirm on the modal. 
+
+#### Selecting a Different List
+If the user is at the Home Page, they click the "Choose a List" button.
+
+If the user is at a List Display Page, they click 
+
+
 
 ### List-Specific Features
 Since our List specific features have largely remained the same, we will re-use the pictures from lab 3.
-The only difference between these photos and lab4 is the following:
+The only visual difference between these photos and lab4 is the following:
 * "My Tasks" header has been renamed to dynamically display the list name
 * An arrow icon button that displays a dropdown to switch between lists
 * A "Home" button that takes the user to the initial page
