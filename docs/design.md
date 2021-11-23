@@ -67,11 +67,23 @@ and they see that the list no longer exists.
 ![After deleting list](./screenshots/after-deletelist.png)
 
 #### Selecting a Different List
-If the user is at the Home Page, they click the "Choose a List" button.
+If the user is at the Home Page, they click the "Choose a List" button. 
+From the dropdown, they click "Dylan's List".
 
-If the user is at a List Display Page, they click 
+![During list selection](./screenshots/during1-listselect.png)
 
+The user is brought to the list page for "Dylan's List".
 
+![After list selection](./screenshots/after1-listselect.png)
+
+The user is at "Dylan's List" and the click the arrow next to the list header. 
+From the dropdown, they click "Grocery List".
+
+![During list selection 2](./screenshots/during2-listselect.png)
+
+The user is brought to the list page for "Grocery List".
+
+![After list selection](./screenshots/after2-listselect.png)
 
 ### List-Specific Features
 Since our List specific features have largely remained the same, we will re-use the pictures from lab 3.
