@@ -31,9 +31,10 @@ The first user liked our changes overall, and didn't have any complaints or conf
 They did note however, that it would be nice to have the home page be more consistent with the tasks page, and recommended swapping the home page header with the add 
 list input field. 
 
-The second user also liked our changes overall, and similarly had few complaints and no confusion. 
-They were also able to successfully navigate the app using Voice-Over on their tablet. 
-They did however, note that the blue sort button had a bad contrast. 
+The second user also liked our changes overall, and similarly had few complaints and no confusion. They did however, 
+note that the blue sort button had a bad contrast. This user also tested navigating the app using Voice-Over on their 
+tablet, but had some complaints: they didn't like that the list name was not read, that the task item text was not read, 
+and that the orange completed button had a bad description.
 
 A strange visual bug also appeared for both users, where the orange completed button was weirdly 
 stretched to an oval on their iphone / ipad. We were unable to recreate this bug in the chrome device toolbar.
