@@ -30,7 +30,8 @@ function Lists(props) {
     return(
         <div id="lists-container">
             <div className={!currentListDisplayed ? "home-lists-dropdown" : "lists-dropdown home-lists-dropdown"}>
-                <button onClick={toggleDropdown} tabIndex={props.modalDisplayed ? "-1" : ""}>
+                <button onClick={toggleDropdown} tabIndex={props.modalDisplayed ? "-1" : ""}
+                        aria-label="Lists dropdown">
                     {currentListDisplayed ?
                         <img src={dropdownIcon} alt="list dropdown"/>
                         :
@@ -50,13 +51,17 @@ function Lists(props) {
                                type={"text"} placeholder={"Enter a new list name..."} maxLength="16"
                                tabIndex={props.modalDisplayed ? "-1" : ""}
                                onChange={(e) => setName(e.target.value)}/>
-                        <button id={(name !== "")?"add-list-btn-active":"add-list-btn-disabled"} type="submit">+</button>
+                        <button id={(name !== "")?"add-list-btn-active":"add-list-btn-disabled"}
+                                type="submit" aria-label="Create list">
+                            +
+                        </button>
                     </form>
                 </div>
             }
             {currentListDisplayed &&
             <button className="delete-list-btn"
                     type="submit" tabIndex={props.modalDisplayed ? "-1" : ""}
+                    aria-label="Delete list"
                     onClick={(e) => {props.onDelListModalDisplay(true)}}>
                 <img src={deleteIcon} alt="delete"/>
             </button>}
