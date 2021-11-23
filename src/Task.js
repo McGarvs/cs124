@@ -54,7 +54,8 @@ function Task(props) {
             </div>
             {editing ?
                 <button className={(text !== "") ? "save-btn-active" : "save-btn-disabled"}
-                        tabIndex={props.modalDisplayed ? "-1" : ""}
+                        tabIndex={props.modalDisplayed || text === "" ? "-1" : ""}
+                        aria-label="Save task edits"
                         onClick={(e) => {
                             props.onItemChanged(props.id, "text", text);
                             props.onItemChanged(props.id, "priority", priority);
@@ -64,6 +65,7 @@ function Task(props) {
                 <div className="item-edit-dlt">
                     <button className="edit-btn"
                             tabIndex={props.modalDisplayed ? "-1" : ""}
+                            aria-label="Edit task"
                             onClick={(e) => {
                                 setEditing(true);
                             }}>
@@ -71,6 +73,7 @@ function Task(props) {
                     </button>
                     <button className="dlt-btn"
                             tabIndex={props.modalDisplayed ? "-1" : ""}
+                            aria-label="Delete task"
                             onClick={(e) => {
                                 props.onDeleteID(props.id);
                                 props.onDeleteModalDisplay(true);
@@ -84,18 +87,22 @@ function Task(props) {
             <div className="priority-btn-container">
                 <button className={priority === 0 ? "selected-priority-btn" : ""}
                         tabIndex={props.modalDisplayed ? "-1" : ""}
+                        aria-label="No priority"
                         onClick={() => changePriority(0)}>None
                 </button>
                 <button className={priority === 1 ? "selected-priority-btn" : ""}
                         tabIndex={props.modalDisplayed ? "-1" : ""}
+                        aria-label="Lowest priority"
                         onClick={() => changePriority(1)}>!
                 </button>
                 <button className={priority === 2 ? "selected-priority-btn" : ""}
                         tabIndex={props.modalDisplayed ? "-1" : ""}
+                        aria-label="Middle priority"
                         onClick={() => changePriority(2)}>!!
                 </button>
                 <button className={priority === 3 ? "selected-priority-btn" : ""}
                         tabIndex={props.modalDisplayed ? "-1" : ""}
+                        aria-label="Highest priority"
                         onClick={() => changePriority(3)}>!!!
                 </button>
             </div>
