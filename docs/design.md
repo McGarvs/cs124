@@ -45,6 +45,10 @@ Lab 4 Design - Home Page | Lab 4 Design - Tasks Page
 ------------------------ | ---------------------------
 ![](screenshots/lab4-finaldesign-home.png) | ![](screenshots/lab4-finaldesign-tasks.png)
 
+Here are video demonstrations of...
+* [using our application entirely from the keyboard](https://youtu.be/JtK-7sLOg7U)
+* [using our application with a screenreader (VoiceOver)](https://youtu.be/CW4DndA3IXQ)
+
 We will now walk through each of the supported features.
 
 ### Multi-List Features
