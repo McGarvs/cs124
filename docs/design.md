@@ -22,6 +22,18 @@ The key differences are as follows:
 ## Alternative Designs
 
 ## User Testing
+We did a round of user testing for two different people again in this lab. 
+
+The first user liked our changes overall, and didn't have any complaints or confusion about the app's functionality. 
+They did note however, that it would be nice to have the home page be more consistent with the tasks page, and recommended swapping the home page header with the add 
+list input field. 
+
+The second user also liked our changes overall, and similarly had few complaints and no confusion. 
+They were also able to successfully navigate the app using Voice-Over on their tablet. 
+They did however, note that the blue sort button had a bad contrast. 
+
+A strange visual bug also appeared for both users, where the orange completed button was weirdly 
+stretched to an oval on their iphone / ipad. We were unable to recreate this bug in the chrome device toolbar.
 
 ## Final Design
 Our final design from this lab looks like this:
