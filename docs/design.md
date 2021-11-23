@@ -189,3 +189,9 @@ higher up on the list.
 
 
 ## Challenges + Reflections
+Now that this React project has grown to encompass greater functionality with the multi lists, we have started
+to find that our code is becoming more and more bloated. Refactoring this time around was significantly harder than
+in previous labs, yet still remained a fun challenge. We are proud of our multi list functionality, particularly for
+addition of a home page and the dynamic list title in the task display page. We didn't get to do a round of user testing
+as early as we would have liked to in this lab, and did not get to make some of their changes, but we have noted them for
+the next lab.
