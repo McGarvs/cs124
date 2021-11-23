@@ -37,26 +37,33 @@ These are the new features that have been added to support multi-list functional
 
 #### Adding a New List
 The user is at the Home Page, and sees that there are no lists.
+
 ![Before adding new list](./screenshots/before-addlist.png)
 
 The user is at the Home Page, and types in a new list name in the field.
+
 ![During adding new list](./screenshots/during-addlist.png)
 
 The user hits the plus button next to the form, and then goes into the dropdown to see their list.
+
 ![After adding new list](./screenshots/after-addlist.png)
 
 The user clicks their list in the dropdown, and are taken to the list display page, with no current tasks.
+
 ![Seeing the new list](./screenshots/after2-addlist.png)
 
 #### Deleting the Current List
 The user is at the display page for a list.
+
 ![Before deleting list](./screenshots/before-deletelist.png)
 
 The user clicks the trashcan icon by the list's name, and brings up a modal.
+
 ![During deleting list](./screenshots/during-deletelist.png)
 
 The user clicks to confirm delete on the modal. They are brought to the home page, 
 and they see that the list no longer exists.
+
 ![After deleting list](./screenshots/after-deletelist.png)
 
 #### Selecting a Different List
