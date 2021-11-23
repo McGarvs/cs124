@@ -27,6 +27,7 @@ function Task(props) {
             <div className="item-info">
                 <button className="unchecked-checkbox-btn"
                         tabIndex={props.modalDisplayed ? "-1" : "0"}
+                        aria-label={completed ? "Task currently completed. Select to mark task uncompleted" : "Task currently uncompleted. Select to mark task completed"}
                         onClick={(e) => {
                             props.onItemChanged(props.id, "isCompleted", !completed);
                             setCompleted(!completed);
