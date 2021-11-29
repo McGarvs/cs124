@@ -7,16 +7,22 @@ import {useState} from "react";
 import Lists from "./Lists";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCd9qqxvMpEKpBzwfWcc2tlRFa6ICaLH_s",
-    authDomain: "hmc-cs124-fa21-labs.firebaseapp.com",
-    projectId: "hmc-cs124-fa21-labs",
-    storageBucket: "hmc-cs124-fa21-labs.appspot.com",
-    messagingSenderId: "949410042946",
-    appId: "1:949410042946:web:0113b139a7e3cd1cc709db"
+    apiKey: "AIzaSyDGHngb4moL3bpSKohoDA3nUtkfC8YMwp4",
+    authDomain: "cs124-todoapp.firebaseapp.com",
+    projectId: "cs124-todoapp",
+    storageBucket: "cs124-todoapp.appspot.com",
+    messagingSenderId: "1003386478804",
+    appId: "1:1003386478804:web:6886eadb538dce12189b41",
 };
-firebase.initializeApp(firebaseConfig);
+
+if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+} else {
+    firebase.app(); // if already initialized, use that one
+}
+// firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
-const collectionName = "Danica-McGarvs-HMCcs124-labs"
+const collectionName = "Danica-McGarvs-HMCcs124"
 const auth = firebase.auth();
 const googleProvider = new firebase.auth.GoogleAuthProvider();
 
