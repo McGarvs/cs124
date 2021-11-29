@@ -17,6 +17,8 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 const collectionName = "Danica-McGarvs-HMCcs124-labs"
+const auth = firebase.auth();
+const googleProvider = new firebase.auth.GoogleAuthProvider();
 
 function InMemoryLists() {
     const [currentListId, setCurrentListId] = useState("");
@@ -74,7 +76,9 @@ function InMemoryLists() {
                                    modalDisplayed={false}/>
                         </div>
                     </div>
-                    : <InMemoryApp db={db} collectionName={collectionName} currentListId={currentListId}
+                    : <InMemoryApp db={db} collectionName={collectionName}
+                                   auth={auth} googleProvider={googleProvider}
+                                   currentListId={currentListId}
                                    currentListName={currentListName}
                                    collectionRef={db.collection(collectionName)}
                                    allLists={allLists}
