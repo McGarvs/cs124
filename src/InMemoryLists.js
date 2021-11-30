@@ -28,7 +28,7 @@ if (!firebase.apps.length) {
 }
 // firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
-const collectionName = "Danica-McGarvs-HMCcs124"
+const collectionName = "TaskLists-AuthenticationRequired"
 const auth = firebase.auth();
 const googleProvider = new firebase.auth.GoogleAuthProvider();
 
@@ -52,7 +52,7 @@ function InMemoryLists() {
         return <>
             {error && <p>Error App: {error.message}</p>}
             <TabList>
-                <SignIn key="Sign In" />
+                <SignIn key="Sign In" user={user} />
                 <SignUp key="Sign Up" />
             </TabList>
         </>
@@ -109,10 +109,10 @@ function SignUp() {
     </div>
 }
 
-function SignedInApp() {
+function SignedInApp(props) {
     const [currentListId, setCurrentListId] = useState("");
     const [currentListName, setCurrentListName] = useState("");
-    const query = db.collection(collectionName).orderBy("id");
+    const query = db.collection(collectionName).where('owner', "==", props.user.uid);
     const [value, loading, error] = useCollection(query);
     let allLists = [];
 
@@ -126,9 +126,12 @@ function SignedInApp() {
         const newList = {
             id: generateUniqueID(),
             name: myName,
+            owner: props.user.uid,
         }
         const docRef = db.collection(collectionName).doc(newList.id);
-        docRef.set(newList);
+        docRef.set(newList).catch((error) => {
+            console.error("Error creating list: ", error);
+        });
     }
 
     function handleCurrentListDelete() {
