@@ -33,7 +33,9 @@ function InMemoryApp(props) {
             creationDate: today.toLocaleDateString("en-US"), // "11/02/2021" // TODO: change this
         }
         const docRef = subCollectionRef.doc(newItem.id);
-        docRef.set(newItem);
+        docRef.set(newItem).catch((error) => {
+            console.error("Error creating task: ", error);
+        });
     }
 
     function handleItemDeleted(itemID) {

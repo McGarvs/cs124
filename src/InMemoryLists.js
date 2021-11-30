@@ -29,6 +29,7 @@ if (!firebase.apps.length) {
 // firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 const collectionName = "TaskLists-AuthenticationRequired"
+const sharedCollectionName = "TaskLists-SharingAllowed"
 const auth = firebase.auth();
 const googleProvider = new firebase.auth.GoogleAuthProvider();
 
@@ -112,13 +113,21 @@ function SignUp() {
 function SignedInApp(props) {
     const [currentListId, setCurrentListId] = useState("");
     const [currentListName, setCurrentListName] = useState("");
-    const query = db.collection(collectionName).where('owner', "==", props.user.uid);
-    const [value, loading, error] = useCollection(query);
+    const myQuery = db.collection(collectionName).where('owner', "==", props.user.uid);
+    const sharedQuery = db.collection(sharedCollectionName).where("sharedWith", "array-contains", props.user.email);
+    const [myValue, myLoading, myError] = useCollection(myQuery); // const [value, loading, error] = useCollection(query);
+    const [sharedValue, sharedLoading, sharedError] = useCollection(myQuery);
     let allLists = [];
+    let sharedLists = [];
 
-    if (value !== undefined) {
-        for (const doc of value.docs) {
+    if (myValue !== undefined) {
+        for (const doc of myValue.docs) {
             allLists.push(doc.data());
+        }
+    }
+    if (sharedValue !== undefined) {
+        for (const doc of sharedValue.docs) {
+            sharedLists.push(doc.data());
         }
     }
 
@@ -126,6 +135,7 @@ function SignedInApp(props) {
         const newList = {
             id: generateUniqueID(),
             name: myName,
+            sharedWith: [props.user.email, "foo@bar.com"], // TODO: DELETE foo@bar.com
             owner: props.user.uid,
         }
         const docRef = db.collection(collectionName).doc(newList.id);
@@ -146,6 +156,7 @@ function SignedInApp(props) {
         let currentList = allLists.filter(currList => currList.id === id);
         if (currentList.length > 0) {
             setCurrentListName(currentList[0].name);
+            console.log("Current list;", currentList);
         } else {
             setCurrentListName("");
         }
@@ -161,11 +172,20 @@ function SignedInApp(props) {
                             </div>
                         </div>
                         <div id="landing-content">
-                            <Lists allLists={allLists}
-                                   createNewList={handleListAdded}
-                                   onCurrentListChanged={handleCurrentListChanged}
-                                   currentListId={currentListId}
-                                   modalDisplayed={false}/>
+                            {/*<TabList>*/}
+                                <Lists // key="My Lists"
+                                       allLists={allLists}
+                                       createNewList={handleListAdded}
+                                       onCurrentListChanged={handleCurrentListChanged}
+                                       currentListId={currentListId}
+                                       modalDisplayed={false}/>
+                            {/*    <Lists key="Shared Lists"*/}
+                            {/*           allLists={sharedLists}*/}
+                            {/*           createNewList={handleListAdded}*/}
+                            {/*           onCurrentListChanged={handleCurrentListChanged}*/}
+                            {/*           currentListId={currentListId}*/}
+                            {/*           modalDisplayed={false}/>*/}
+                            {/*</TabList>*/}
                         </div>
                     </div>
                     : <InMemoryApp db={db} collectionName={collectionName}

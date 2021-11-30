@@ -28,36 +28,63 @@ function Lists(props) {
     }
 
     return(
-        <div id="lists-container">
-            <div className={!currentListDisplayed ? "home-lists-dropdown" : "lists-dropdown home-lists-dropdown"}>
-                <button onClick={toggleDropdown} tabIndex={props.modalDisplayed ? "-1" : ""}
-                        aria-label="Lists dropdown">
-                    {currentListDisplayed ?
-                        <img src={dropdownIcon} alt="list dropdown"/>
-                        :
-                        (props.allLists.length !== 0) ?"Choose a List" : "No Lists Exist"}</button>
-                {showListDropdown && <div className="lists-dropdown-content">
-                    {props.allLists.map((myList) => <a key={myList.id}
-                                                       tabIndex={props.modalDisplayed ? "-1" : "0"}
-                                                       className={(myList.id === props.currentListId)?"list-unselected list-selected":"list-unselected"}
-                                                       onKeyUp={(e) => handleEnterPress(e, myList.id)}
-                                                       onClick={() => props.onCurrentListChanged(myList.id)}>{myList.name}</a>)}
-                </div>}
-            </div>
+        <div>
             {!currentListDisplayed &&
-                <div id="add-new-list">
-                    <form id="add-list-form" onSubmit={onFormSubmit}>
-                        <input id="input-list-field" value={name}
-                               type={"text"} placeholder={"Enter a new list name..."} maxLength="16"
-                               tabIndex={props.modalDisplayed ? "-1" : ""}
-                               onChange={(e) => setName(e.target.value)}/>
-                        <button id={(name !== "")?"add-list-btn-active":"add-list-btn-disabled"}
-                                type="submit" aria-label="Create list">
-                            +
-                        </button>
-                    </form>
+            <div id="add-new-list">
+                <form id="add-list-form" onSubmit={onFormSubmit}>
+                    <input id="input-list-field" value={name}
+                           type={"text"} placeholder={"Enter a new list name..."} maxLength="16"
+                           tabIndex={props.modalDisplayed ? "-1" : ""}
+                           onChange={(e) => setName(e.target.value)}/>
+                    <button id={(name !== "")?"add-list-btn-active":"add-list-btn-disabled"}
+                            type="submit" aria-label="Create list">
+                        +
+                    </button>
+                </form>
+            </div>
+            }
+
+            {currentListDisplayed ?
+                <div className="lists-dropdown">
+                    <button onClick={toggleDropdown} tabIndex={props.modalDisplayed ? "-1" : ""}
+                            aria-label="Lists dropdown">
+                        <img src={dropdownIcon} alt="list dropdown"/>
+                    </button>
+                    {showListDropdown && <div className="lists-dropdown-content">
+                        {props.allLists.map((myList) => <a key={myList.id}
+                                                           tabIndex={props.modalDisplayed ? "-1" : "0"}
+                                                           className={(myList.id === props.currentListId)?"list-unselected list-selected":"list-unselected"}
+                                                           onKeyUp={(e) => handleEnterPress(e, myList.id)}
+                                                           onClick={() => props.onCurrentListChanged(myList.id)}>{myList.name}</a>)}
+                    </div>}
+                </div>
+                :
+                <div id="home-lists-container">
+                    {props.allLists.map((myList) => <a key={myList.id}
+                                                   tabIndex={props.modalDisplayed ? "-1" : "0"}
+                                                   className={(myList.id === props.currentListId)?"list-unselected list-selected":"list-unselected"}
+                                                   onKeyUp={(e) => handleEnterPress(e, myList.id)}
+                                                   onClick={() => props.onCurrentListChanged(myList.id)}>{myList.name}</a>)}
                 </div>
             }
+
+            {/*<div //className={!currentListDisplayed ? "home-lists-dropdown" : "lists-dropdown"}*/}
+            {/*     className={currentListDisplayed ? "lists-dropdown" : ""}*/}
+            {/*>*/}
+            {/*    <button onClick={toggleDropdown} tabIndex={props.modalDisplayed ? "-1" : ""}*/}
+            {/*            aria-label="Lists dropdown">*/}
+            {/*        {currentListDisplayed ?*/}
+            {/*            <img src={dropdownIcon} alt="list dropdown"/>*/}
+            {/*            :*/}
+            {/*            (props.allLists.length !== 0) ?"Choose a List" : "No Lists Exist"}</button>*/}
+            {/*    {showListDropdown && <div className="lists-dropdown-content">*/}
+            {/*        {props.allLists.map((myList) => <a key={myList.id}*/}
+            {/*                                           tabIndex={props.modalDisplayed ? "-1" : "0"}*/}
+            {/*                                           className={(myList.id === props.currentListId)?"list-unselected list-selected":"list-unselected"}*/}
+            {/*                                           onKeyUp={(e) => handleEnterPress(e, myList.id)}*/}
+            {/*                                           onClick={() => props.onCurrentListChanged(myList.id)}>{myList.name}</a>)}*/}
+            {/*    </div>}*/}
+            {/*</div>*/}
             {currentListDisplayed &&
             <button className="delete-list-btn"
                     type="submit" tabIndex={props.modalDisplayed ? "-1" : ""}
