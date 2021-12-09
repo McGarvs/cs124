@@ -113,6 +113,26 @@ function SignUp() {
             Create test user
         </button>
 
+        <form id="signup-fields">
+            <div id="email-input">
+                <div className="signup-field-label">Email:</div>
+                <input type="text" // placeholder="Enter a task here!" value={text} maxLength="80"
+                       // onChange={(e) => setText(e.target.value)}
+                />
+            </div>
+            <div id="password-input">
+                <div className="signup-field-label">Password:</div>
+                <input type="text" // placeholder="Enter a task here!" value={text} maxLength="80"
+                    // onChange={(e) => setText(e.target.value)}
+                />
+            </div>
+            <div id="signup-confirm-btn-container">
+                <button>
+                    Sign Up
+                </button>
+            </div>
+
+        </form>
     </div>
 }
 
