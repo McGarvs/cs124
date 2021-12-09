@@ -7,27 +7,24 @@ import deleteIcon from './static/delete-icon.png';
 
 function SharedEmailDisplay(props) {
     const [newEmail, setNewEmail] = useState("");
-    // const [localSharedEmails, setLocalSharedEmails] = useState(props.currentSharedEmails);
     const localSharedEmails = props.currentSharedEmails;
 
-    function handleAddEmailClick(e) {
+    function onFormSubmit(e) {
         e.preventDefault();
-        props.onSharedPermsChanged("add", props.currentListId, newEmail);
-        // setLocalSharedEmails(props.currentSharedEmails);
-        setNewEmail("");
+        if (newEmail !== "") {
+            props.onSharedPermsChanged("add", props.currentListId, newEmail);
+            setNewEmail("");
+        }
     }
 
     function handleDeleteEmailClick(email) {
-        // console.log("localshared before delete:", localSharedEmails)
         props.onSharedPermsChanged("delete", props.currentListId, email);
-        // setLocalSharedEmails(props.currentSharedEmails);
-        // console.log("localshared after delete:", localSharedEmails)
     }
 
     // TODO: fix styling of email input
     return (
         <div id="shared-email-display">
-            <form id="add-email-form" onSubmit={handleAddEmailClick}>
+            <form id="add-email-form" onSubmit={onFormSubmit}>
                 <input type="text" id="email-input-field" placeholder="Enter an email here!" text={newEmail} maxLength="80"
                        tabIndex={props.modalDisplayed ? "-1" : ""}
                        onChange={(e) => setNewEmail(e.target.value)}

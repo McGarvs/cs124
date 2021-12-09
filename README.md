@@ -6,3 +6,8 @@ The live version of our mobile Task Application can be found at the following li
 [https://mcgarvs.github.io/cs124/](https://mcgarvs.github.io/cs124/)
 
 Authors: Danica Du & Dylan McGarvey
+
+
+TODO:
+* make add-email-input box clear text after clicking "+" button
+* add error checking to prevent duplicate emails to be added
