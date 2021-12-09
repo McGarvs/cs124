@@ -11,6 +11,7 @@ function SharedEmailDisplay(props) {
 
     function onFormSubmit(e) {
         e.preventDefault();
+        // only task list owner can share to additional users
         if (newEmail !== "") {
             props.onSharedPermsChanged("add", props.currentListId, newEmail);
             setNewEmail("");
@@ -24,6 +25,7 @@ function SharedEmailDisplay(props) {
     // TODO: fix styling of email input
     return (
         <div id="shared-email-display">
+            {props.currentListOwnerEmail === props.user.email &&
             <form id="add-email-form" onSubmit={onFormSubmit}>
                 <input type="text" id="email-input-field" placeholder="Enter an email here!" text={newEmail} maxLength="80"
                        tabIndex={props.modalDisplayed ? "-1" : ""}
@@ -34,19 +36,20 @@ function SharedEmailDisplay(props) {
                         aria-label="Add new email to shared list">
                     +
                 </button>
-            </form>
+            </form>}
             <div id="email-items">
                 {
                     localSharedEmails.map((email) => (
                         <div className="email-item"
                              key={email}>
                             {email}
+                            {email === props.user.email &&
                             <button className="dlt-email-btn"
                                     tabIndex={props.modalDisplayed ? "-1" : ""}
                                     aria-label="Delete email"
                                     onClick={() => handleDeleteEmailClick(email)}>
                                 <img src={deleteIcon} alt="delete"/>
-                            </button>
+                            </button>}
                         </div>
                     ))
                 }

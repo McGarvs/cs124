@@ -17,7 +17,8 @@ TODO: (higher priority)
 only owners can make changes or add emails) that they don't have permission to do the action.
 And prevent the UI from updating when (in the console logs), there are permission errors
 since this user doesn't have the permission to do this action.
-* (COMPLETED) only tasklist owner can have access to delete-list button
+* (COMPLETED) hide delete-list button to people who are NOT owners of the current tasklist
+* (COMPLETED) hide delete-email button to people who do not have that email and are NOT owners of the current tasklist
 
 TODO: (later)
 * allow users who are not the tasklist owner to make changes to the task list (but not allowed
