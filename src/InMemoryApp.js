@@ -66,12 +66,14 @@ function InMemoryApp(props) {
         <div>
             {loading ? <div id="loading">Loading...</div> :
 
-                <App data={taskData} onItemChanged={handleItemChanged} onItemAdded={handleItemAdded}
+                <App data={taskData} user={props.user}
+                onItemChanged={handleItemChanged} onItemAdded={handleItemAdded}
                 onItemDeleted={handleItemDeleted} onDeleteCompleted={handleDeleteCompleted}
                 sortType={sortType} onSortTypeChanged={handleSortTypeChange}
                 allLists={props.allLists} createNewList={props.createNewList}
                 currentListId={props.currentListId}
                 currentListName={props.currentListName}
+                currentListOwnerEmail={props.currentListOwnerEmail}
                 currentSharedEmails={props.currentSharedEmails}
                 onCurrentListChanged={props.onCurrentListChanged}
                 onCurrentListDelete={handleDeleteAll}

@@ -85,7 +85,7 @@ function Lists(props) {
             {/*                                           onClick={() => props.onCurrentListChanged(myList.id)}>{myList.name}</a>)}*/}
             {/*    </div>}*/}
             {/*</div>*/}
-            {currentListDisplayed &&
+            {(currentListDisplayed && (props.currentListOwnerEmail === props.user.email)) &&
             <button className="delete-list-btn"
                     type="submit" tabIndex={props.modalDisplayed ? "-1" : ""}
                     aria-label="Delete list"

@@ -180,8 +180,10 @@ function SignUp() {
 }
 
 function SignedInApp(props) {
+    // TODO: combine these currentList... state variables?
     const [currentListId, setCurrentListId] = useState("");
     const [currentListName, setCurrentListName] = useState("");
+    const [currentListOwnerEmail, setCurrentListOwnerEmail] = useState("");
     const [currentSharedEmails, setCurrentSharedEmails] = useState([]);
     const myQuery = db.collection(collectionName).where("owner", "==", props.user.uid);
     const [myValue, myLoading, myError] = useCollection(myQuery); // const [value, loading, error] = useCollection(query);
@@ -209,6 +211,7 @@ function SignedInApp(props) {
             name: myName,
             sharedWith: [],
             owner: props.user.uid,
+            ownerEmail: props.user.email,
         }
         const docRef = db.collection(collectionName).doc(newList.id);
         console.log("new list... shared with: ", newList.sharedWith);
@@ -239,10 +242,21 @@ function SignedInApp(props) {
     }
 
     function handleCurrentListDelete() {
+        // can only delete if user is the owner of current list
         const docRef = db.collection(collectionName).doc(currentListId);
-        docRef.delete();
-        setCurrentListId("");
-        setCurrentListName("");
+        let currentListOwner;
+        docRef.get().then(doc => {
+            currentListOwner = doc.data().owner;
+        })
+        if (props.user.uid === currentListOwner) {
+            docRef.delete();
+            setCurrentListId("");
+            setCurrentListName("");
+            setCurrentListOwnerEmail("");
+        } else {
+            // TODO: handle non-owners trying to delete current list
+            handleSharedPermsChanged("delete", currentListId, props.user.email);
+        }
     }
 
     function handleCurrentListChanged(id) {
@@ -250,8 +264,10 @@ function SignedInApp(props) {
         let currentList = allLists.filter(currList => currList.id === id);
         if (currentList.length > 0) {
             setCurrentListName(currentList[0].name);
+            setCurrentListOwnerEmail(currentList[0].ownerEmail)
             setCurrentSharedEmails(currentList[0].sharedWith);
             console.log("Current list;", currentList);
+            console.log("blah:", currentListOwnerEmail);
         } else {
             setCurrentListName("");
             setCurrentSharedEmails([]);
@@ -293,8 +309,10 @@ function SignedInApp(props) {
                 </div>
                 : <InMemoryApp db={db} collectionName={collectionName}
                                auth={auth} googleProvider={googleProvider}
+                               user={props.user}
                                currentListId={currentListId}
                                currentListName={currentListName}
+                               currentListOwnerEmail={currentListOwnerEmail}
                                currentSharedEmails={currentSharedEmails}
                                collectionRef={db.collection(collectionName)}
                                allLists={allLists}

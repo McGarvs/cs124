@@ -22,6 +22,9 @@ function TaskList(props) {
 
     return (
         <div id="tasklist-container">
+            <div>
+                Owner email: {props.currentListOwnerEmail}
+            </div>
             {currentListDisplayed &&
             <div id="home-btn-container">
                 <button
@@ -43,6 +46,8 @@ function TaskList(props) {
                 <div id="title">
                     {props.currentListName}
                     <Lists allLists={props.allLists}
+                           user={props.user}
+                           currentListOwnerEmail={props.currentListOwnerEmail}
                            createNewList={props.createNewList}
                            currentListId={props.currentListId}
                            onCurrentListChanged={props.onCurrentListChanged}

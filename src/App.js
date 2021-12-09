@@ -106,7 +106,8 @@ function App(props) {
                     onAddBtnClick={props.onItemAdded} data={props.data}
                     modalDisplayed={modalDisplayed}/>
             {/*TODO: Pass showCompleted to TaskList and use filter to only display Completed Tasks*/}
-            <TaskList onItemChanged={props.onItemChanged} onDeleteID={setDeleteID} showCompleted={showCompleted}
+            <TaskList user={props.user} onItemChanged={props.onItemChanged}
+                      onDeleteID={setDeleteID} showCompleted={showCompleted}
                       onDeleteModalDisplay={setShowDeleteModal} data={props.data}
                       sortType={props.sortType} onSortTypeChanged={props.onSortTypeChanged}
                       modalDisplayed={modalDisplayed}
@@ -114,6 +115,7 @@ function App(props) {
                       createNewList={props.createNewList}
                       currentListId={props.currentListId}
                       currentListName={props.currentListName}
+                      currentListOwnerEmail={props.currentListOwnerEmail}
                       onCurrentListChanged={props.onCurrentListChanged}
                       onDelListModalDisplay={setShowDelListModal}
                       onSharedPermsChanged={props.onSharedPermsChanged}
