@@ -7,18 +7,21 @@ import deleteIcon from './static/delete-icon.png';
 
 function SharedEmailDisplay(props) {
     const [newEmail, setNewEmail] = useState("");
-    const [localSharedEmails, setLocalSharedEmails] = useState(props.currentSharedEmails);
+    // const [localSharedEmails, setLocalSharedEmails] = useState(props.currentSharedEmails);
+    const localSharedEmails = props.currentSharedEmails;
 
     function handleAddEmailClick(e) {
         e.preventDefault();
         props.onSharedPermsChanged("add", props.currentListId, newEmail);
-        setLocalSharedEmails(props.currentSharedEmails);
+        // setLocalSharedEmails(props.currentSharedEmails);
         setNewEmail("");
     }
 
     function handleDeleteEmailClick(email) {
+        // console.log("localshared before delete:", localSharedEmails)
         props.onSharedPermsChanged("delete", props.currentListId, email);
-        setLocalSharedEmails(props.currentSharedEmails);
+        // setLocalSharedEmails(props.currentSharedEmails);
+        // console.log("localshared after delete:", localSharedEmails)
     }
 
     // TODO: fix styling of email input

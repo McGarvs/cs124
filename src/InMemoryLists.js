@@ -131,6 +131,7 @@ function SignedInApp(props) {
         for (const doc of myValue.docs) {
             // only display lists that either you own or are shared with you
             if (props.user.uid === doc.data().owner || doc.data().sharedWith.includes(props.user.email)) {
+                // setAllLists(prevState => [...prevState, doc.data()]);
                 allLists.push(doc.data());
             }
             // console.log(allLists);
@@ -166,11 +167,12 @@ function SignedInApp(props) {
         if (action === "add") { // add new email to share with
             setCurrentSharedEmails(prevState => [...prevState, newValue]);
         } else if (action === "delete") { // delete email that this list shared with
-            console.log("newvla");
-            setCurrentSharedEmails(currentSharedEmails.filter((email) => email !== newValue));
-            console.log("sharedWithList AFTER:", sharedWithList);
+            console.log("newvalue:", newValue);
+            setCurrentSharedEmails(currentSharedEmails.filter(item => item !== newValue));
+            console.log("sharedWithList AFTER:", currentSharedEmails);
         }
         docRef.update("sharedWith", currentSharedEmails);
+        console.log("sharedWithList AFTER2:", currentSharedEmails);
     }
 
     function handleCurrentListDelete() {
