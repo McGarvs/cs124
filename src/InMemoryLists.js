@@ -3,7 +3,7 @@ import InMemoryApp from './InMemoryApp';
 import {generateUniqueID} from "web-vitals/dist/modules/lib/generateUniqueID";
 import firebase from "firebase/compat";
 import {useCollection} from "react-firebase-hooks/firestore";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import Lists from "./Lists";
 import TabList from './TabList';
 import {
@@ -184,11 +184,11 @@ function SignedInApp(props) {
     const [currentListName, setCurrentListName] = useState("");
     const [currentSharedEmails, setCurrentSharedEmails] = useState([]);
     const myQuery = db.collection(collectionName).where('owner', "==", props.user.uid);
-    const sharedQuery = db.collection(sharedCollectionName).where("sharedWith", "array-contains", props.user.email);
+    // const sharedQuery = db.collection(sharedCollectionName).where("sharedWith", "array-contains", props.user.email);
     const [myValue, myLoading, myError] = useCollection(myQuery); // const [value, loading, error] = useCollection(query);
     const [sharedValue, sharedLoading, sharedError] = useCollection(myQuery);
     let allLists = [];
-    let sharedLists = [];
+    // let sharedLists = [];
 
     if (myValue !== undefined) {
         for (const doc of myValue.docs) {
@@ -200,11 +200,6 @@ function SignedInApp(props) {
             // console.log(allLists);
         }
     }
-    // if (sharedValue !== undefined) {
-    //     for (const doc of sharedValue.docs) {
-    //         sharedLists.push(doc.data());
-    //     }
-    // }
 
     function handleListAdded(myName) {
         const newList = {
@@ -228,10 +223,17 @@ function SignedInApp(props) {
             console.log("shared with list: ", sharedWithList);
         })
         if (action === "add") { // add new email to share with
-            setCurrentSharedEmails(prevState => [...prevState, newValue]);
+            currentSharedEmails.push(newValue);
+            // setCurrentSharedEmails(currentSharedEmails);
+            // setCurrentSharedEmails(prevState => [...prevState, newValue]);
         } else if (action === "delete") { // delete email that this list shared with
             console.log("newvalue:", newValue);
-            setCurrentSharedEmails(currentSharedEmails.filter(item => item !== newValue));
+            const index = currentSharedEmails.indexOf(newValue);
+            if (index > -1) {
+                currentSharedEmails.splice(index, 1);
+            }
+            // const newSharedEmails = currentSharedEmails.filter(item => item !== newValue);
+            // setCurrentSharedEmails(newSharedEmails);
             console.log("sharedWithList AFTER:", currentSharedEmails);
         }
         docRef.update("sharedWith", currentSharedEmails);
