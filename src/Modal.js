@@ -14,9 +14,10 @@ function Modal(props) {
             <div className="modal-content">
                 <div className="modal-text">{props.text}</div>
                 <div className="modal-buttons">
-                    <button className="modal-cancel-btn" onClick={closeModal}>Cancel</button>
-                    <button className="modal-confirm-btn"
-                            onClick={() => { handleConfirmClick(); closeModal(); }}>{props.confirmButtonText}</button>
+                    {props.confirmButtonText !== "Close" ? <button className="modal-cancel-btn" onClick={closeModal}>Cancel</button> : ""}
+                    {<button className={props.confirmButtonText === "Close" ? "modal-close-btn" : "modal-confirm-btn"}
+                            onClick={() => { handleConfirmClick(); closeModal(); }}>{props.confirmButtonText}
+                    </button>}
                 </div>
             </div>
         </div>

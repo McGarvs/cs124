@@ -41,3 +41,75 @@
         transform: rotate(360deg);
     }
 }
+
+#shared-email-display {
+    padding: 4px;
+}
+
+#add-email-form {
+    height: 30px;
+    margin-bottom: 10px;
+    display: flex;
+}
+
+#email-input-field {
+    border: none;
+    border-radius: 6px 0 0 6px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
+    padding: 0 0 0 8px;
+    height: 100%;
+    width: 100%;
+    /*margin-left: auto;*/
+}
+
+#add-email-btn-active {
+    background-color: #61b0ec;
+    border: none;
+    border-radius: 0 6px 6px 0;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    /*padding: 4px;*/
+    font-size: 18px;
+    margin-right: auto;
+    height: 100%;
+    width: 30px;
+}
+
+#add-email-btn-disabled {
+    pointer-events:none;
+    background-color: rgb(236, 236, 236);
+    color: rgba(121, 121, 121, 0.39);
+    border: none;
+    border-radius: 0 6px 6px 0;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+    /*padding: 4px;*/
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 30px;
+}
+
+#email-items {
+    max-height: 220px;
+    overflow-y: scroll;
+}
+
+.email-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.dlt-email-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.dlt-email-btn img {
+    height: 15px;
+    width: 15px;
+}

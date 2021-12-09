@@ -72,8 +72,10 @@ function InMemoryApp(props) {
                 allLists={props.allLists} createNewList={props.createNewList}
                 currentListId={props.currentListId}
                 currentListName={props.currentListName}
+                currentSharedEmails={props.currentSharedEmails}
                 onCurrentListChanged={props.onCurrentListChanged}
                 onCurrentListDelete={handleDeleteAll}
+                onSharedPermsChanged={props.onSharedPermsChanged}
                 />
                 }
         </div>

@@ -47,8 +47,12 @@ function InMemoryLists() {
             {user.displayName || user.email}
             <SignedInApp user={user}
                          emailVerified={user.emailVerified}
-                         verifyEmail={() => {verifyEmail()}}
-                         signOut={() => {auth.signOut()}}
+                         verifyEmail={() => {
+                             verifyEmail()
+                         }}
+                         signOut={() => {
+                             auth.signOut()
+                         }}
             />
         </div>
     } else {
@@ -115,6 +119,7 @@ function SignUp() {
 function SignedInApp(props) {
     const [currentListId, setCurrentListId] = useState("");
     const [currentListName, setCurrentListName] = useState("");
+    const [currentSharedEmails, setCurrentSharedEmails] = useState([]);
     const myQuery = db.collection(collectionName).where('owner', "==", props.user.uid);
     const sharedQuery = db.collection(sharedCollectionName).where("sharedWith", "array-contains", props.user.email);
     const [myValue, myLoading, myError] = useCollection(myQuery); // const [value, loading, error] = useCollection(query);
@@ -124,26 +129,48 @@ function SignedInApp(props) {
 
     if (myValue !== undefined) {
         for (const doc of myValue.docs) {
-            allLists.push(doc.data());
+            // only display lists that either you own or are shared with you
+            if (props.user.uid === doc.data().owner || doc.data().sharedWith.includes(props.user.email)) {
+                allLists.push(doc.data());
+            }
+            // console.log(allLists);
         }
     }
-    if (sharedValue !== undefined) {
-        for (const doc of sharedValue.docs) {
-            sharedLists.push(doc.data());
-        }
-    }
+    // if (sharedValue !== undefined) {
+    //     for (const doc of sharedValue.docs) {
+    //         sharedLists.push(doc.data());
+    //     }
+    // }
 
     function handleListAdded(myName) {
         const newList = {
             id: generateUniqueID(),
             name: myName,
-            sharedWith: [props.user.email, "foo@bar.com"], // TODO: DELETE foo@bar.com
+            sharedWith: [props.user.email, "bar@bar.com"], // TODO: DELETE foo@bar.com
             owner: props.user.uid,
         }
         const docRef = db.collection(collectionName).doc(newList.id);
+        console.log("new list... shared with: ", newList.sharedWith);
         docRef.set(newList).catch((error) => {
             console.error("Error creating list: ", error);
         });
+    }
+
+    function handleSharedPermsChanged(action, listID, newValue) {
+        const docRef = db.collection(collectionName).doc(listID);
+        let sharedWithList;
+        docRef.get().then(doc => {
+            sharedWithList = doc.data().sharedWith;
+            console.log("shared with list: ", sharedWithList);
+        })
+        if (action === "add") { // add new email to share with
+            setCurrentSharedEmails(prevState => [...prevState, newValue]);
+        } else if (action === "delete") { // delete email that this list shared with
+            console.log("newvla");
+            setCurrentSharedEmails(currentSharedEmails.filter((email) => email !== newValue));
+            console.log("sharedWithList AFTER:", sharedWithList);
+        }
+        docRef.update("sharedWith", currentSharedEmails);
     }
 
     function handleCurrentListDelete() {
@@ -158,9 +185,11 @@ function SignedInApp(props) {
         let currentList = allLists.filter(currList => currList.id === id);
         if (currentList.length > 0) {
             setCurrentListName(currentList[0].name);
+            setCurrentSharedEmails(currentList[0].sharedWith);
             console.log("Current list;", currentList);
         } else {
             setCurrentListName("");
+            setCurrentSharedEmails([]);
         }
     }
 
@@ -171,7 +200,8 @@ function SignedInApp(props) {
                     <div id="landing-header">
                         <div id="landing-header-options">
                             {!props.emailVerified &&
-                                <button id="verify-email-btn" type="button" onClick={props.verifyEmail}>Verify email</button>
+                            <button id="verify-email-btn" type="button" onClick={props.verifyEmail}>Verify
+                                email</button>
                             }
                             <button id="signout-btn" type="button" onClick={() => props.signOut()}>Logout</button>
                         </div>
@@ -200,11 +230,14 @@ function SignedInApp(props) {
                                auth={auth} googleProvider={googleProvider}
                                currentListId={currentListId}
                                currentListName={currentListName}
+                               currentSharedEmails={currentSharedEmails}
                                collectionRef={db.collection(collectionName)}
                                allLists={allLists}
                                createNewList={handleListAdded}
                                onCurrentListDelete={handleCurrentListDelete}
-                               onCurrentListChanged={handleCurrentListChanged}/>
+                               onCurrentListChanged={handleCurrentListChanged}
+                               onSharedPermsChanged={handleSharedPermsChanged}
+                />
             }
         </div>
     );

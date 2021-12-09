@@ -1,15 +1,66 @@
 import './styles/App.css';
 import TaskList from './TaskList';
 import Header from './Header';
-import Lists from './Lists';
 import Modal from './Modal.js';
 import {useEffect, useState} from 'react';
+import deleteIcon from './static/delete-icon.png';
+
+function SharedEmailDisplay(props) {
+    const [newEmail, setNewEmail] = useState("");
+    const [localSharedEmails, setLocalSharedEmails] = useState(props.currentSharedEmails);
+
+    function handleAddEmailClick(e) {
+        e.preventDefault();
+        props.onSharedPermsChanged("add", props.currentListId, newEmail);
+        setLocalSharedEmails(props.currentSharedEmails);
+        setNewEmail("");
+    }
+
+    function handleDeleteEmailClick(email) {
+        props.onSharedPermsChanged("delete", props.currentListId, email);
+        setLocalSharedEmails(props.currentSharedEmails);
+    }
+
+    // TODO: fix styling of email input
+    return (
+        <div id="shared-email-display">
+            <form id="add-email-form" onSubmit={handleAddEmailClick}>
+                <input type="text" id="email-input-field" placeholder="Enter an email here!" text={newEmail} maxLength="80"
+                       tabIndex={props.modalDisplayed ? "-1" : ""}
+                       onChange={(e) => setNewEmail(e.target.value)}
+                />
+                <button type="submit" id={(newEmail !== "")?"add-email-btn-active":"add-email-btn-disabled"}
+                        tabIndex={props.modalDisplayed || (newEmail === "") ? "-1" : ""}
+                        aria-label="Add new email to shared list">
+                    +
+                </button>
+            </form>
+            <div id="email-items">
+                {
+                    localSharedEmails.map((email) => (
+                        <div className="email-item"
+                             key={email}>
+                            {email}
+                            <button className="dlt-email-btn"
+                                    tabIndex={props.modalDisplayed ? "-1" : ""}
+                                    aria-label="Delete email"
+                                    onClick={() => handleDeleteEmailClick(email)}>
+                                <img src={deleteIcon} alt="delete"/>
+                            </button>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    );
+}
 
 function App(props) {
     const [showCompleted, setShowCompleted] = useState(true);
     const [showDeleteModal, setShowDeleteModal] = useState(false);
     const [showDelCompletedModal, setShowDelCompletedModal] = useState(false);
     const [showDelListModal, setShowDelListModal] = useState(false);
+    const [showSharedWithModal, setShowSharedWithModal] = useState(false);
     const [deleteID, setDeleteID] = useState(null);
     const [modalDisplayed, setModalDisplayed] = useState(showDeleteModal || showDelCompletedModal || showDelListModal);
 
@@ -46,6 +97,10 @@ function App(props) {
                                              confirmButtonText={"Delete List"}
                                              onModalDisplayChanged={setShowDelListModal}
                                              onConfirmAction={props.onCurrentListDelete}/>}
+            {showSharedWithModal && <Modal text={<div><SharedEmailDisplay {...props}/></div>}
+                                       confirmButtonText={"Close"}
+                                       onModalDisplayChanged={setShowSharedWithModal}
+                                       onConfirmAction={() => setShowSharedWithModal(false)}/>}
             <Header onShowBtnClick={toggleShowCompleted} showCompleted={showCompleted}
                     onDelCompletedModalDisplay={setShowDelCompletedModal}
                     onAddBtnClick={props.onItemAdded} data={props.data}
@@ -57,10 +112,12 @@ function App(props) {
                       modalDisplayed={modalDisplayed}
                       allLists={props.allLists}
                       createNewList={props.createNewList}
-                      currentListName={props.currentListName}
                       currentListId={props.currentListId}
+                      currentListName={props.currentListName}
                       onCurrentListChanged={props.onCurrentListChanged}
                       onDelListModalDisplay={setShowDelListModal}
+                      onSharedPermsChanged={props.onSharedPermsChanged}
+                      onSharedWithModalDisplay={setShowSharedWithModal}
             />
         </div>
     );

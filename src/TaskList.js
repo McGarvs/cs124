@@ -26,9 +26,19 @@ function TaskList(props) {
             <div id="home-btn-container">
                 <button
                     id="home-btn" tabIndex={props.modalDisplayed ? "-1" : ""}
-                    onClick={() => props.onCurrentListChanged("")}>Home
+                    onClick={() => props.onCurrentListChanged("")}
+                >
+                    Home
                 </button>
             </div>}
+            <div>
+                <button
+                    tabIndex={props.modalDisplayed ? "-1" : ""}
+                    onClick={() => props.onSharedWithModalDisplay(true)}
+                >
+                    Share
+                </button>
+            </div>
             <div id="title-container">
                 <div id="title">
                     {props.currentListName}
