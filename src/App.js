@@ -27,32 +27,32 @@ function SharedEmailDisplay(props) {
         <div id="shared-email-display">
             {props.currentListOwnerEmail === props.user.email &&
             <form id="add-email-form" onSubmit={onFormSubmit}>
-                <input type="text" id="email-input-field" placeholder="Enter an email here!" text={newEmail} maxLength="80"
+                <input type="text" id="email-input-field" placeholder="Enter an email here!" text={newEmail}
+                       maxLength="80"
                        tabIndex={props.modalDisplayed ? "-1" : ""}
                        onChange={(e) => setNewEmail(e.target.value)}
                 />
-                <button type="submit" id={(newEmail !== "")?"add-email-btn-active":"add-email-btn-disabled"}
+                <button type="submit" id={(newEmail !== "") ? "add-email-btn-active" : "add-email-btn-disabled"}
                         tabIndex={props.modalDisplayed || (newEmail === "") ? "-1" : ""}
                         aria-label="Add new email to shared list">
                     +
                 </button>
             </form>}
             <div id="email-items">
-                {
-                    localSharedEmails.map((email) => (
-                        <div className="email-item"
-                             key={email}>
-                            {email}
-                            {email === props.user.email &&
-                            <button className="dlt-email-btn"
-                                    tabIndex={props.modalDisplayed ? "-1" : ""}
-                                    aria-label="Delete email"
-                                    onClick={() => handleDeleteEmailClick(email)}>
-                                <img src={deleteIcon} alt="delete"/>
-                            </button>}
-                        </div>
-                    ))
-                }
+                {localSharedEmails.map((email) => (
+                    <div className="email-item"
+                         key={email}>
+                        {email}
+                        {(props.currentListOwnerEmail === props.user.email || email === props.user.email) &&
+                        <button className="dlt-email-btn"
+                                tabIndex={props.modalDisplayed ? "-1" : ""}
+                                aria-label="Delete email"
+                                onClick={() => handleDeleteEmailClick(email)}>
+                            <img src={deleteIcon} alt="delete"/>
+                        </button>
+                        }
+                    </div>
+                ))}
             </div>
         </div>
     );
@@ -70,7 +70,7 @@ function App(props) {
     useEffect(() => {
         setModalDisplayed(showDeleteModal || showDelCompletedModal || showDelListModal);
         console.log("modal displayed");
-    },[showDeleteModal, showDelCompletedModal, showDelListModal])
+    }, [showDeleteModal, showDelCompletedModal, showDelListModal])
 
     function toggleShowCompleted(item) {
         setShowCompleted(!showCompleted)
@@ -78,13 +78,14 @@ function App(props) {
     }
 
     function getWindowDimensions() {
-        const { innerWidth: width, innerHeight: height } = window;
+        const {innerWidth: width, innerHeight: height} = window;
         return {
             width,
             height
         };
     }
-    const { height } = getWindowDimensions();
+
+    const {height} = getWindowDimensions();
 
     return (
         <div className="App" style={{height: height}}>
@@ -97,13 +98,13 @@ function App(props) {
                                              onModalDisplayChanged={setShowDelCompletedModal}
                                              onConfirmAction={props.onDeleteCompleted}/>}
             {showDelListModal && <Modal text={"Are you sure you want to delete the current list?"}
-                                             confirmButtonText={"Delete List"}
-                                             onModalDisplayChanged={setShowDelListModal}
-                                             onConfirmAction={props.onCurrentListDelete}/>}
+                                        confirmButtonText={"Delete List"}
+                                        onModalDisplayChanged={setShowDelListModal}
+                                        onConfirmAction={props.onCurrentListDelete}/>}
             {showSharedWithModal && <Modal text={<div><SharedEmailDisplay {...props}/></div>}
-                                       confirmButtonText={"Close"}
-                                       onModalDisplayChanged={setShowSharedWithModal}
-                                       onConfirmAction={() => setShowSharedWithModal(false)}/>}
+                                           confirmButtonText={"Close"}
+                                           onModalDisplayChanged={setShowSharedWithModal}
+                                           onConfirmAction={() => setShowSharedWithModal(false)}/>}
             <Header onShowBtnClick={toggleShowCompleted} showCompleted={showCompleted}
                     onDelCompletedModalDisplay={setShowDelCompletedModal}
                     onAddBtnClick={props.onItemAdded} data={props.data}

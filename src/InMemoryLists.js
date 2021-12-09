@@ -222,23 +222,22 @@ function SignedInApp(props) {
 
     function handleSharedPermsChanged(action, listID, newValue) {
         const docRef = db.collection(collectionName).doc(listID);
-        let sharedWithList;
-        docRef.get().then(doc => {
-            sharedWithList = doc.data().sharedWith;
-            console.log("shared with list: ", sharedWithList);
-        })
-        if (action === "add") { // add new email to share with
+        if (action === "add" && !currentSharedEmails.includes(newValue)) {
             currentSharedEmails.push(newValue);
         } else if (action === "delete") { // delete email that this list shared with
-            console.log("newvalue:", newValue);
-            const index = currentSharedEmails.indexOf(newValue);
-            if (index > -1) {
-                currentSharedEmails.splice(index, 1);
-            }
-            console.log("sharedWithList AFTER:", currentSharedEmails);
+                console.log("newvalue:", newValue);
+                const index = currentSharedEmails.indexOf(newValue);
+                if (index > -1) {
+                    currentSharedEmails.splice(index, 1);
+                }
+                console.log("sharedWithList AFTER:", currentSharedEmails);
         }
         docRef.update("sharedWith", currentSharedEmails);
         console.log("sharedWithList AFTER2:", currentSharedEmails);
+
+        // TODO: handle case where user tries to add a duplicate email
+        if (action === "add" && !currentSharedEmails.includes(newValue)) {
+        }
     }
 
     function handleCurrentListDelete() {
