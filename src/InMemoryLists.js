@@ -68,12 +68,47 @@ function InMemoryLists() {
 
 const FAKE_EMAIL = 'foo@bar.com';
 const FAKE_PASSWORD = 'xyzzyxx';
+function SignInSignUpFields(props) {
+    return (
+        <form id="signup-fields">
+            <div id="email-input">
+                <div className="signup-field-label">Email:</div>
+                <input type="text" value={props.userEmail} maxLength="80"
+                       onChange={(e) => props.onUserEmailChanged(e.target.value)}
+                />
+            </div>
+            <div id="password-input">
+                <div className="signup-field-label">Password:</div>
+                <input type="text" value={props.userPassword} maxLength="80"
+                       onChange={(e) => props.onUserPasswordChanged(e.target.value)}
+                />
+            </div>
+            <div id="signup-confirm-btn-container">
+                <button onClick={props.onFormSubmit}>
+                    {props.buttonText}
+                </button>
+            </div>
+        </form>
+    );
+}
 
 function SignIn() {
     const [
         signInWithEmailAndPassword,
         userCredential, loading, error
     ] = useSignInWithEmailAndPassword(auth);
+    const [userEmail, setUserEmail] = useState("");
+    const [userPassword, setUserPassword] = useState("");
+
+    function onFormSubmit(e) {
+        e.preventDefault();
+        // TODO: more error checking for email / password can go here
+        if (userEmail !== "" && userPassword !== "") {
+            signInWithEmailAndPassword(userEmail, userPassword);
+            setUserEmail("");
+            setUserPassword("");
+        }
+    }
 
     if (userCredential) {
         // Shouldn't happen because App should see that
@@ -90,6 +125,14 @@ function SignIn() {
         <button onClick={() =>
             auth.signInWithPopup(googleProvider)}>Login with Google
         </button>
+        <SignInSignUpFields
+            userEmail={userEmail}
+            onUserEmailChanged={setUserEmail}
+            userPassword={userPassword}
+            onUserPasswordChanged={setUserPassword}
+            onFormSubmit={onFormSubmit}
+            buttonText={"Sign In"}
+        />
     </div>
 }
 
@@ -98,6 +141,8 @@ function SignUp() {
         createUserWithEmailAndPassword,
         userCredential, loading, error
     ] = useCreateUserWithEmailAndPassword(auth);
+    const [userEmail, setUserEmail] = useState("");
+    const [userPassword, setUserPassword] = useState("");
 
     if (userCredential) {
         // Shouldn't happen because App should see that
@@ -106,33 +151,31 @@ function SignUp() {
     } else if (loading) {
         return <p>Signing up…</p>
     }
+
+    function onFormSubmit(e) {
+        e.preventDefault();
+        // TODO: more error checking for email / password can go here
+        if (userEmail !== "" && userPassword !== "") {
+            createUserWithEmailAndPassword(userEmail, userPassword);
+            setUserEmail("");
+            setUserPassword("");
+        }
+    }
+//bob@gmail.com, bobwashere
     return <div>
         {error && <p>"Error signing up: " {error.message}</p>}
         <button onClick={() =>
             createUserWithEmailAndPassword(FAKE_EMAIL, FAKE_PASSWORD)}>
             Create test user
         </button>
-
-        <form id="signup-fields">
-            <div id="email-input">
-                <div className="signup-field-label">Email:</div>
-                <input type="text" // placeholder="Enter a task here!" value={text} maxLength="80"
-                       // onChange={(e) => setText(e.target.value)}
-                />
-            </div>
-            <div id="password-input">
-                <div className="signup-field-label">Password:</div>
-                <input type="text" // placeholder="Enter a task here!" value={text} maxLength="80"
-                    // onChange={(e) => setText(e.target.value)}
-                />
-            </div>
-            <div id="signup-confirm-btn-container">
-                <button>
-                    Sign Up
-                </button>
-            </div>
-
-        </form>
+        <SignInSignUpFields
+            userEmail={userEmail}
+            onUserEmailChanged={setUserEmail}
+            userPassword={userPassword}
+            onUserPasswordChanged={setUserPassword}
+            onFormSubmit={onFormSubmit}
+            buttonText={"Sign Up"}
+        />
     </div>
 }
 
