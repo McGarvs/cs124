@@ -29,7 +29,7 @@ if (!firebase.apps.length) {
 // firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 const collectionName = "TaskLists-AuthenticationRequired"
-const sharedCollectionName = "TaskLists-SharingAllowed"
+// const sharedCollectionName = "TaskLists-SharingAllowed"
 const auth = firebase.auth();
 const googleProvider = new firebase.auth.GoogleAuthProvider();
 
@@ -183,21 +183,23 @@ function SignedInApp(props) {
     const [currentListId, setCurrentListId] = useState("");
     const [currentListName, setCurrentListName] = useState("");
     const [currentSharedEmails, setCurrentSharedEmails] = useState([]);
-    const myQuery = db.collection(collectionName).where('owner', "==", props.user.uid);
-    // const sharedQuery = db.collection(sharedCollectionName).where("sharedWith", "array-contains", props.user.email);
+    const myQuery = db.collection(collectionName).where("owner", "==", props.user.uid);
     const [myValue, myLoading, myError] = useCollection(myQuery); // const [value, loading, error] = useCollection(query);
-    const [sharedValue, sharedLoading, sharedError] = useCollection(myQuery);
+    const sharedQuery = db.collection(collectionName).where("sharedWith", "array-contains", props.user.email);
+    const [sharedValue, sharedLoading, sharedError] = useCollection(sharedQuery);
     let allLists = [];
-    // let sharedLists = [];
 
-    if (myValue !== undefined) {
+    if (myValue !== undefined && !myLoading) {
         for (const doc of myValue.docs) {
-            // only display lists that either you own or are shared with you
-            if (props.user.uid === doc.data().owner || doc.data().sharedWith.includes(props.user.email)) {
-                // setAllLists(prevState => [...prevState, doc.data()]);
+            allLists.push(doc.data());
+        }
+    }
+
+    if (sharedValue !== undefined && !sharedLoading) {
+        for (const doc of sharedValue.docs) {
+            if (!allLists.includes(doc.data())) {
                 allLists.push(doc.data());
             }
-            // console.log(allLists);
         }
     }
 
@@ -205,7 +207,7 @@ function SignedInApp(props) {
         const newList = {
             id: generateUniqueID(),
             name: myName,
-            sharedWith: [props.user.email, "bar@bar.com"], // TODO: DELETE foo@bar.com
+            sharedWith: [],
             owner: props.user.uid,
         }
         const docRef = db.collection(collectionName).doc(newList.id);
@@ -224,16 +226,12 @@ function SignedInApp(props) {
         })
         if (action === "add") { // add new email to share with
             currentSharedEmails.push(newValue);
-            // setCurrentSharedEmails(currentSharedEmails);
-            // setCurrentSharedEmails(prevState => [...prevState, newValue]);
         } else if (action === "delete") { // delete email that this list shared with
             console.log("newvalue:", newValue);
             const index = currentSharedEmails.indexOf(newValue);
             if (index > -1) {
                 currentSharedEmails.splice(index, 1);
             }
-            // const newSharedEmails = currentSharedEmails.filter(item => item !== newValue);
-            // setCurrentSharedEmails(newSharedEmails);
             console.log("sharedWithList AFTER:", currentSharedEmails);
         }
         docRef.update("sharedWith", currentSharedEmails);
