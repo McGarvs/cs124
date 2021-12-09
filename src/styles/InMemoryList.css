@@ -5,6 +5,36 @@
     position: relative;
 }
 
+#landing-header-options {
+    float: right;
+    padding: 12px;
+}
+
+#landing-header-options button {
+}
+
+#verify-email-btn {
+    background-color: #61b0ec;
+    border: none;
+    border-radius: 4px;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    height: 28px;
+    width: 90px;
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+#signout-btn {
+    background-color: #fcfcfc;
+    border: solid 1px #d3d3d3;
+    border-radius: 4px;
+    color: #3b3b3b;
+    cursor: pointer;
+    height: 28px;
+    width: 56px;
+}
+
 #landing-header-heading {
     font-weight: bold;
     font-size: 28px;

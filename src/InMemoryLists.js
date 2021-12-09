@@ -45,16 +45,18 @@ function InMemoryLists() {
     } else if (user) {
         return <div>
             {user.displayName || user.email}
-            <SignedInApp user={user}/>
-            <button type="button" onClick={() => auth.signOut()}>Logout</button>
-            {!user.emailVerified && <button type="button" onClick={verifyEmail}>Verify email</button>}
+            <SignedInApp user={user}
+                         emailVerified={user.emailVerified}
+                         verifyEmail={() => {verifyEmail()}}
+                         signOut={() => {auth.signOut()}}
+            />
         </div>
     } else {
         return <>
             {error && <p>Error App: {error.message}</p>}
             <TabList>
-                <SignIn key="Sign In" user={user} />
-                <SignUp key="Sign Up" />
+                <SignIn key="Sign In" user={user}/>
+                <SignUp key="Sign Up"/>
             </TabList>
         </>
     }
@@ -164,40 +166,46 @@ function SignedInApp(props) {
 
     return (
         <div>
-                {(currentListId === "") ?
-                    <div>
-                        <div id="landing-header">
-                            <div id="landing-header-heading">
-                                My Tasks App
-                            </div>
+            {(currentListId === "") ?
+                <div>
+                    <div id="landing-header">
+                        <div id="landing-header-options">
+                            {!props.emailVerified &&
+                                <button id="verify-email-btn" type="button" onClick={props.verifyEmail}>Verify email</button>
+                            }
+                            <button id="signout-btn" type="button" onClick={() => props.signOut()}>Logout</button>
                         </div>
-                        <div id="landing-content">
-                            {/*<TabList>*/}
-                                <Lists // key="My Lists"
-                                       allLists={allLists}
-                                       createNewList={handleListAdded}
-                                       onCurrentListChanged={handleCurrentListChanged}
-                                       currentListId={currentListId}
-                                       modalDisplayed={false}/>
-                            {/*    <Lists key="Shared Lists"*/}
-                            {/*           allLists={sharedLists}*/}
-                            {/*           createNewList={handleListAdded}*/}
-                            {/*           onCurrentListChanged={handleCurrentListChanged}*/}
-                            {/*           currentListId={currentListId}*/}
-                            {/*           modalDisplayed={false}/>*/}
-                            {/*</TabList>*/}
+                        <div id="landing-header-heading">
+                            My Tasks App
                         </div>
                     </div>
-                    : <InMemoryApp db={db} collectionName={collectionName}
-                                   auth={auth} googleProvider={googleProvider}
-                                   currentListId={currentListId}
-                                   currentListName={currentListName}
-                                   collectionRef={db.collection(collectionName)}
-                                   allLists={allLists}
-                                   createNewList={handleListAdded}
-                                   onCurrentListDelete={handleCurrentListDelete}
-                                   onCurrentListChanged={handleCurrentListChanged}/>
-                }
+                    <div id="landing-content">
+                        {/*<TabList>*/}
+                        <Lists // key="My Lists"
+                            allLists={allLists}
+                            createNewList={handleListAdded}
+                            onCurrentListChanged={handleCurrentListChanged}
+                            currentListId={currentListId}
+                            modalDisplayed={false}/>
+                        {/*    <Lists key="Shared Lists"*/}
+                        {/*           allLists={sharedLists}*/}
+                        {/*           createNewList={handleListAdded}*/}
+                        {/*           onCurrentListChanged={handleCurrentListChanged}*/}
+                        {/*           currentListId={currentListId}*/}
+                        {/*           modalDisplayed={false}/>*/}
+                        {/*</TabList>*/}
+                    </div>
+                </div>
+                : <InMemoryApp db={db} collectionName={collectionName}
+                               auth={auth} googleProvider={googleProvider}
+                               currentListId={currentListId}
+                               currentListName={currentListName}
+                               collectionRef={db.collection(collectionName)}
+                               allLists={allLists}
+                               createNewList={handleListAdded}
+                               onCurrentListDelete={handleCurrentListDelete}
+                               onCurrentListChanged={handleCurrentListChanged}/>
+            }
         </div>
     );
 }
