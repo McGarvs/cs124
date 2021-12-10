@@ -214,7 +214,6 @@ function SignedInApp(props) {
             ownerEmail: props.user.email,
         }
         const docRef = db.collection(collectionName).doc(newList.id);
-        console.log("new list... shared with: ", newList.sharedWith);
         docRef.set(newList).catch((error) => {
             console.error("Error creating list: ", error);
         });
@@ -225,15 +224,12 @@ function SignedInApp(props) {
         if (action === "add" && !currentSharedEmails.includes(newValue)) {
             currentSharedEmails.push(newValue);
         } else if (action === "delete") { // delete email that this list shared with
-                console.log("newvalue:", newValue);
                 const index = currentSharedEmails.indexOf(newValue);
                 if (index > -1) {
                     currentSharedEmails.splice(index, 1);
                 }
-                console.log("sharedWithList AFTER:", currentSharedEmails);
         }
         docRef.update("sharedWith", currentSharedEmails);
-        console.log("sharedWithList AFTER2:", currentSharedEmails);
 
         // TODO: handle case where user tries to add a duplicate email
         if (action === "add" && !currentSharedEmails.includes(newValue)) {
@@ -243,18 +239,14 @@ function SignedInApp(props) {
     function handleCurrentListDelete() {
         // can only delete if user is the owner of current list
         const docRef = db.collection(collectionName).doc(currentListId);
-        let currentListOwner;
-        docRef.get().then(doc => {
-            currentListOwner = doc.data().owner;
-        })
-        if (props.user.uid === currentListOwner) {
+        if (props.user.email === currentListOwnerEmail) {
             docRef.delete();
             setCurrentListId("");
             setCurrentListName("");
             setCurrentListOwnerEmail("");
         } else {
             // TODO: handle non-owners trying to delete current list
-            handleSharedPermsChanged("delete", currentListId, props.user.email);
+            // handleSharedPermsChanged("delete", currentListId, props.user.email);
         }
     }
 
