@@ -20,6 +20,7 @@
 
 .task-content .task-text {
     display: flex;
+    white-space: pre;
 }
 
 .task-content .task-date {
