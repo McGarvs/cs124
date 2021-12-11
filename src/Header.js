@@ -23,6 +23,7 @@ function Header(props) {
                                onChange={(e) => setText(e.target.value)}
                                />
                         <button type="submit" id={(text !== "")?"add-btn-active":"add-btn-disabled"}
+                                className={(text !== "")?"text-btn btn-enabled":"text-btn btn-disabled"}
                                 tabIndex={props.modalDisplayed || (text === "") ? "-1" : ""}
                                 aria-label="Create task">
                             +
