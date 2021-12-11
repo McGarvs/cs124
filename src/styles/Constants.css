@@ -1,5 +1,7 @@
 :root {
     --main-priority-color: #9E0000; /*Used to be #f6942a -> #ff8600 -> */
+    --delete-btn-color: #9E0000;
+    --undo-btn-color: #575757; /*Used to be #777777 -> */
     --header-background-color: #c4ecff;
     --btn-disabled-color: #e5e5e5; /* used to be RGB: 236,236,236*/
     --btn-enabled-color: #235a7c;
