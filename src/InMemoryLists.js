@@ -269,6 +269,12 @@ function SignedInApp(props) {
             {(currentListId === "") ?
                 <div>
                     <div id="landing-header">
+                        <div id="landing-header-title">
+                            My Tasks App
+                        </div>
+                        <div id="landing-header-user">
+                            Logged in as: {props.user.displayName || props.user.email}
+                        </div>
                         <div id="landing-header-options">
                             {!props.emailVerified &&
                             <button id="verify-email-btn" className="text-btn btn-enabled"
@@ -276,9 +282,6 @@ function SignedInApp(props) {
                             }
                             <button id="signout-btn" className="text-btn btn-enabled"
                                     type="button" onClick={() => props.signOut()}>Logout</button>
-                        </div>
-                        <div id="landing-header-heading">
-                            My Tasks App: {props.user.displayName || props.user.email}
                         </div>
                     </div>
                     <div id="landing-content">
