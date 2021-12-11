@@ -84,18 +84,30 @@
 }
 
 #signup-confirm-btn-container button {
-    background-color: #61b0ec;
-    border: none;
-    border-radius: 4px;
-    color: rgb(255, 255, 255);
-    cursor: pointer;
     height: 38px;
     width: 290px;
-    font-size: 14px;
 }
 
 #landing-content {
     padding: 16px;
+}
+
+/* Optional Sign In Buttons*/
+#signin-btns {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 16px;
+}
+#test-signin-btn {
+    height: 38px;
+    width: auto;
+    margin-bottom: 16px;
+
+}
+#google-signin-btn {
+    height: 38px;
+    width: auto;
 }
 
 @media screen and (min-width: 480px) {
@@ -103,6 +115,9 @@
         padding: 20px 20%;
     }
     #landing-content {
+        padding: 20px 20%;
+    }
+    #signin-btns {
         padding: 20px 20%;
     }
 }

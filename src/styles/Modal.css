@@ -1,3 +1,5 @@
+@import './Constants.css';
+
 .modal-bg {
     background-color: rgba(0, 0, 0, 0.5);
     height: 100%;

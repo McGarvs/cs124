@@ -1,5 +1,9 @@
-.tab-list {  border-bottom: 1px solid #ccc;
+@import './Constants.css';
+
+.tab-list {
+    border-bottom: 1px solid #ccc;
     padding-left: 0;
+    background-color: var(--header-background-color);
 }
 
 .tab-list-item {

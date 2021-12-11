@@ -83,7 +83,7 @@ function SignInSignUpFields(props) {
                 />
             </div>
             <div id="signup-confirm-btn-container">
-                <button onClick={props.onFormSubmit}>
+                <button className="text-btn btn-enabled" onClick={props.onFormSubmit}>
                     {props.buttonText}
                 </button>
             </div>
@@ -118,12 +118,14 @@ function SignIn() {
     }
     return <div>
         {error && <p>"Error logging in: " {error.message}</p>}
-        <button onClick={() =>
-            signInWithEmailAndPassword(FAKE_EMAIL, FAKE_PASSWORD)}>Login with test user Email/PW
-        </button>
-        <button onClick={() =>
-            auth.signInWithPopup(googleProvider)}>Login with Google
-        </button>
+        <div id="signin-btns">
+            <button id="test-signin-btn" className="text-btn btn-enabled" onClick={() =>
+                signInWithEmailAndPassword(FAKE_EMAIL, FAKE_PASSWORD)}>Sign in with test user
+            </button>
+            <button id="google-signin-btn" className="text-btn btn-enabled" onClick={() =>
+                auth.signInWithPopup(googleProvider)}>Sign in with Google
+            </button>
+        </div>
         <SignInSignUpFields
             userEmail={userEmail}
             onUserEmailChanged={setUserEmail}
@@ -163,10 +165,11 @@ function SignUp() {
 //bob@gmail.com, bobwashere
     return <div>
         {error && <p>"Error signing up: " {error.message}</p>}
-        <button onClick={() =>
-            createUserWithEmailAndPassword(FAKE_EMAIL, FAKE_PASSWORD)}>
-            Create test user
-        </button>
+        {/* Creates a test user (already done)*/}
+        {/*<button onClick={() =>*/}
+        {/*    createUserWithEmailAndPassword(FAKE_EMAIL, FAKE_PASSWORD)}>*/}
+        {/*    Create test user*/}
+        {/*</button>*/}
         <SignInSignUpFields
             userEmail={userEmail}
             onUserEmailChanged={setUserEmail}
