@@ -22,26 +22,20 @@ function TaskList(props) {
 
     return (
         <div id="tasklist-container">
-            <div>
-                Owner email: {props.currentListOwnerEmail}
-            </div>
             {currentListDisplayed &&
-            <div id="home-btn-container">
-                <button
-                    id="home-btn" tabIndex={props.modalDisplayed ? "-1" : ""}
-                    onClick={() => props.onCurrentListChanged("")}
-                >
-                    Home
+            <div id="navigation-container">
+                <button id="home-btn" tabIndex={props.modalDisplayed ? "-1" : ""}
+                        className="text-btn btn-enabled"
+                        onClick={() => props.onCurrentListChanged("")}>Home
+                </button>
+                <p id="list-owner">
+                    List Owner: {props.currentListOwnerEmail}
+                </p>
+                <button id="share-btn" tabIndex={props.modalDisplayed ? "-1" : ""}
+                        className="text-btn btn-enabled"
+                        onClick={() => props.onSharedWithModalDisplay(true)}>Share
                 </button>
             </div>}
-            <div>
-                <button
-                    tabIndex={props.modalDisplayed ? "-1" : ""}
-                    onClick={() => props.onSharedWithModalDisplay(true)}
-                >
-                    Share
-                </button>
-            </div>
             <div id="title-container">
                 <div id="title">
                     {props.currentListName}
@@ -55,7 +49,8 @@ function TaskList(props) {
                            modalDisplayed={props.modalDisplayed}/>
                 </div>
                 <div className="dropdown">
-                    <button className={(filteredData.length !== 0) ? "sort-btn-active" : "sort-btn-disabled"}
+                    <button className={(filteredData.length !== 0) ? "sort-btn-active text-btn btn-enabled":
+                        "sort-btn-disabled text-btn btn-disabled"}
                             onClick={toggleDropdown} tabIndex={props.modalDisplayed ? "-1" : ""}
                             onKeyDown={(e) => (filteredData.length === 0) && e.preventDefault()}>Sort
                     </button>
