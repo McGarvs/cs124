@@ -36,7 +36,8 @@ function Lists(props) {
                            type={"text"} placeholder={"Enter a new list name..."} maxLength="16"
                            tabIndex={props.modalDisplayed ? "-1" : ""}
                            onChange={(e) => setName(e.target.value)}/>
-                    <button id={(name !== "")?"add-list-btn-active":"add-list-btn-disabled"}
+                    <button id={(name !== "")?"add-list-btn-active": "add-list-btn-disabled"}
+                            className={(name !== "")?"text-btn btn-enabled": "text-btn btn-disabled"}
                             type="submit" aria-label="Create list">
                         +
                     </button>

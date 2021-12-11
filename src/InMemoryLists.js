@@ -44,7 +44,6 @@ function InMemoryLists() {
         return <p>Checking...</p>;
     } else if (user) {
         return <div>
-            {user.displayName || user.email}
             <SignedInApp user={user}
                          emailVerified={user.emailVerified}
                          verifyEmail={() => {
@@ -272,13 +271,14 @@ function SignedInApp(props) {
                     <div id="landing-header">
                         <div id="landing-header-options">
                             {!props.emailVerified &&
-                            <button id="verify-email-btn" type="button" onClick={props.verifyEmail}>Verify
-                                email</button>
+                            <button id="verify-email-btn" className="text-btn btn-enabled"
+                                    type="button" onClick={props.verifyEmail}>Verify email</button>
                             }
-                            <button id="signout-btn" type="button" onClick={() => props.signOut()}>Logout</button>
+                            <button id="signout-btn" className="text-btn btn-enabled"
+                                    type="button" onClick={() => props.signOut()}>Logout</button>
                         </div>
                         <div id="landing-header-heading">
-                            My Tasks App
+                            My Tasks App: {props.user.displayName || props.user.email}
                         </div>
                     </div>
                     <div id="landing-content">
