@@ -48,7 +48,7 @@ function Task(props) {
                                 {repeatString("!", priority)+repeatString(" ", (3-priority))}</div>}
                             {text}
                         </div>
-                        <div className="task-date">{props.creationDate}</div>
+                        <div className="task-date">{"     "+props.creationDate}</div>
                     </div>
                 }
             </div>
