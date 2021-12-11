@@ -54,7 +54,8 @@ function Task(props) {
                 }
             </div>
             {editing ?
-                <button className={(text !== "") ? "save-btn-active" : "save-btn-disabled"}
+                <button className={(text !== "") ? "save-btn-active text-btn btn-enabled" :
+                    "save-btn-disabled text-btn btn-disabled"}
                         tabIndex={props.modalDisplayed || text === "" ? "-1" : ""}
                         aria-label="Save task edits"
                         onClick={(e) => {
