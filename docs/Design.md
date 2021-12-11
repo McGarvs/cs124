@@ -1,4 +1,4 @@
-# CS124 Lab4 Design Document
+design.md# CS124 Lab4 Design Document
 
 ## Design Decisions
 Our previous Lab 3 Design Document can be found [here](https://github.com/McGarvs/cs124/blob/lab3/docs/design.md).
