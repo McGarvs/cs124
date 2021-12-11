@@ -1,5 +1,11 @@
+@import './Constants.css';
+
+#login-display {
+    background-color: var(--header-background-color);
+}
+
 #landing-header {
-    background-color: #c4ecff;
+    background-color: var(--header-background-color);
     height: 128px;
     width: 100%;
     position: relative;

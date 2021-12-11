@@ -1,8 +1,27 @@
 :root {
     --main-priority-color: #f6942a;
+    --header-background-color: #c4ecff;
+    --btn-disabled-color: #ececec; /* RGB: 236,236,236*/
+    --btn-enabled-color: #235a7c;
 }
 
-button {
-    --btn-disabled-color: #8f8e8e;
-    --btn-enabled-color: #efefef;
+.text-btn {
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
+    border-radius: 4px;
+    height: 28px;
+    width: 60px;
+}
+
+.btn-enabled {
+    background-color: var(--btn-enabled-color);
+    color: rgb(255, 255, 255);
+}
+
+.btn-disabled {
+    pointer-events:none;
+    background-color: var(--btn-disabled-color);
+    color: rgba(121, 121, 121, 0.39);
 }
