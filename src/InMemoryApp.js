@@ -58,7 +58,6 @@ function InMemoryApp(props) {
 
     function handleDeleteAll(){
         taskData.map((task) => {subCollectionRef.doc(task.id).delete()});
-        console.log("DELETED Sub");
         props.onCurrentListDelete();
     }
 

@@ -26,7 +26,6 @@ function Lists(props) {
             toggleDropdown();
         }
     }
-    console.log(props.allLists);
     return(
         <div>
             {!currentListDisplayed &&

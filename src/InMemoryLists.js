@@ -259,8 +259,6 @@ function SignedInApp(props) {
             setCurrentListName(currentList[0].name);
             setCurrentListOwnerEmail(currentList[0].ownerEmail)
             setCurrentSharedEmails(currentList[0].sharedWith);
-            console.log("Current list;", currentList);
-            console.log("blah:", currentListOwnerEmail);
         } else {
             setCurrentListName("");
             setCurrentSharedEmails([]);
