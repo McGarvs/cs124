@@ -40,7 +40,6 @@ function SharedEmailDisplay(props) {
         if (e.which === 13) {
             setNewEmail(e.target.value);
             validateEmail(e.target.value);
-            console.log(e.target.value, isValidEmail);
             if(isValidEmail) {
                 onFormSubmit(e);
             }
