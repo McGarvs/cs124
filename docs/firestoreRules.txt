@@ -1,0 +1,58 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() {
+      return request.auth.uid != null && request.auth.uid != null;
+    }
+
+    function isDocOwner() {
+      return request.auth.uid == resource.data.owner;
+    }
+
+    function updatedDocHasCorrectOwner() {
+      return request.auth.uid == request.resource.data.owner;
+    }
+
+    function updatedDocHasSameOwner() {
+      return resource.data.owner == request.resource.data.owner;
+    }
+
+    function updatedDocHasSameSharing() {
+      return resource.data.sharedWith == request.resource.data.sharedWith;
+    }
+
+    function isSharedWithMe() {
+      return request.auth.token.email in resource.data.sharedWith;
+    }
+
+    match /TaskLists-NoAuthenticationNeeded/{tasklist} {
+        allow read, write: if request.time < timestamp.date(2021, 12, 10);
+    }
+
+    match /TaskLists-AuthenticationRequired/{tasklist} {
+    	allow read: if signedIn() && (isDocOwner() || isSharedWithMe());
+      // allow read: if signedIn() && isDocOwner();
+      allow create: if signedIn() && updatedDocHasCorrectOwner();
+      // as of right now, only let doc owner make edits
+      allow update: if signedIn() && ((isDocOwner()
+      			&& updatedDocHasCorrectOwner()) || (isSharedWithMe()
+            && updatedDocHasSameOwner()));
+      // allow update: if signedIn() && isDocOwner() &&
+      //   updatedDocHasCorrectOwner();
+      allow delete: if signedIn() && isDocOwner();
+    }
+
+    match /TaskLists-AuthenticationRequired/{tasklist}/Tasks/{task} {
+      allow read, write, create, update, delete;
+    }
+
+    match /TaskLists-SharingAllowed/{tasklist} {
+      allow read: if signedIn() && isSharedWithMe();
+      allow create: if signedIn() && updatedDocHasCorrectOwner();
+      allow update: if signedIn() && isSharedWithMe() &&
+        updatedDocHasSameOwner() && updateDocHasSameSharing();
+      allow delete: if signedIn() && isDocOwner();
+    }
+
+  }
+}
