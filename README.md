@@ -20,21 +20,14 @@ Sharing logic for a given task list:
 
 TODO: (higher priority)
 * make add-email-input box clear input text after clicking "+" button
-* add error checking to prevent duplicate emails to be added
-  * COMPLETED in code but still needs UI to let user know
-* style "share" button
-* indicate email of owner of task list in a nice looking way
-*  (COMPLETED) prevent the UI from updating when (in the console logs), there are permission errors
-since this user doesn't have the permission to do this action.
-* (COMPLETED) hide delete-list button to people who are NOT owners of the current tasklist
-* (COMPLETED) hide delete-email button to people who do not have that email and are NOT owners of the current tasklist
+* add error checking to prevent duplicate emails to be added (completed for sharing somewhat, maybe not signin yet)
 
 TODO: (later)
-* allow users who are not the tasklist owner to make changes to the task list (but not allowed
-to edit share permissions)
-* allow users (who are not owners of a tasklist) delete that tasklist from their view (effectively
-unsharing it with themselves) 
+* (Completed) allow users (who are not owners of a tasklist) delete that tasklist from their view (effectively
+unsharing it with themselves)
+* Based on the above, if you unshare yourself, you should be redirected to the home page
 * double check that "verify email" button works
+* Share Modal is broken: allows tabbing in the background, and can hit return to enter invalid data
 
 Optional:
 * support editing list names
