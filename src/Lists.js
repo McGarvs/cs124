@@ -56,7 +56,7 @@ function Lists(props) {
                                                            tabIndex={props.modalDisplayed ? "-1" : "0"}
                                                            className={(myList.id === props.currentListId)?"list-unselected list-selected":"list-unselected"}
                                                            onKeyUp={(e) => handleEnterPress(e, myList.id)}
-                                                           onClick={() => props.onCurrentListChanged(myList.id)}></a>)}
+                                                           onClick={() => props.onCurrentListChanged(myList.id)}>{myList.name}</a>)}
                     </div>}
                 </div>
                 :
@@ -66,8 +66,8 @@ function Lists(props) {
                                                    className={(myList.id === props.currentListId)?"list-unselected list-selected":"list-unselected"}
                                                    onKeyUp={(e) => handleEnterPress(e, myList.id)}
                                                    onClick={() => props.onCurrentListChanged(myList.id)}>
-                        <div>{myList.name}</div>
-                        {(myList.ownerEmail !== props.user.email) && <div id="list-isUnowned">Unowned</div>}
+                        <div id="list-name">{myList.name}</div>
+                        {(myList.ownerEmail !== props.user.email) && <div id="list-isUnowned">Not Owned</div>}
                         {(myList.sharedWith.length !== 0) && <div id="list-isShared">Shared</div>}
                     </a>)}
                 </div>

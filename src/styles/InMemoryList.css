@@ -34,7 +34,8 @@
 }
 
 #landing-header-user {
-    /*font-weight: bold;*/
+    color: var(--other-btn-color);
+    font-weight: bold;
     /*font-size: 28px;*/
 }
 
