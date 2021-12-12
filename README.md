@@ -17,14 +17,3 @@ Sharing logic for a given task list:
   * Unshare the document with themselves (effectively removing their own email from
   the task list's "sharedWith" list of emails, so the task list no longer shows up in
   this user's task list view)
-
-TODO: (higher priority)
-* add error checking to prevent duplicate emails to be added (completed for sharing, maybe not signin yet)
-
-TODO: (later)
-* double check that "verify email" button works
-* Share Modal is broken: allows tabbing in the background, and can hit return to enter invalid data
-
-Optional:
-* support editing list names
-* add hovering effect over list of tasklists in landing page
