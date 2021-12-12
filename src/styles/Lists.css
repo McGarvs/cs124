@@ -38,11 +38,16 @@
 
 #home-lists-container a {
     display: flex;
-    justify-content: space-between;
+    /*justify-content: space-between;*/
 }
 
 #list-name {
     font-weight: bold;
+}
+
+#list-info {
+    margin-left: auto;
+    display: flex;
 }
 
 #list-isUnowned {
@@ -53,6 +58,7 @@
 #list-isShared {
     color: var(--other-btn-color);
     font-weight: bold;
+    margin-left: 1em;
 }
 
 /* List Display Page Styling*/

@@ -66,8 +66,10 @@ function Lists(props) {
                                                    onKeyUp={(e) => handleEnterPress(e, myList.id)}
                                                    onClick={() => props.onCurrentListChanged(myList.id)}>
                         <div id="list-name">{myList.name}</div>
-                        {(myList.ownerEmail !== props.user.email) && <div id="list-isUnowned">Not Owned</div>}
-                        {(myList.sharedWith.length !== 0) && <div id="list-isShared">Shared</div>}
+                        <div id="list-info">
+                            {(myList.ownerEmail !== props.user.email) && <div id="list-isUnowned">Not Owned</div>}
+                            {(myList.sharedWith.length !== 0) && <div id="list-isShared">Shared</div>}
+                        </div>
                     </a>)}
                 </div>
             }
