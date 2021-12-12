@@ -24,8 +24,15 @@
     color: #61dafb;
 }
 
+#email-shared-msg {
+    color: var(--other-btn-color);
+    font-weight: Bold;
+    margin-bottom: 8px;
+}
+
 #email-validation-error {
     color: var(--delete-btn-color);
+    font-weight: Bold;
     margin-bottom: 8px;
 }
 

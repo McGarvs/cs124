@@ -36,12 +36,25 @@ function SharedEmailDisplay(props) {
         setIsValidEmail(bool);
     }
 
+    function handleEnterPress(e, email){
+        if (e.which === 13) {
+            setNewEmail(e.target.value);
+            validateEmail(e.target.value);
+            console.log(e.target.value, isValidEmail);
+            if(isValidEmail) {
+                onFormSubmit(e);
+            }
+        }
+    }
+
     return (
         <div id="shared-email-display">
+            {localSharedEmails.includes(props.user.email) &&
+            <div id="email-shared-msg">Click the trash icon to remove yourself from the list!</div>}
             {props.currentListOwnerEmail === props.user.email &&
                     (!isValidEmail && <div id="email-validation-error">Please Enter a Valid Email!</div>)}
             {props.currentListOwnerEmail === props.user.email &&
-            <form id="add-email-form" onSubmit={onFormSubmit}>
+            <form id="add-email-form" onSubmit={e => {e.preventDefault()}} onKeyUp={(e) => handleEnterPress(e)}>
                 <input type="text" id="email-input-field" placeholder="Enter an email here!" text={newEmail}
                        maxLength="80"
                        tabIndex={props.modalDisplayed ? "-1" : ""}
@@ -51,6 +64,7 @@ function SharedEmailDisplay(props) {
                        }}
                 />
                 <button type="submit"
+                        onClick={onFormSubmit}
                         id={(newEmail !== "" && isValidEmail) ? "add-email-btn-active":
                             "add-email-btn-disabled"}
                         className={(newEmail !== "" && isValidEmail) ? "text-btn btn-enabled":

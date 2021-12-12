@@ -19,8 +19,7 @@ Sharing logic for a given task list:
   this user's task list view)
 
 TODO: (higher priority)
-* make add-email-input box clear input text after clicking "+" button
-* add error checking to prevent duplicate emails to be added (completed for sharing somewhat, maybe not signin yet)
+* add error checking to prevent duplicate emails to be added (completed for sharing, maybe not signin yet)
 
 TODO: (later)
 * double check that "verify email" button works
