@@ -36,7 +36,7 @@
 }
 
 .modal-cancel-btn {
-    color: var(--undo-btn-color);
+    color: var(--other-btn-color);
     padding: 0;
     border: none;
     background: none;
@@ -50,7 +50,7 @@
 }
 
 .modal-close-btn {
-    color: var(--undo-btn-color);
+    color: var(--other-btn-color);
     padding: 0;
     border: none;
     background: none;

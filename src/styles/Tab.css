@@ -9,6 +9,8 @@
 
 .tab-list-item {
     background-color: unset;
+    color: var(--other-btn-color);
+    font-weight: bold;
     display: inline-block;
     list-style: none;
     margin-bottom: -1px;

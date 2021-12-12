@@ -87,7 +87,7 @@
 
 #show-completed-btn {
     float: left;
-    color: var(--undo-btn-color);
+    color: var(--other-btn-color);
     cursor: pointer;
     padding: 0;
     border: none;
