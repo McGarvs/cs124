@@ -18,19 +18,26 @@ Old Lab 4 Design - Home Page | Old Lab 4 Design - Tasks Page
 
 The key differences are as follows:
 * Sign in / Log in Functionality:
+  * Users can create an account on the sign up tab
+  * Each user has access to creating and editing their own unique lists
+  * The user can log in and log out at any time
+  * The user can send an email to themselves verify their account
 * List Sharing Functionality: 
-  * New Page displayed on first load of the web app, allows list creation and selection
-  * On the List Display Page, the header was changed from "My Tasks" to the list's name
-  * The List Display Page allows selection of different lists, and deletion of the current list
-* Accessibility Features:
-  * Can now use tab and enter on the custom dropdowns for sort and list selection
-  * Improved usability with screen reader
-  * App displays better upon zooming up to 200%
+  * Lists can be shared between users, which lists are shared is noted in the home page
+  * The list details page shows the owner of a list
+  * The owner of a list can manage who has access to their list (anyone with access can edit but not delete the list)
+  * Persons who were shared a list can remove themselves from the list.
+* Style/Accessibility Changes:
+  * Button colors were made darker to increase contrast
+  * Buttons styling and colors were made more uniform
+  * Priority color was changed from a bright-orange to a dark-red to increase visibility and contrast.
+  * The home page no longer has a dropdown, instead lists are displayed automatically as a list.
+  * The home page displays if a list is not owned by the user, and if it is being shared.
 
 ## Alternative Designs
-We mostly focused on improvements in this lab, and did not come up with any designs alternative to our current one.
-There were a couple design tweaks suggested by our two user testers that will try to implement in the next lab. They are
-listed in the next section.
+We mostly focused on improvements in this lab, and did not come up with many designs alternative to our current one.
+Some design alternatives included simply in choosing which button styles to make more uniform, and which
+colors to choose for our style/accessibility refactoring. 
 
 ## User Testing
 
@@ -76,15 +83,33 @@ The user is at the list details page and sees that they own the list.
 
 The user is at the list details page and clicks the share button.
 
-![List Sharing](./screenshots/lab5-sharing-home.png)
+![List Sharing](./screenshots/lab5-sharing-3.png)
 
 The user is at the list details page and enters an email into the form.
 
-![List Sharing](./screenshots/lab5-sharing-home.png)
+![List Sharing](./screenshots/lab5-sharing-4.png)
+
+The user sees their newly added email listed..
+
+![List Sharing](./screenshots/lab5-sharing-5.png)
 
 The user tries to delete some emails from the shared list.
 
-![List Sharing](./screenshots/lab5-sharing-home.png)
+![List Sharing](./screenshots/lab5-sharing-6.png)
+
+#### Look at shared List
+
+The user is at their homepage and sees that they have some shared lists. They click Dylan's List.
+
+![Home Page](./screenshots/lab5-sharing-home.png)
+
+The user sees that they do not own the list.
+
+![List Sharing](./screenshots/lab5-sharing-7.png)
+
+The user clicks share and sees that they can remove themselves from the list.
+
+![List Sharing](./screenshots/lab5-sharing-8.png)
 
 ## Outdated Images
 
@@ -245,9 +270,8 @@ higher up on the list.
 
 
 ## Challenges + Reflections
-Now that this React project has grown to encompass greater functionality with the multi lists, we have started
-to find that our code is becoming more and more bloated. Refactoring this time around was significantly harder than
-in previous labs, yet still remained a fun challenge. We are proud of our multi list functionality, particularly for
-addition of a home page and the dynamic list title in the task display page. We didn't get to do a round of user testing
-as early as we would have liked to in this lab, and did not get to make some of their changes, but we have noted them for
-the next lab.
+Similarly to our previous lab, our project has seen a lot of bloating, and refactoring continued to be a challenge. One
+refactor we are particularly proud of is having made our css more modular, with several reused styles being put into a
+constants.css. In particular, we are pleased with our login, having implemented a simple email and password login, but also a google
+sign-in as well. Sadly this time around, we didn't get to do a round of user testing, which would have been nice to test some of our 
+new features.
