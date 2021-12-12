@@ -7,6 +7,7 @@ import deleteIcon from './static/delete-icon.png';
 
 function SharedEmailDisplay(props) {
     const [newEmail, setNewEmail] = useState("");
+    const [isValidEmail, setIsValidEmail] = useState(false);
     const localSharedEmails = props.currentSharedEmails;
 
     function onFormSubmit(e) {
@@ -22,17 +23,35 @@ function SharedEmailDisplay(props) {
         props.onSharedPermsChanged("delete", props.currentListId, email);
     }
 
-    // TODO: fix styling of email input
+    function validateEmail(email) {
+        // Checks email format with Regex
+        const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        const result = (String(email).toLowerCase().match(re));
+        const bool = (email !== props.user.email)
+            && !localSharedEmails.includes(email)
+            && !(!Array.isArray(result) || !result.length);
+        setIsValidEmail(bool);
+    }
+
     return (
         <div id="shared-email-display">
+            {props.currentListOwnerEmail === props.user.email &&
+                    (!isValidEmail && <div id="email-validation-error">Please Enter a Valid Email!</div>)}
             {props.currentListOwnerEmail === props.user.email &&
             <form id="add-email-form" onSubmit={onFormSubmit}>
                 <input type="text" id="email-input-field" placeholder="Enter an email here!" text={newEmail}
                        maxLength="80"
                        tabIndex={props.modalDisplayed ? "-1" : ""}
-                       onChange={(e) => setNewEmail(e.target.value)}
+                       onChange={(e) => {
+                           setNewEmail(e.target.value);
+                           validateEmail(e.target.value);
+                       }}
                 />
-                <button type="submit" id={(newEmail !== "") ? "add-email-btn-active" : "add-email-btn-disabled"}
+                <button type="submit"
+                        id={(newEmail !== "" && isValidEmail) ? "add-email-btn-active":
+                            "add-email-btn-disabled"}
+                        className={(newEmail !== "" && isValidEmail) ? "text-btn btn-enabled":
+                            "text-btn btn-disabled"}
                         tabIndex={props.modalDisplayed || (newEmail === "") ? "-1" : ""}
                         aria-label="Add new email to shared list">
                     +
@@ -69,12 +88,11 @@ function App(props) {
 
     useEffect(() => {
         setModalDisplayed(showDeleteModal || showDelCompletedModal || showDelListModal);
-        console.log("modal displayed");
+        // console.log("modal displayed");
     }, [showDeleteModal, showDelCompletedModal, showDelListModal])
 
     function toggleShowCompleted(item) {
         setShowCompleted(!showCompleted)
-        console.log("Toggled showing Completed vs Uncompleted")
     }
 
     function getWindowDimensions() {

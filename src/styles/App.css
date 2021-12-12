@@ -1,3 +1,5 @@
+@import './Constants.css';
+
 .App {
     text-align: center;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,17 +7,6 @@
     sans-serif;
     font-size: 14px;
     overflow: hidden;
-}
-
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
 }
 
 .App-header {
@@ -33,13 +24,9 @@
     color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+#email-validation-error {
+    color: var(--delete-btn-color);
+    margin-bottom: 8px;
 }
 
 #shared-email-display {
@@ -63,13 +50,6 @@
 }
 
 #add-email-btn-active {
-    background-color: #61b0ec;
-    border: none;
-    border-radius: 0 6px 6px 0;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
-    color: rgb(255, 255, 255);
-    cursor: pointer;
-    /*padding: 4px;*/
     font-size: 18px;
     margin-right: auto;
     height: 100%;
@@ -77,17 +57,7 @@
 }
 
 #add-email-btn-disabled {
-    pointer-events:none;
-    background-color: rgb(236, 236, 236);
-    color: rgba(121, 121, 121, 0.39);
-    border: none;
-    border-radius: 0 6px 6px 0;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
-    cursor: pointer;
-    /*padding: 4px;*/
     font-size: 18px;
-    margin: 0;
-    padding: 0;
     height: 100%;
     width: 30px;
 }

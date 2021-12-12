@@ -288,20 +288,13 @@ function SignedInApp(props) {
                         </div>
                     </div>
                     <div id="landing-content">
-                        {/*<TabList>*/}
                         <Lists // key="My Lists"
                             allLists={allLists}
+                            user={props.user}
                             createNewList={handleListAdded}
                             onCurrentListChanged={handleCurrentListChanged}
                             currentListId={currentListId}
                             modalDisplayed={false}/>
-                        {/*    <Lists key="Shared Lists"*/}
-                        {/*           allLists={sharedLists}*/}
-                        {/*           createNewList={handleListAdded}*/}
-                        {/*           onCurrentListChanged={handleCurrentListChanged}*/}
-                        {/*           currentListId={currentListId}*/}
-                        {/*           modalDisplayed={false}/>*/}
-                        {/*</TabList>*/}
                     </div>
                 </div>
                 : <InMemoryApp db={db} collectionName={collectionName}

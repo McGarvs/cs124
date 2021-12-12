@@ -26,7 +26,7 @@ function Lists(props) {
             toggleDropdown();
         }
     }
-
+    console.log(props.allLists);
     return(
         <div>
             {!currentListDisplayed &&
@@ -56,7 +56,7 @@ function Lists(props) {
                                                            tabIndex={props.modalDisplayed ? "-1" : "0"}
                                                            className={(myList.id === props.currentListId)?"list-unselected list-selected":"list-unselected"}
                                                            onKeyUp={(e) => handleEnterPress(e, myList.id)}
-                                                           onClick={() => props.onCurrentListChanged(myList.id)}>{myList.name}</a>)}
+                                                           onClick={() => props.onCurrentListChanged(myList.id)}></a>)}
                     </div>}
                 </div>
                 :
@@ -65,7 +65,11 @@ function Lists(props) {
                                                    tabIndex={props.modalDisplayed ? "-1" : "0"}
                                                    className={(myList.id === props.currentListId)?"list-unselected list-selected":"list-unselected"}
                                                    onKeyUp={(e) => handleEnterPress(e, myList.id)}
-                                                   onClick={() => props.onCurrentListChanged(myList.id)}>{myList.name}</a>)}
+                                                   onClick={() => props.onCurrentListChanged(myList.id)}>
+                        <div>{myList.name}</div>
+                        {(myList.ownerEmail !== props.user.email) && <div id="list-isUnowned">Unowned</div>}
+                        {(myList.sharedWith.length !== 0) && <div id="list-isShared">Shared</div>}
+                    </a>)}
                 </div>
             }
 
