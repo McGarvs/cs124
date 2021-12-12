@@ -55,13 +55,13 @@ function InMemoryLists() {
             />
         </div>
     } else {
-        return <>
+        return <div>
             {error && <p>Error App: {error.message}</p>}
             <TabList>
                 <SignIn key="Sign In" user={user}/>
                 <SignUp key="Sign Up"/>
             </TabList>
-        </>
+        </div>
     }
 }
 

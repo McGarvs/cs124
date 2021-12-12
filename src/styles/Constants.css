@@ -5,6 +5,7 @@
     --header-background-color: #c4ecff; /*Light Blue */
     --btn-disabled-color: #e5e5e5; /* similar to RGB: 236,236,236*/
     --btn-enabled-color: #235a7c;
+    background-color: rgb(255,255,255);
 }
 
 .text-btn {
