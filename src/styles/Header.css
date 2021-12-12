@@ -1,5 +1,7 @@
+@import './Constants.css';
+
 #header {
-    background-color: #c4ecff;
+    background-color: var(--header-background-color);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
     padding: 16px 16px 20px 16px;
     margin-bottom: 20px;
@@ -44,29 +46,18 @@
 }
 
 #add-btn-active {
-    background-color: #61b0ec;
-    border: none;
-    border-radius: 0 6px 6px 0;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
-    color: rgb(255, 255, 255);
-    cursor: pointer;
-    padding: 6px;
-    font-size: 18px;
+    padding: 4px;
     margin-right: auto;
+    border-radius: 0 6px 6px 0;
+    height: unset;
     width: 30px;
 }
 
 #add-btn-disabled {
-    pointer-events:none;
-    background-color: rgb(236, 236, 236);
-    color: rgba(121, 121, 121, 0.39);
-    border: none;
-    border-radius: 0 6px 6px 0;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
-    cursor: pointer;
     padding: 4px;
-    font-size: 18px;
     margin-right: auto;
+    border-radius: 0 6px 6px 0;
+    height: unset;
     width: 30px;
 }
 
@@ -96,7 +87,7 @@
 
 #show-completed-btn {
     float: left;
-    color: #777777;
+    color: var(--other-btn-color);
     cursor: pointer;
     padding: 0;
     border: none;
@@ -106,7 +97,7 @@
 
 #dlt-all-btn {
     float: left;
-    color: #9a2a2a;
+    color: var(--delete-btn-color);
     cursor: pointer;
     margin-left: 8px;
     padding: 0;

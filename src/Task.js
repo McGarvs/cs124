@@ -44,17 +44,17 @@ function Task(props) {
                     :
                     <div className="task-content">
                         <div className="task-text">
-                            {priority !== 0 && <div className="priority">
-                                {repeatString("!", priority)}
-                            </div>}
+                            {<div className="priority">
+                                {repeatString("!", priority)+repeatString(" ", (3-priority))}</div>}
                             {text}
                         </div>
-                        <div className="task-date">{props.creationDate}</div>
+                        <div className="task-date">{"     "+props.creationDate}</div>
                     </div>
                 }
             </div>
             {editing ?
-                <button className={(text !== "") ? "save-btn-active" : "save-btn-disabled"}
+                <button className={(text !== "") ? "save-btn-active text-btn btn-enabled" :
+                    "save-btn-disabled text-btn btn-disabled"}
                         tabIndex={props.modalDisplayed || text === "" ? "-1" : ""}
                         aria-label="Save task edits"
                         onClick={(e) => {

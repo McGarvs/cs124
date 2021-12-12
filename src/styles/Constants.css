@@ -1,8 +1,30 @@
 :root {
-    --main-priority-color: #f6942a;
+    --main-priority-color: #9E0000; /*Used to be #f6942a -> #ff8600 -> */
+    --delete-btn-color: #9E0000; /*Bright Orange -> Darker Orange -> Dark Red*/
+    --other-btn-color: #235a7c; /*Used to be #777777 -> #575757*/
+    --header-background-color: #c4ecff; /*Light Blue */
+    --btn-disabled-color: #e5e5e5; /* similar to RGB: 236,236,236*/
+    --btn-enabled-color: #235a7c;
+    background-color: rgb(255,255,255);
 }
 
-button {
-    --btn-disabled-color: #8f8e8e;
-    --btn-enabled-color: #efefef;
+.text-btn {
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
+    border-radius: 4px;
+    height: 28px;
+    width: 60px;
+}
+
+.btn-enabled {
+    background-color: var(--btn-enabled-color);
+    color: rgb(255, 255, 255);
+}
+
+.btn-disabled {
+    pointer-events:none;
+    background-color: var(--btn-disabled-color);
+    color: rgba(121, 121, 121, 0.39);
 }

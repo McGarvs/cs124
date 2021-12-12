@@ -1,6 +1,4 @@
-#lists-container {
-    /*display: flex;*/
-}
+@import './Constants.css';
 
 .lists-container button {
     background-color: #fcfcfc;
@@ -22,17 +20,56 @@
     width: 17px;
 }
 
-.home-lists-dropdown button {
+/*Styling for Home Page Lists*/
+
+#home-lists-container {
+    display: block;
+    overflow: auto;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: normal;
+    margin-top: 30px;
+}
+
+#home-lists-container a:not(:last-child) {
+    border-bottom: rgba(119, 119, 119, 0.2) solid 1px;
+}
+
+#home-lists-container a {
+    display: flex;
+    /*justify-content: space-between;*/
+}
+
+#list-name {
+    font-weight: bold;
+}
+
+#list-info {
+    margin-left: auto;
+    display: flex;
+}
+
+#list-isUnowned {
+    color: var(--delete-btn-color);
+    font-weight: bold;
+}
+
+#list-isShared {
+    color: var(--other-btn-color);
+    font-weight: bold;
+    margin-left: 1em;
+}
+
+/* List Display Page Styling*/
+
+.lists-dropdown button {
     background-color: #fcfcfc;
-    border: solid 1px #d3d3d3;
+    border: none;
     border-radius: 4px;
     color: #3b3b3b;
     cursor: pointer;
     height: 28px;
-}
-
-.lists-dropdown button {
-    border: none;
 }
 
 .lists-dropdown-content {
@@ -73,7 +110,7 @@
 }
 
 #add-list-form {
-    display: inherit;
+    display: flex;
 }
 
 #input-list-field {
@@ -86,28 +123,10 @@
 }
 
 #add-list-btn-active {
-    background-color: #61b0ec;
-    border: none;
-    border-radius: 0 6px 6px 0;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
-    color: rgb(255, 255, 255);
-    cursor: pointer;
-    font-size: 18px;
-    margin-right: auto;
     width: 30px;
 }
 
 #add-list-btn-disabled {
-    pointer-events:none;
-    background-color: rgb(236, 236, 236);
-    color: rgba(121, 121, 121, 0.39);
-    border: none;
-    border-radius: 0 6px 6px 0;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
-    cursor: pointer;
-    padding: 4px;
-    font-size: 18px;
-    margin-right: auto;
     width: 30px;
 }
 

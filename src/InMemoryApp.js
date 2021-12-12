@@ -33,7 +33,9 @@ function InMemoryApp(props) {
             creationDate: today.toLocaleDateString("en-US"), // "11/02/2021" // TODO: change this
         }
         const docRef = subCollectionRef.doc(newItem.id);
-        docRef.set(newItem);
+        docRef.set(newItem).catch((error) => {
+            console.error("Error creating task: ", error);
+        });
     }
 
     function handleItemDeleted(itemID) {
@@ -56,22 +58,27 @@ function InMemoryApp(props) {
 
     function handleDeleteAll(){
         taskData.map((task) => {subCollectionRef.doc(task.id).delete()});
-        console.log("DELETED Sub");
         props.onCurrentListDelete();
     }
 
     return (
         <div>
             {loading ? <div id="loading">Loading...</div> :
-                <App data={taskData} onItemChanged={handleItemChanged} onItemAdded={handleItemAdded}
-                     onItemDeleted={handleItemDeleted} onDeleteCompleted={handleDeleteCompleted}
-                     sortType={sortType} onSortTypeChanged={handleSortTypeChange}
-                     allLists={props.allLists} createNewList={props.createNewList}
-                     currentListId={props.currentListId}
-                     currentListName={props.currentListName}
-                     onCurrentListChanged={props.onCurrentListChanged}
-                     onCurrentListDelete={handleDeleteAll}
-                />}
+
+                <App data={taskData} user={props.user}
+                onItemChanged={handleItemChanged} onItemAdded={handleItemAdded}
+                onItemDeleted={handleItemDeleted} onDeleteCompleted={handleDeleteCompleted}
+                sortType={sortType} onSortTypeChanged={handleSortTypeChange}
+                allLists={props.allLists} createNewList={props.createNewList}
+                currentListId={props.currentListId}
+                currentListName={props.currentListName}
+                currentListOwnerEmail={props.currentListOwnerEmail}
+                currentSharedEmails={props.currentSharedEmails}
+                onCurrentListChanged={props.onCurrentListChanged}
+                onCurrentListDelete={handleDeleteAll}
+                onSharedPermsChanged={props.onSharedPermsChanged}
+                />
+                }
         </div>
     );
 }

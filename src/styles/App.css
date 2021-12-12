@@ -1,3 +1,5 @@
+@import './Constants.css';
+
 .App {
     text-align: center;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,17 +7,6 @@
     sans-serif;
     font-size: 14px;
     overflow: hidden;
-}
-
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
 }
 
 .App-header {
@@ -33,11 +24,69 @@
     color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+#email-shared-msg {
+    color: var(--other-btn-color);
+    font-weight: Bold;
+    margin-bottom: 8px;
+}
+
+#email-validation-error {
+    color: var(--delete-btn-color);
+    font-weight: Bold;
+    margin-bottom: 8px;
+}
+
+#shared-email-display {
+    padding: 4px;
+}
+
+#add-email-form {
+    height: 30px;
+    margin-bottom: 10px;
+    display: flex;
+}
+
+#email-input-field {
+    border: none;
+    border-radius: 6px 0 0 6px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
+    padding: 0 0 0 8px;
+    height: 100%;
+    width: 100%;
+    /*margin-left: auto;*/
+}
+
+#add-email-btn-active {
+    font-size: 18px;
+    margin-right: auto;
+    height: 100%;
+    width: 30px;
+}
+
+#add-email-btn-disabled {
+    font-size: 18px;
+    height: 100%;
+    width: 30px;
+}
+
+#email-items {
+    max-height: 220px;
+    overflow-y: scroll;
+}
+
+.email-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.dlt-email-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.dlt-email-btn img {
+    height: 15px;
+    width: 15px;
 }

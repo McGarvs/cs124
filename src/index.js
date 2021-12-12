@@ -6,7 +6,7 @@ import InMemoryLists from './InMemoryLists';
 
 ReactDOM.render(
   <React.StrictMode>
-    <InMemoryLists/>
+      <InMemoryLists/>
   </React.StrictMode>,
   document.getElementById('root')
 );

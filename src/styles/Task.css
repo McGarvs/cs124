@@ -20,16 +20,18 @@
 
 .task-content .task-text {
     display: flex;
+    white-space: pre;
 }
 
 .task-content .task-date {
     color: #777777;
     font-size: 12px;;
     margin-top: 4px;
+    white-space: pre;
 }
 
 .priority {
-    color: #f6942a;
+    color: var(--main-priority-color);
     font-weight: bold;
     margin-right: 4px;
 }
@@ -67,26 +69,11 @@
 }
 
 .save-btn-active {
-    background-color: #fcfcfc;
-    border: solid 1px #d3d3d3;
-    border-radius: 4px;
-    cursor: pointer;
     margin-right: 16px;
-    padding: 6px 8px 6px 8px;
-    width: 52px;
-    text-align: center;
 }
 
 .save-btn-disabled {
-    pointer-events:none;
-    background-color: rgb(236, 236, 236);
-    border: solid 1px rgb(236, 236, 236);
-    color: rgba(121, 121, 121, 0.39);
     margin-right: 16px;
-    border-radius: 4px;
-    padding: 6px 8px 6px 8px;
-    width: 52px;
-    text-align: center;
 }
 
 .priority-btn-container {
@@ -94,26 +81,30 @@
     border-radius: 4px;
     overflow: hidden;
     display: block;
-    margin: 8px 0 0 28px;
+    margin: 8px 0 0 26px;
 }
 
 .priority-btn-container button {
-    background-color: white;
+    background-color: var(--btn-enabled-color);
+    color: rgb(255, 255, 255);
+    font-weight: bold;
     border: none;
     padding: 6px;
     text-align: center;
-}
-.priority-btn-container button:not(:first-child) {
-    color: #f6942a;
-    font-weight: bold;
-    width: 40px;
-}
-.priority-btn-container button:not(:last-child) {
-    border-right: rgba(119, 119, 119, 0.5) solid 1px;
+
 }
 
 .priority-btn-container .selected-priority-btn {
-    background-color: #e5e5e5;
+    background-color: var(--main-priority-color);
+}
+
+.priority-btn-container button:not(:first-child) {
+    font-weight: bold;
+    width: 40px;
+}
+
+.priority-btn-container button:not(:last-child) {
+    border-right: rgba(119, 119, 119, 0.5) solid 1px;
 }
 
 /*CSS for Checking a Task*/
