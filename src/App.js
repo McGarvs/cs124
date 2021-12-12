@@ -21,6 +21,9 @@ function SharedEmailDisplay(props) {
 
     function handleDeleteEmailClick(email) {
         props.onSharedPermsChanged("delete", props.currentListId, email);
+        if (props.user.email === email){
+            props.onCurrentListChanged("");
+        }
     }
 
     function validateEmail(email) {

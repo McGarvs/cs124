@@ -23,9 +23,6 @@ TODO: (higher priority)
 * add error checking to prevent duplicate emails to be added (completed for sharing somewhat, maybe not signin yet)
 
 TODO: (later)
-* (Completed) allow users (who are not owners of a tasklist) delete that tasklist from their view (effectively
-unsharing it with themselves)
-* Based on the above, if you unshare yourself, you should be redirected to the home page
 * double check that "verify email" button works
 * Share Modal is broken: allows tabbing in the background, and can hit return to enter invalid data
 

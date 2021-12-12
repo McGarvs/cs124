@@ -12,7 +12,6 @@ function Lists(props) {
         if (name !== "") {
             props.createNewList(name);
             setName("");
-            console.log("Current Data:", props.allLists);
         }
     }
     function toggleDropdown() {
@@ -73,24 +72,6 @@ function Lists(props) {
                     </a>)}
                 </div>
             }
-
-            {/*<div //className={!currentListDisplayed ? "home-lists-dropdown" : "lists-dropdown"}*/}
-            {/*     className={currentListDisplayed ? "lists-dropdown" : ""}*/}
-            {/*>*/}
-            {/*    <button onClick={toggleDropdown} tabIndex={props.modalDisplayed ? "-1" : ""}*/}
-            {/*            aria-label="Lists dropdown">*/}
-            {/*        {currentListDisplayed ?*/}
-            {/*            <img src={dropdownIcon} alt="list dropdown"/>*/}
-            {/*            :*/}
-            {/*            (props.allLists.length !== 0) ?"Choose a List" : "No Lists Exist"}</button>*/}
-            {/*    {showListDropdown && <div className="lists-dropdown-content">*/}
-            {/*        {props.allLists.map((myList) => <a key={myList.id}*/}
-            {/*                                           tabIndex={props.modalDisplayed ? "-1" : "0"}*/}
-            {/*                                           className={(myList.id === props.currentListId)?"list-unselected list-selected":"list-unselected"}*/}
-            {/*                                           onKeyUp={(e) => handleEnterPress(e, myList.id)}*/}
-            {/*                                           onClick={() => props.onCurrentListChanged(myList.id)}>{myList.name}</a>)}*/}
-            {/*    </div>}*/}
-            {/*</div>*/}
             {(currentListDisplayed && (props.currentListOwnerEmail === props.user.email)) &&
             <button className="delete-list-btn"
                     type="submit" tabIndex={props.modalDisplayed ? "-1" : ""}
